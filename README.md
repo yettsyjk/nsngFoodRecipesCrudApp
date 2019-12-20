@@ -16,14 +16,29 @@ Site will provide a list of predetermined ketogenic friendly recipes that contai
 ________________________________________________
 User Story:
 Our user wants to have a place where they may create, view, edit, and delete recipes for no sugar no grain food options.
-________________________________________________
-Acceptance
+On welcome page, the user will have the option to signup to load account with Username, email and password
+On 
+
 Users should be able to accomplish the following:
 
-Access the database of recipes
-View images of the recipe selected
-Edit recipes to remove or add food items
-Delete recipes that don't look appealing to the user
+-Access the database of recipes through authentication
+-View link to images of the recipes that are not editable
+-Create user defined recipes and allow edit to remove or      add food parameters
+-Delete editable recipes that don't look appealing to the     user
+___________________________________________
+Model schema sample for user 
+const userSchema = mongoose.Schema){
+    name: {type: String, required: true },
+}) timestamp ;
+
+    const recipeSchema = mongoose.Schema({
+    username_id: {type: String, required: true},
+    Ingredients: [{
+        Name: String,
+        Measurement:
+    }]
+    recipesEditable: Boolean
+});
 ___________________________________________
 Requirements:
 -Node
