@@ -3,7 +3,7 @@ CRUD App for no sugar no grain health food recipes created by fellow Yettsy Knap
 General Assembly SEI6 Denver, CO
 
 
-![wireframe image for NSNG recipes]<img src="images/nsngRecipesApp.png" width="100">
+![wireframe image for NSNG recipes]<img src="images/nsngRecipesApp.png">
 Follow my project management steps on my public Trello site:  https://trello.com/b/TGA9a6F5
 
 MVP: Most basic version of the site 
