@@ -27,15 +27,20 @@ Users should be able to accomplish the following:
 -Delete editable recipes that don't look appealing to the     user
 ___________________________________________
 Model schema sample for user 
-const userSchema = mongoose.Schema){
+
+    const userSchema = mongoose.Schema){
     name: {type: String, required: true },
-}) timestamp ;
+    password: {type: String, required: true},
+    email: {type: String, required: true},
+    }) timestamp: true,
+    });
 
     const recipeSchema = mongoose.Schema({
-    username_id: {type: String, required: true},
+    title: {type: String, required: true},
+    body: String,
     Ingredients: [{
         Name: String,
-        Measurement:
+        Measurement: String,
     }]
     recipesEditable: Boolean
 });
