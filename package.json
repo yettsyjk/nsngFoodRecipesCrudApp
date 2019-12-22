@@ -1,0 +1,26 @@
+{
+  "name": "nsngfoodrecipescrudapp",
+  "version": "1.0.0",
+  "description": "CRUD App for no sugar no grain health food recipes created by fellow Yettsy Knapp  General Assembly SEI6 Denver, CO",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yettsyjk/nsngFoodRecipesCrudApp.git"
+  },
+  "author": "J Yettsy Knapp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yettsyjk/nsngFoodRecipesCrudApp/issues"
+  },
+  "homepage": "https://github.com/yettsyjk/nsngFoodRecipesCrudApp#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.8.2"
+  }
+}
