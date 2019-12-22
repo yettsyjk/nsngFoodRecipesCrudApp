@@ -1,7 +1,116 @@
+/*GLOBAL*/
+$color-white: #ffffff;
+$color-black: #212121;
+$color-light: #f4f4f4;
+$color-dark: #353535;
+$color-blue: #349beb;
+$box-shadow: 0 1px 2px rgba(o,o,o,0.12), 0 1px 3px rgba(0,0,0,0.12);
+
+body {
+    background-image: url("") center no-repeat;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+a {
+    text-decoration: none;
+}
+nav {
+    margin-top: 60px;
+    box-shadow: $box-shadow;
+}
+
+/*CONTAINERs*/
 .container {
     margin-top: 15px;
 }
-#footer {
+main, header, footer {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em 3em;
+    box-sizing: border-box;
+    background: #f9f9f9;
+    border-radius: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+/*Page Header*/
+header {
+    margin-bottom: 2em;
+}
+header h1 {
+    color: rgb(129, 110, 124);
+}
+header ul {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+header li {
+    padding: 60px;
+    text-align: center;
+    background: $color-blue;
+    font-size: 0.8em;
+}
+header li a {
+    color: rgb(152, 130, 110)
+}
+/*Show */
+h2, h3 {
+    margin: 0 0 0.5em 0;
+    color: rgb(129,110,124);
+}
+h3 {
+    margin-top: 0.5em;
+}
+img {
+    width: 70%;
+    border-radius: 1em;
+}
+/*New */
+input[type="text"], input[type="submit"] {
+    width: 60%;
+    padding: 1em;
+    border: 0px;
+    border-radius: 0.5em;
+    margin: 0.5em 0;
+}
+input[type="submit"] {
+    width: 62%;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1em;
+    color: #000;
+    background-color: rgba(129, 110, 124);
+}
+input[type="submit"]:hover {
+    cursor: pointer;
+    background: rgb(142 ,89. 81);
+
+}
+/*Styling the Modal*/
+#modal {
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1; /*puts modal in front of the body*/
+    overflow: auto; /*overflow is clipped, a scroll-bar should be added*/
+}
+#modal-textbox {
+    background-color: #fff;
+    height: 350px;
+    width: 550px;
+    border-radius: 2px;
+    margin: 150px auto;
+    box-shadow: $box-shadow;
+}
+/*Footer*/
+.footer {
     width: 100%;
     position: absolute;
     bottom: 0px;
@@ -9,4 +118,7 @@
     height: 40px;
     background-color: #000;
     color: #fff;
+}
+.footer, .footer a {
+    color: #c9e4f7;
 }

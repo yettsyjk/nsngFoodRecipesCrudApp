@@ -1,6 +1,8 @@
+//Dependencies
 const express = require('express');
 const app = express();
-
+const methodOverride = require('method-override');
+require('/db/db');
 //controllers
 const recipesController = require('./controllers/recipes.js');
 app.use('/recipes', recipesController);
