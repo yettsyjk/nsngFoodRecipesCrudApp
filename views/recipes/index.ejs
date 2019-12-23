@@ -8,9 +8,13 @@
     </head>
     <body>
     <header>
-        <h1>Recipes</h1>
+        <h2>Recipes</h2>
         <nav>
             <ul>
+            <% for(let i =0; i = recipes.length; i++) { %>
+<li>
+<a href="/recipes/<%= recipes[i]._id %>"><%= recipes[i].name %> </a>
+           <% } %>
                 <li>
                     <a href="/">Home</a>
                 </li>

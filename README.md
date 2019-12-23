@@ -28,21 +28,26 @@ Users should be able to accomplish the following:
 ___________________________________________
 Model schema sample for user 
 
-    const userSchema = mongoose.Schema){
-    name: {type: String, required: true },
-    password: {type: String, required: true},
-    email: {type: String, required: true},
-    }) timestamp: true,
-    });
+    const userSchema = mongoose.Schema({
+    username: {type: String, required: true, unique: true},
+    email: { type: String, required: true },
+    password: { type: String, required: true }
+});
 
     const recipeSchema = mongoose.Schema({
-    title: {type: String, required: true},
-    body: String,
-    Ingredients: [{
-        Name: String,
-        Measurement: String,
-    }]
-    recipesEditable: Boolean
+    title: { type: String, required: true },
+    body: String, 
+    ingredients: [{
+        name: String,
+        measurement: String,
+    }],
+    recipeToEdit: Boolean,
+    //username property is creating a relationship between, one username to many recipes
+    //the object id pulls full object just by using id
+username: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Username'
+    }
 });
 ___________________________________________
 Requirements:
