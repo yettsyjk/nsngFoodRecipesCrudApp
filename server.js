@@ -14,7 +14,7 @@ require('dotenv').config();
 const app = express();
 
 //importing recipeHelper function 
-const recipeHelper = require('./services/recipes/recipeHelpers');
+const recipeHelpers = require('./services/recipes/recipeHelpers');
 
 //importing routes
 const recipesRoutes = require('./routes/recipeRoutes');
@@ -40,11 +40,11 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-app.use(session({
-    secret: process.env.SECRET_KEY,
-    resave: false,
-    saveUninitialized: true
-}));
+// app.use(session({
+//     secret: process.env.SECRET_KEY,
+//     resave: false,
+//     saveUninitialized: true
+// }));
 //setting up passport module
 app.use(passport.initialize());
 app.use(passport.session());
@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
     });
 });
 //search page route setup
-app.get('/search', recipeHelper.getRecipe, (req, res) => {
+app.get('/search', recipeHelpers.getRecipe, (req, res) => {
     res.render('search', {
         documentTitle: "No Sugars No Grains Food Recipes",
         message: "Brought To You By",

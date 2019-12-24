@@ -1,1 +1,10 @@
+#logs
+logs*.logs
+#Dependencies
 node_modules
+#debug log from npm
+npm-debug.log
+#extras
+.env
+.DS_Store
+*.DS_Store

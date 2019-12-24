@@ -7,8 +7,8 @@ const controller = require('../controllers/users.js');
 //setting variable for express router
 const router = express.Router();
 //importing authHelper
-const authHelpers = require('../services/auth/authHelpers');
-const passport = require('../services/auth/local');
+const authHelpers = require('../services/auth/authHelpers.js');
+const passport = require('../services/auth/local.js');
 
 //setting up route for the user registration view
 router.get('/register', (req,res) => {
@@ -23,7 +23,7 @@ router.post('/register', controller.create);
 router.post('/login',
 passport.authenticate('local', {
     successRedirect: '/recipes',
-    failureRedirect: '/auth/login',
+    failureRedirect: '/auth/login.js',
     failureFlash: false,
 })
 );

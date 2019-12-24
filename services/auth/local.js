@@ -6,13 +6,13 @@ const LocalStrategy = require('passport-local').Strategy;
 const init = require('./passport');
 
 //importing the user model
-const User = require('../../models/user');
+const User = require('../../models/user.js');
 
 //importing the auth user model
 const authHelpers = require('./authHelpers');
 
 //create an option oobject
-const options = { };
+const options = {};
 
 init();
 passport.use( new LocalStrategy(options, (username, password, done) =>{

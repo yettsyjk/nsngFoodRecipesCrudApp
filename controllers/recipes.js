@@ -1,13 +1,16 @@
-//Dependencies
+//dependencies
 const express = require('express');
-//Classes route 
+//set up brcypt package 
+const bcrypt = require('bcryptjs');
+//Classes
 const router = express.Router();
+
+const Recipe = require('../models/recipe.js');
+//controller object
 const controller = {};
 
-//Models importing the recipe model
-const Recipe = require('../models/recipe');
-//define the view to render once the findall promise is complete
-controller.index('/recipes', (req, res) => {
+//define the view to render once the findAll promise is complete
+controller.index = (req, res) => {
     Recipe.findAll()
     .then(recipes => {
         res.render('recipes/recipes-index', {
@@ -18,10 +21,24 @@ controller.index('/recipes', (req, res) => {
     .catch(err => {
         res.status(400).json(err);
     });
-});
+};
+//view render findById promise is completed
+controller.show = (req, res) => {
+    //console.log(req.params);
+    Recipe.findById(req.params.id)
+    .then(recipe => {
+        res.render('recipes/recipes_single.ejs', {
+            documentTitle: "No Sugars No Grains Food Recipes",
+           recipes: recipe,
+        });
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    });
+};
 
 //New Route
-controller.create('/new', async (req, res) => {
+controller.create = (req, res) => {
     //Recipe New Route
     Recipe.create({
         title: req.body.title,
@@ -38,80 +55,60 @@ controller.create('/new', async (req, res) => {
         res.status(400).json(err);
     });
 };
-//Create Route
-router.post('/', async (req, res) => {
-    //try this first part if that fails return an error
-    try {
-        //create Recipes route
-        await Recipe.create(req.body);
-        res.redirect('/recipes');
-    } catch (err) {
-        res.send(err);
+//render view once edit recipe promise is completed
+controller.edit = (req, res) => {
+    if(req.user !== undefined) {
+        Recipe.findById(req.params.id)
+        .then(recipe => {
+            console.log(recipe.photo);
+            res.render('recipes/edit.ejs', {
+                documentTitle: "No Sugars No Grains Food Recipes",
+                recipe: recipe,
+                id: req.params.id,
+                username: req.user.username,
+            });
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+    } else {
+        res.redirect('/auth/register.ejs');
     }
-});
+};
 
 
-//Index Route
-controller.index('/', async (req, res) => {
-Recipe.findAll()
-.then(recipes => {
-    res.render('recipes/recipes-index', {
-        documentTitle: "No Sugars No Grains Food Recipes",
-           recipesData: recipes,
-    });
-})
-.catch(err => {
-    res.status(400).json(err);
-});
-})
-//show route
-router.get('/:id', async (req, res) => {
-    //try this part first and if it fails return an error
-try {
-    const foundRecipe = await Recipe.findById(req.params.id);
-res.render('recipes/show.ejs', {
-    recipe: foundRecipe
-});
-} catch (err){
-    res.send(err);
-}
-});
-
-//Edit Route
-controller.create('/:id/edit', async (req, res) => {
-    Recipe.create({
+//render view once update recipe promise is completed
+controller.update = (req, res) => {
+    Recipe.update({
         title: req.body.title,
         author: req.body.author,
         description: req.body.description,
         category_type: req.body.category_type,
         ingredients: req.body.ingredients,
-        phot: req.body.photo,
-    })
-    .then(recipe => {
+        photo: req. bidy.photo,
+    },
+    req.params.id)
+        .then(recipe => {
+            res.redirect('/recipes');
+        })
+        .catch(err => {
+            res.status(400).json(err);
+        });
+    };
+
+//render view delete promise
+controller.destroy = (req, res) => {
+if((req.user !== undefined) && (req.user.username === 'admin')) {
+    Recipe.destroy(req.params.id)
+    .then(() => {
         res.redirect('/recipes');
     })
     .catch(err => {
         res.status(400).json(err);
     });
+} else {
+    res.redirect('/auth/register');
 }
-
-//update route
-controller.show('/:id', async (req, res)=> {
-    try {
-        await Recipe.findByIdAndUpdate(req.params.id, req.body);
-        res.redirect(`/recipes/${req.params.id}`);
-    } catch (err) {
-        res.send(err);
-    }
-});
-//Delete Route
-router.delete('/:id', async (req, res) => {
-    try {
-        await Recipe.findByIdAndRemove(req.params.id);
-        res.redirect('/recipes');
-    } catch (err) {
-        res.send(err);
-    }
-});
-
-module.exports = router;
+};
+//export controller
+module.exports = controller;
