@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <% include../partials/header.ejs %>
+    <header>
+        <h3 class="logo">No Sugars No Grains Food Recipes</h3>
+        <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/recipes/add">Add Recipes</a></li>
+        <li><a href="/search">Search Recipes</a></li>
+        </nav>
+    </header>
+    <div class="container">
+    <h1 class="primary"><%= message %><h1>
+    <div class="form_container">
+        <form method="POST" action="/auth/login">
+        <label for="username" class="title">Username<input name="username" type="text"/></label>
+         <label for="password" class="title">Password<input name="password" type="password"/></label>
+         <input type="submit" class="button" value="Log in" />
+         </form>
+         </div>
+         </div>
+    
+    </body>
+    <% include ../partials/footer.ejs %>
+</html>

@@ -3,8 +3,21 @@ const express = require('express');
 //Classes route 
 const router = express.Router();
 
-//Models
+//Models importing the recipe model
 const Recipe = require('../models/recipe');
+//define the view to render once the findall promise is complete
+router.get('/recipes', (req, res) => {
+    recipe.findAll()
+    .then(recipes => {
+        res.render('recipes/recipes-index', {
+           documentTitle: "No Sugars No Grains Food Recipes",
+           recipesData: recipes,
+        });
+    })
+    .cathc(err => {
+        res.status(400).json(err);
+    });
+});
 
 //New Route
 router.get('/new', async (req, res) => {

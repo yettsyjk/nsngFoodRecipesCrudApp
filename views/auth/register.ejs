@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <% include ../partials/header.ejs %>
+    </head>
+    <body>
+    <header>
+        <h3 class="logo">No Sugars No Grains Food Recipes</h3>
+        <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/recipes">NSNG Recipes</a></li>
+        <li><a href="/recipes/add">Add Recipes</a></li>
+        <li><a href="/search">Recipe Search</a></li>
+        </nav>
+    </header>
+    <div class="container">
+    <h1 class="primary"><%= message %></h1>
+    <div class="form_container">
+        <Form method="POST" action="/auth/register">
+        <label for="username" class="title">Username<input name="username" type="text"/><label>
+        <label for="first_name" class="title">First Name<input name="first_name" type="text"/><label>
+        <label for="last_name" class="title">Last Name<input name="last_name" type="text"/><label>
+    <label for="email" class="title">Email<input name="email" type="email"/><label>
+    <label for="password" class="title">Password<input name="password" type="password"/><label>
+    <input type="submit" class="button"  value="Register" />
+    </form>
+    <p>Already have an account?</p>
+    <a class="button" href="/auth/login">Login</a>
+    </div>
+    </div>
+    </body>
+    <% inlcude ../partials/footer.ejs %>
+</html>

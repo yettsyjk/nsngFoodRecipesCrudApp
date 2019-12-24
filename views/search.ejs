@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <% include ./partials/header.ejs %>
+    </head>
+    <body>
+    <header>
+       <h3 class="logo">No Suagrs No Grains Food Recipes</h3>
+       <nav>
+            <ul>
+                <li>
+                <a href="/">Recipes Home Page</a>
+                </li>
+                <li>
+                    <a href="/recipes">Recipes</a>
+                </li>
+            <li>
+            <a href="/recipes/add">Add Recipes</a>
+            </li>
+            <li>
+            <a href="/search">Search Recipes</a>
+            </li>
+           </ul>
+        </nav>
+        </header>
+        <div class="container">
+        <h1 class="logo"><%= subTitle %></h1>
+        <div class="button_container search">
+        <form method="GET">
+        <input type="text" name="search" id="search" placeholder="Enter an ingredient...">
+        <input type="submit" class="button" id="SearchButton" value="Search" />
+        <form>
+        </div>
+        <% if(typeof recipeHits === 'object') {
+            recipeHits.forEach(hit) => { %>
+            <h1 class="secondary recipe_title"><%= hit.recipe.label %></h1>
+            <div class="button_container">
+            <a class="button black" href="<%= hit.recipe.url %>" target="_blank">View Recipe</a>
+            
+            </div>
+            <% } %>
+        <h2 class="title"><%= message %></h2>
+        <img class="button" id="topButton" href="#top">Back to Top</a>
+   </div>
+    </body>
+    <% include ./partials/footer.ejs %>
+</html>

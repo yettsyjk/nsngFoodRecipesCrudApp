@@ -1,11 +1,11 @@
 //dependencies
 const express = require('express');
-//set up brcypt package
+//set up brcypt package 
 const bcrypt = require('bcrypt');
 //Classes
 const router = express.Router();
 
-//Models
+//Models, importing bcrypt model
 const User = require('../models/user');
 
 //Routes
@@ -36,6 +36,8 @@ router.post('/registration', async (req, res) => {
 
 const userDbEntry = {
     username: req.body.username,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
     password: passwordHash,
     email: req.body.email
 };

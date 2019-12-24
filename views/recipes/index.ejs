@@ -5,19 +5,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <% include ../partials/header.ejs %>
     </head>
     <body>
     <header>
-        <h2>Recipes</h2>
         <nav>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+        <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
             <ul>
+        <h2>Recipes</h2>
             <% for(let i =0; i = recipes.length; i++) { %>
 <li>
 <a href="/recipes/<%= recipes[i]._id %>"><%= recipes[i].name %> </a>
            <% } %>
-                <li>
-                    <a href="/">Home</a>
-                </li>
                 <li>
                     <button id="openModal">About #nsng lifestyle</button>
                     <div id="modal">
@@ -42,6 +44,9 @@ Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat 
                 </li>
             </ul>
         </nav>
+        <a class="button" id="topButton" href="#top"> Back to Top</a>
+        <a class="button" href="/recipes/">Add a new recipe</a>
     </header>
     </body>
+    <% include ../partials/footer.ejs %>
 </html>

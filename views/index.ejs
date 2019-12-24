@@ -5,25 +5,38 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <% include ./partials/header.ejs %>
     </head>
     <body>
         <header>
             <h1>Welcome to #nsng Food Recipes App</h1>
+            <h3 class="logo">No Suagrs No Grains Food Recipes</h3>
             <nav>
             <ul>
                 <li>
-                    <a href="/breakfast">Breakfast Recipes</a>
+                <a href="/">Recipes Home Page</a>
+                </li>
+                <li>
+                    <a href="/recipes">Recipes</a>
                 </li>
             <li>
-            <a href="/lunch">Lunch Recipes</a>
+            <a href="/recipes/add">Add Recipes</a>
             </li>
             <li>
-            <a href="/dinner">Dinner Recipes</a>
+            <a href="/search">Search Recipes</a>
             </li>
            </ul>
         </nav>
         </header>
-    
-        <img src="/img/VeggiesBasket.jpg" alt="Veggies Farmers Basket">
+        <div class="container">
+        <h1 class="primary"><%= message %><h1>
+        <img class="index_img" src="/img/VeggiesBasket.jpg" alt="Veggies Farmers Basket">
+    <h2 class="primary"><%= subTitle %></h2>
+    <div class="button_container">
+    <a class="button" href="/recipes">View All Recipes</a>
+    <a class="button" href="/recipes/add">Create a new recipe</a>
+    </div>
+    </div>
     </body>
+    <% include ./partials/footer.ejs %>
 </html>

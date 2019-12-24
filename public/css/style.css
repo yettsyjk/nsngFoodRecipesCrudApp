@@ -3,22 +3,41 @@
 body {
     color: #444;
     font-weight: normal;
-    font-size: 16px;
     background-color: #9999cc;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    font-family: "Libre Franklin";
+    font-size: 18px;
+    line-height: 1.4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-li {
-    text-decoration: none;
-}
-a {
-    text-decoration: none;
-}
+/* #Navigation# */
 nav {
     margin-top: 60px;
     box-shadow: 5px 10px #888888;
 }
+li {
+    text-decoration: none;
+    margin: - 10px;
+}
+/* #Links#*/
+a {
+    text-decoration: none;
+    color: #818181;
+    text-align: none;
+}
+a:hover {
+    color: #f4f4f4;
+}
+.back {
+    display: block;
+    padding: 10px;
+}
+
+
 div {
     font-size: 22px;
 }
@@ -31,7 +50,7 @@ div {
     color: #444444;
 }
 
-/*CONTAINERS*/
+/* #CONTAINERS# */
 .container {
     margin-top: 15px;
 }
@@ -45,6 +64,7 @@ main, header, footer {
     text-align: center;
     display: flex;
     justify-content: center;
+    /*flex-direction: column;*/
 }
 /*Page Header*/
 header {
@@ -52,7 +72,7 @@ header {
 }
 header h1 {
     color: #003366;
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: bold;
 }
 header ul {
@@ -70,9 +90,11 @@ header li {
 header li a {
     color: #003366;
 }
-/*Show */
+/* #Show Text# */
 h2, h3 {
-    margin: 0 0 0.5em 0;
+    padding-bottom: 12px;
+    text-align: center;
+    margin: 0 0 0 0;
     color: rgb(21, 19, 20);
 }
 h3 {
@@ -86,11 +108,24 @@ text-align: start;
 line-height: 28.8px;
 letter-spacing: normal;
 }
+.title {
+    color: #E25D38;
+}
+.recipe_title {
+    font-family: "Libre Franklin";
+    font-size: 40px;
+    color: #222;
+    padding: 20px;
+}
+/* #images#*/
+.index_img {
+    width: 50%;
+}
 img {
     width: 70%;
     border-radius: 1em;
 }
-/*New */
+/*# New, Form# */
 input[type="text"], input[type="submit"] {
     width: 60%;
     padding: 1em;
@@ -111,6 +146,29 @@ input[type="submit"]:hover {
     cursor: pointer;
     background: rgb(142 ,89. 81);
 
+}
+/* #button#*/
+.button {
+    font-size: 1em;
+    color: #f4f4f4;
+    padding: 10px;
+    border: 1px dashed #f4f4f4;
+    border-radius: 10px;
+    background: transparent;
+    margin: 20px;
+    cursor: pointer;
+}
+.button:hover {
+    color: #222;
+    background-color: #f4f4f4;
+    border: none;
+    box-shadow: inset 0px 0px 6px 1px rgba(0,0,0,0.75);
+}
+#topButton {
+    position: fixed;
+    right: 30px;
+    bottom: 20px;
+    opacity: 0.5;
 }
 /*Styling the Modal*/
 #modal {
@@ -141,6 +199,6 @@ input[type="submit"]:hover {
     background-color: #000;
     color: #fff;
 }
-.footer, .footer a {
+.footer, .footer a  .footer p {
     color: #c9e4f7;
 }

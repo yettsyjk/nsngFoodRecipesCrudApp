@@ -7,6 +7,7 @@ General Assembly SEI6 Denver, CO
 Follow my project management steps on my public Trello site:  https://trello.com/b/TGA9a6F5
 
 MVP: Most basic version of the site 
+The live project can be viewed here(url).
 ____________________________________________
 
 Providing my user a location within the browser to join to have saved nsng recipes for when they are prepping for their next meal. 
@@ -14,17 +15,20 @@ Site will provide a list of predetermined ketogenic friendly recipes that contai
 
 
 ________________________________________________
-User Story:
-Our user wants to have a place where they may create, view, edit, and delete recipes for no sugar no grain food options.
-On welcome page, the user will have the option to signup to load account with Username, email and password
-On 
+User Stories:
+Users are welcome to:
+1. register as a user on the site
+1. log in to the site once registered
+1. add neww recipes to the site(once logged in)
+1. edit pre-created recipes(once logged in)
+1. delete any recipes pre-created(once logged in)
+1. view a list of pre-created recipes from the database
+1. search list of recipes by recipe name
+1. filter the list of reipes by a recipe name
+1. sort the list of recipes in alphabetical order
+1. see the ingredients for a se;ected recipe
+1. read the method for preparing the recipe
 
-Users should be able to accomplish the following:
-
--Access the database of recipes through authentication
--View link to images of the recipes that are not editable
--Create user defined recipes and allow edit to remove or      add food parameters
--Delete editable recipes that don't look appealing to the     user
 ___________________________________________
 Model schema sample for user 
 
