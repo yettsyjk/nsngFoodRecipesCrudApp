@@ -1,28 +1,36 @@
-const mongoose = require('mongoose');
+//setting up variable for logghon queries
+const options = {
+    connect: (client, dc, isFresh) => {
+        //do this everytime the database connects
+        console.log('Connected to Database:', client.connectionParameters.database)
+    },
+    query: (e) => {
+        //do this everytime a query is made to db
+        console.log('making query ---->' + e.query);
+    },
+    receive: (data, result, e) => {
+        //do this everytime app receives data from db
+        console.log('completed query ---->'+ e.query);
+    },
+    disconnect: (client, dc) => {
+        //do this everytime db disconnects
+        console.log('Disconnecting from DataBase:', client.connectionParameters.database);
+    }
+};
+//importing promise
+const pgp = require('pg-promise')(options);
+//setting up variable for pg-promise
+let db;
+//create statement to determine instance
+if(process.env.NODE_ENV === 'development' || !process.env.NODE_ENV){
+    db = pgp({
+        database: 'recipe_development',
+        port: 5432,
+        host: 'localhost'
+    });
+} else if (process.env.NODE_ENV === 'production') {
+    db = pgp(process.env.DATABASE_URL);
+}
 
-//defin sub-database
-const connectionString = 'mongodb://localhost/nsng';
-
-//connect to database
-mongoose.connect(connectionString, {
-    //mongoose string parser
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-});
-//confirm connection to database
-
-mongoose.connection.on('connected', () => {
-    console.log(`Mongoose connected to ${connectionString}`);
-});
-
-//confirm disconnect  to database
-mongoose.connection.on('disconnected', () =>  {
-    console.log('Mongoose disconnected');
-});
-
-//provide error feedback
-mongoose.connection.on('error', (err) => {
-    console.logh('Mongoose error: ', err);
-});
+//exporting pg-promise
+module.exports = db;
