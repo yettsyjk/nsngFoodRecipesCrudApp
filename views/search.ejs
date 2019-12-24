@@ -3,12 +3,12 @@
     <header>
        <h3 class="logo">No Suagrs No Grains Food Recipes</h3>
        <nav>
-            <ul>
+            
                 <li><a href='/'>Recipes Home Page</a></li>
                 <li><a href='/recipes'>Recipes</a></li>
             <li><a href='/recipes/add'>Add Recipes</a></li>
             <li><a class='current' href='/search'>Search Recipes</a></li>
-           </ul>
+          
         </nav>
         </header>
         <div class="container">
@@ -19,13 +19,12 @@
         <input type="submit" class="button" id="SearchButton" value="Search" />
         <form>
         </div>
-        <% if(typeof recipeHits === 'object') {
-            recipeHits.forEach(hit) => { %>
+        <% if(typeof recipeHits === 'object') {recipeHits.forEach(function(hit) { %>
             <h1 class="secondary recipe_title"><%= hit.recipe.label %></h1>
             <div class="button_container">
             <a class="button black" href="<%= hit.recipe.url %>" target="_blank">View Recipe</a>
             </div>
-            <% } %>
+            <% })} %>
         <h2 class="title"><%= message %></h2>
         <img class="button" id="topButton" href="#top">Back to Top</a>
     <% include ./partials/footer.ejs %>

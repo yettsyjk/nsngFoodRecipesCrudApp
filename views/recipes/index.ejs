@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+   
+  <link href="css/style.css" rel="stylesheet">
         <% include ../partials/header.ejs %>
-    </head>
-    <body>
-    <header>
-        <nav>
-                <li>
-                    <a href="/">Home</a>
-                </li>
+    
         <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
-            <ul>
-        <h2>Recipes</h2>
-            <% for(let i =0; i = recipes.length; i++) { %>
-<li>
-<a href="/recipes/<%= recipes[i]._id %>"><%= recipes[i].name %> </a>
-           <% } %>
-                <li>
+            <nav>
+                <li><a href='/'>Home</a></li>
+                <li><a class="current" href='/recipes'>Recipes</a></li>
+                <li><a href='/recipes/add'>Add Recipes</a></li>
+                <li><a href='/search'>Search Recipes</a></li>
+            </nav>
+        <div class="container">
+        <h1 class="primary">Recipes</h1>
+  <% recipesData.forEach(function(recipe){ %>
+<img src="<%= recipe.photo %>" alt="<%= recipe.title %> food">
+</div>           
+                   <h1 class="secondary recipe_title"><%= recipe.title %></h1>
+                   <h2 class="tertiary">Category: <%= recipe.category_type %></h2>
+                   <div class="button_container">
+                   <a class="button black" href='/recipes/<%= recipe.id %>'>Info</a>
+</div>
+ <% }) %>
+
+<!-- Modal -->
                     <button id="openModal">About #nsng lifestyle</button>
                     <div id="modal">
                     <div id="modal-textbox">
@@ -38,15 +39,10 @@ Answer: Grass fed butter, coconut oil, macadamia nut oil, avocado oil, heavy whi
 Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat cheese, raw nuts, olives, pumpkin seeds, 85% or greater dark chocolate, deviled eggs (homemade mayo), pepperoni slices, coconut oil, avocado, lettuce rolled up with smoked salmon and full fat cream cheese, hummus and celery, pickles, shot of olive oil, coffee with heavy cream (or grass fed butter, or coconut oil).</p>
                     </div>
                     </div>
-                    </li>
-                    <li>
-                    <a href="/recipes/new">Create a new recipe</a>
-                </li>
-            </ul>
-        </nav>
+            
         <a class="button" id="topButton" href="#top"> Back to Top</a>
         <a class="button" href="/recipes/">Add a new recipe</a>
-    </header>
-    </body>
+    
     <% include ../partials/footer.ejs %>
-</html>
+
+    
