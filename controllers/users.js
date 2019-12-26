@@ -15,6 +15,7 @@ const controller = {};
 controller.create = (req, res, next) => {
     const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(req.body.password, salt);
+    
     User.create({
         username: req.body.username,
         first_name: req.body.first_name,
@@ -23,7 +24,7 @@ controller.create = (req, res, next) => {
         password: hash,
     })
     .then(user => {
-        req.logon(user, err => {
+        req.login(user, err => {
             if(err)return next(err);
             res.redirect('/recipes');
         });

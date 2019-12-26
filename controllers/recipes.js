@@ -1,9 +1,4 @@
-//dependencies
-const express = require('express');
-//set up brcypt package 
-const bcrypt = require('bcryptjs');
-//Classes
-const router = express.Router();
+
 
 const Recipe = require('../models/recipe.js');
 //controller object
@@ -13,7 +8,7 @@ const controller = {};
 controller.index = (req, res) => {
     Recipe.findAll()
     .then(recipes => {
-        res.render('recipes/recipes-index', {
+        res.render('recipes/index.ejs', {
            documentTitle: "No Sugars No Grains Food Recipes",
            recipesData: recipes,
         });

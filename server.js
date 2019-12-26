@@ -1,3 +1,4 @@
+require('./db/db');
 //Dependencies setting up variables for node modules
 const express = require('express');
 
@@ -14,12 +15,12 @@ require('dotenv').config();
 const app = express();
 
 //importing recipeHelper function 
-const recipeHelpers = require('./services/recipes/recipeHelpers');
+const recipeHelpers = require('./services/recipes/recipeHelpers.js');
 
 //importing routes
-const recipesRoutes = require('./routes/recipeRoutes');
-const authRoutes =  require('./routes/auth');
-const userRoutes = require('./routes/users');
+const recipesRoutes = require('./routes/recipeRoutes.js');
+const authRoutes =  require('./routes/auth.js');
+const userRoutes = require('./routes/users.js');
 
 
 //setting up port for express to listen for activity
@@ -29,7 +30,6 @@ app.listen(PORT, () => {
 });
 //creating a variable for express function
 
-require('./db/db');
 //middleware
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
