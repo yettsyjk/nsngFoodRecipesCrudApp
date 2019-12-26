@@ -18,7 +18,10 @@ recipesRoutes.get('/edit/:id', controller.edit);
 //setting up route for single recipe function
 recipesRoutes.get('/:id', controller.show);
 //setting up post route to create recipe function
-recipesRoutes.post('/', controller.create);
+recipesRoutes.post('/', controller.create)
+console.log("created route accessed!");
+
+
 //setting up put route for updating recipe function
 recipesRoutes.put('/:id', controller.update);
 //setting up delete route 

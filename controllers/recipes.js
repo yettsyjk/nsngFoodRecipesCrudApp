@@ -1,5 +1,5 @@
 
-
+//importing recipe model
 const Recipe = require('../models/recipe.js');
 //controller object
 const controller = {};
@@ -22,7 +22,7 @@ controller.show = (req, res) => {
     //console.log(req.params);
     Recipe.findById(req.params.id)
     .then(recipe => {
-        res.render('recipes/recipes_single.ejs', {
+        res.render('recipes/show.ejs', {
             documentTitle: "No Sugars No Grains Food Recipes",
            recipes: recipe,
         });

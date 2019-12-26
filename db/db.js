@@ -1,5 +1,5 @@
-//setting up variable for logghon queries
-const options = {
+//setting up variable for logging queries
+const initOptions = {
     connect: (client, dc, isFresh) => {
         //do this everytime the database connects
         console.log('Connected to Database:', client.connectionParameters.database)
@@ -18,7 +18,7 @@ const options = {
     }
 };
 //importing promise
-const pgp = require('pg-promise')(options);
+const pgp = require('pg-promise')(initOptions);
 //setting up variable for pg-promise
 let db;
 //create statement to determine instance

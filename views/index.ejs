@@ -1,5 +1,8 @@
-  <link href="css/style.css" rel="stylesheet">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
         <% include ./partials/header.ejs %>
+        </head>
         <header>
             <h1>Welcome to #nsng Food Recipes App</h1>
             <h3 class="logo">No Suagrs No Grains Food Recipes</h3>
@@ -14,12 +17,15 @@
         </header>
         <div class="container">
         <h1 class="primary"><%= message %><h1>
-        <img class="index_img" src="/img/VeggiesBasket.jpg" alt="Veggies Farmers Basket">
+        <img class="index_img" src='../public/img/VeggiesBasket.jpg' alt="Veggies Farmers Basket">
     <h2 class="primary"><%= subTitle %></h2>
     <div class="button_container">
     <a class="button" href='/recipes'>View All Recipes</a>
     <a class="button" href='/recipes/add'>Create a new recipe</a>
     </div>
     </div>
-    
+    </footer>
     <% include ./partials/footer.ejs %>
+</footer>
+</body>
+</html>

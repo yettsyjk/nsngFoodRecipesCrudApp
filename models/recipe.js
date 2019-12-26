@@ -1,5 +1,4 @@
-//load mongoose package
-const mongoose = require('mongoose');
+
 const db = require('../db/db.js');
 const Recipe = {};
 //creating findAll method

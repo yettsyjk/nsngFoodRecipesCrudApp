@@ -1,7 +1,14 @@
    
-  <link href="css/style.css" rel="stylesheet">
-        <% include ../partials/header.ejs %>
-    
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <% include ../partials/head.ejs %>
+  </head>
+  <header>
+        <% include ./partials/header.ejs %>
+    </header>
+
+    <body>
         <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
             <nav>
                 <li><a href='/'>Home</a></li>
@@ -21,7 +28,6 @@
 </div>
  <% }) %>
 
-<!-- Modal -->
                     <button id="openModal">About #nsng lifestyle</button>
                     <div id="modal">
                     <div id="modal-textbox">
@@ -42,7 +48,6 @@ Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat 
             
         <a class="button" id="topButton" href="#top"> Back to Top</a>
         <a class="button" href="/recipes/">Add a new recipe</a>
-    
+    <footer>
     <% include ../partials/footer.ejs %>
-
-    
+</footer>

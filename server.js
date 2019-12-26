@@ -1,4 +1,4 @@
-require('./db/db');
+require('./db/db.js');
 //Dependencies setting up variables for node modules
 const express = require('express');
 
@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 app.get('/search', recipeHelpers.getRecipe, (req, res) => {
     res.render('search', {
         documentTitle: "No Sugars No Grains Food Recipes",
-        message: "Brought To You By",
+        message: "Brought To You By: ",
         recipeHits: res.locals.recipeHits,
     });
 });
