@@ -5,6 +5,8 @@ require('isomorphic-fetch');
 require('dotenv').config();
 
 //setting variable for api key application id
+const APP_ID = process.env.APPLICATION_ID;
+const API_KEY = process.env.API_SECRET_KEY;
 
 const getRecipe = (req, res, next)=> {
     //console.log('body', req.query.search);
@@ -14,15 +16,17 @@ const getRecipe = (req, res, next)=> {
     }
     console.log('Fetching Data');
     //fetch() need to acquire api key
-    fetch()
- .then((fetchRes)=> {
+    fetch(`https://api.edamam.com/search?q=${req.query.search}&app_id=${APP_ID}&app_key=${API_KEY}`)
+ .then((fetchRes) => {
      return fetchRes.json();
  })
  .then((jsonFetchRes) => {
-res.locals.recipeHits = jsonFetchres.hits;
+     //adding properties to res.locals
+res.locals.recipeHits = jsonFetchRes.hits;
 next();
-}) .catch((err) => {
+}).catch((err) => {
     console.log(err);
+    //displaying error message on the page 
     res.locals.recipeHits = 'Nothing Found';
     next();
 });

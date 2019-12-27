@@ -22,6 +22,7 @@ passport.use( new LocalStrategy(options, (username, password, done) =>{
         return done(null, false);
     }
     if(!authHelpers.comparePass(password, user.password)) {
+        console.log('authHelpers');
         return done(null, false);
     } else {
         return done(null, user);

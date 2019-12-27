@@ -55,16 +55,27 @@ username: {
 });
 ___________________________________________
 Requirements:
--Node
--MongoDB
--espress JS framework
--Mongoose
+1. Node: npm install t oinstall dependencies listed in package.json
+1. MongoDB
+1. espress JS framework
+1. Mongoose
+_____________________________________________
+Technology Used:
+1. EJS
+1. Express:
+1. MVC
+1. SQL tables and PG Promise
+1. JavaScript:
+1. Edamam API: using thrd party API key
+1. Isomorphic Fetch works with API 
+1. Bcrypt: app uses encryption passwords
+1. Heroku: web hosting for my app
 _____________________________________________
 Installation Instructions:
 
 
 Stretch Goal/Phase Two:
-Setting up the user to have a favorite recipe section
-Styling to site
-Improving authentication
-intelligent formating for user to add their own comments for recipes they dislike
+1. Setting up the user to have a favorite recipe section
+1. Styling to site
+1. Improving authentication
+1. intelligent formating for user to add their own comments for recipes they dislike

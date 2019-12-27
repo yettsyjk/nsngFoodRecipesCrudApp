@@ -19,13 +19,13 @@ const initOptions = {
 };
 //importing promise
 const pgp = require('pg-promise')(initOptions);
-//setting up variable for pg-promise
+//setting up variable for pg-promise, note const didn\'t work
 let db;
-//create statement to determine instance
+//create statement to determine instance, port tied to psql
 if(process.env.NODE_ENV === 'development' || !process.env.NODE_ENV){
     db = pgp({
         database: 'recipe_development',
-        port: 5432,
+        port: 5433,
         host: 'localhost'
     });
 } else if (process.env.NODE_ENV === 'production') {

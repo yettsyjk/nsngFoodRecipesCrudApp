@@ -1,9 +1,9 @@
 //dependencies
-const express = require('express');
+
 //set up brcypt package 
 const bcrypt = require('bcryptjs');
 //Classes
-const router = express.Router();
+
 
 //Models, importing bcrypt model
 const User = require('../models/user');
@@ -11,7 +11,7 @@ const User = require('../models/user');
 const controller = {};
 
 //Routes
-//Login Route
+//Login Route, encrypts the password
 controller.create = (req, res, next) => {
     const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(req.body.password, salt);

@@ -8,7 +8,7 @@ module.exports = () => {
     passport.serializeUser((user, done) => {
         done(null, user.username);
     });
-}
+
 passport.deserializeUser((username, done) => {
     User.findByUserName(username)
     .then(user => {
@@ -18,3 +18,4 @@ passport.deserializeUser((username, done) => {
         done(err, null);
     });
 });
+};

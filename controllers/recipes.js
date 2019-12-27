@@ -24,7 +24,7 @@ controller.show = (req, res) => {
     .then(recipe => {
         res.render('recipes/show.ejs', {
             documentTitle: "No Sugars No Grains Food Recipes",
-           recipes: recipe,
+           recipe: recipe,
         });
     })
     .catch(err => {

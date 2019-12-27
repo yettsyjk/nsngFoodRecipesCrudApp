@@ -15,8 +15,10 @@ recipesRoutes.get('/add', (req, res) => {
 });
 //setting up route for recipe edit function
 recipesRoutes.get('/edit/:id', controller.edit);
+console.log("created Recipe edit route!");
 //setting up route for single recipe function
 recipesRoutes.get('/:id', controller.show);
+console.log("created Recipe index route!");
 //setting up post route to create recipe function
 recipesRoutes.post('/', controller.create)
 console.log("created route accessed!");
@@ -24,8 +26,10 @@ console.log("created route accessed!");
 
 //setting up put route for updating recipe function
 recipesRoutes.put('/:id', controller.update);
+console.log("created Recipe update route!");
 //setting up delete route 
 recipesRoutes.delete('/:id', controller.destroy);
+console.log("created Recipe destroy route!");
 
 //exporting router
 module.exports = recipesRoutes;

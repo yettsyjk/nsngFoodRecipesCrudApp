@@ -1,4 +1,4 @@
-console.log(process.env.SECRET_MESSAGE);
+console.log(process.env);
 console.log(process.env.TOKEN);
 console.log(process.env.ENV_VARIABLE);
 require('./db/db.js');
@@ -33,16 +33,22 @@ app.listen(PORT, () => {
 });
 //creating a variable for express function
 
-//middleware
+//directing express views
 app.set('views', path.join(__dirname, 'views'));
+//express view file type
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static('public'));
-//setting up the morgan logger
+//setting up direction for express to static files
+app.use('/static', express.static(path.join(__dirname, 'public')));
+//setting up morgan logger function to run dev script
 app.use(logger('dev'));
+//setting up the cookie parser module
 app.use(cookieParser());
+//setting up the body parser function to run json info
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+//setting up method override module to run on http method key 
 app.use(methodOverride('_method'));
+//setting up the express session module
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
@@ -52,7 +58,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//home index
+//setting up the route to the index page
 app.get('/', (req, res) => {
     //home index route
     res.render('index.ejs', {
@@ -69,7 +75,7 @@ app.get('/search', recipeHelpers.getRecipe, (req, res) => {
         recipeHits: res.locals.recipeHits,
     });
 });
-//directing URL routes
+//directing app to use fpr recipe URL routes
 app.use('/recipes', recipesRoutes);
 //directing app to use authRoutes for authenticating the user
 app.use('/auth', authRoutes);
