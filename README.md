@@ -55,7 +55,7 @@ username: {
 });
 ___________________________________________
 Requirements:
-1. Node: npm install t oinstall dependencies listed in package.json
+1. Node: npm install dependencies listed in package.json
 1. MongoDB
 1. espress JS framework
 1. Mongoose

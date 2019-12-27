@@ -1,7 +1,4 @@
-console.log(process.env);
-console.log(process.env.TOKEN);
-console.log(process.env.ENV_VARIABLE);
-require('./db/db.js');
+
 //Dependencies setting up variables for node modules
 const express = require('express');
 
@@ -12,11 +9,14 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+//create connection to the db server
+require('./db/db.js');
 //importing dotenv config function
 require('dotenv').config();
 //creating variable for express function
 const app = express();
 
+//CONTROLLERS
 //importing recipeHelper function 
 const recipeHelpers = require('./services/recipes/recipeHelpers.js');
 
@@ -26,13 +26,8 @@ const authRoutes =  require('./routes/auth.js');
 const userRoutes = require('./routes/users.js');
 
 
-//setting up port for express to listen for activity
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Listening on port: ${PORT}`);
-});
 //creating a variable for express function
-
+//MIDDLEWARE
 //directing express views
 app.set('views', path.join(__dirname, 'views'));
 //express view file type
@@ -50,7 +45,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 //setting up the express session module
 app.use(session({
-    secret: process.env.SECRET_KEY,
+    secret:'secret',
     resave: false,
     saveUninitialized: true
 }));
@@ -84,4 +79,10 @@ app.use('/user', userRoutes);
 //404 error
 app.get('*', (req, res) => {
     res.status(404).send({message: 'Oops Something Went Wrong'});
+});
+
+//setting up port for express to listen for activity
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`);
 });

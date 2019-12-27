@@ -1,31 +1,20 @@
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-        <% include ./partials/header.ejs %>
-        </head>
-        <header>
-            <h1>Welcome to #nsng Food Recipes App</h1>
-            <h3 class="logo">No Suagrs No Grains Food Recipes</h3>
-            <nav>
-            
-                <li><a class='current' href='/'>Recipes Home Page</a></li>
-                <li><a href='/recipes'>Recipes</a></li>
-            <li><a href='/recipes/add'>Add Recipes</a></li>
-            <li><a href='/search'>Search Recipes</a></li>
-           
-        </nav>
-        </header>
-        <div class="container">
-        <h1 class="primary"><%= message %><h1>
-        <img class="index_img" src='../public/img/VeggiesBasket.jpg' alt="Veggies Farmers Basket">
-    <h2 class="primary"><%= subTitle %></h2>
-    <div class="button_container">
-    <a class="button" href='/recipes'>View All Recipes</a>
-    <a class="button" href='/recipes/add'>Create a new recipe</a>
+<% include ./partials/boilerplate.ejs %>
+<header>
+    <h3 class='logo'>Now We're Cookin'</h3>
+    <nav>
+        <li><a class='current' href='/'>Home</a></li>
+        <li><a href='/recipes'>Recipes</a></li>
+        <li><a href='/recipes/add'>Add</a></li>
+        <li><a href='/search'>Search</a></li>
+    </nav>
+</header>
+<div class='container'>
+    <h1 class='primary'><%= message %></h1>
+    <img class='index_img' src='../static/images/silverware.png' alt='cutlery chalk drawing'>
+    <h2 class='primary'><%= subTitle %></h2>
+    <div class='button_container'>
+        <a class='button' href='/recipes'>View all recipes</a>
+        <a class='button' href='/recipes/add'>Create a new recipe</a>
     </div>
-    </div>
-    </footer>
-    <% include ./partials/footer.ejs %>
-</footer>
-</body>
-</html>
+</div>
+<% include ./partials/end %>
