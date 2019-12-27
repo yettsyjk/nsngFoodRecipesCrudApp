@@ -1,19 +1,14 @@
-//importing promise
-const db = require('../db/db.js');
+
+const mongoose =  require('mongoose');
+//
+const userSchema = mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true }
+});
 
 //create a model object
-const User = {};
+const User = mongoose.model('User', userSchema);
 
-//create method find username in db
-User.findByUserName = userName => {
-    return db.oneOrNone('SELECT * FROM users WHERE username = $1', [username]);
-};
-
-
-//creating method t create a new user 
-User.create = user => {
-    return db.one(`INSERT INTO users(username, first_name, last_name, email, password)VALUES($1, $2, $3, $4, $5)RETURNING*`,[user.username, user.first_name, user.last_name, user.email, user.password]
-    );
-};
 //export user model
 module.exports = User;

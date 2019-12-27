@@ -1,20 +1,31 @@
 <% include ./partials/boilerplate.ejs %>
-<header>
-    <h3 class='logo'>Now We're Cookin'</h3>
-    <nav>
-        <li><a class='current' href='/'>Home</a></li>
-        <li><a href='/recipes'>Recipes</a></li>
-        <li><a href='/recipes/add'>Add</a></li>
-        <li><a href='/search'>Search</a></li>
-    </nav>
-</header>
-<div class='container'>
-    <h1 class='primary'><%= message %></h1>
-    <img class='index_img' src='../static/images/silverware.png' alt='cutlery chalk drawing'>
-    <h2 class='primary'><%= subTitle %></h2>
-    <div class='button_container'>
-        <a class='button' href='/recipes'>View all recipes</a>
-        <a class='button' href='/recipes/add'>Create a new recipe</a>
-    </div>
-</div>
+<nav>
+				<ul>
+					<li>
+						<%# Authors Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
+						<a href="/recipes/new">Recipes No Sugars No Grains</a>
+					</li>
+					<li>
+						<%# Articles Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
+						<a href="./articles">Articles</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<h4>Login</h4>
+		<form action="./auth/login.ejs" method="POST">
+			<input type="text" name="username" placeholder="username"><br>
+			<input type="password" name="password" placeholder="password"><br>
+			<%# Login Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
+			<button type="submit">Login</button>
+		</form>
+
+		<h4>Registration</h4>
+		<form action="/auth/registration" method="POST">
+			<input type="text" name="username" placeholder="username"><br>
+			<input type="email" name="email" placeholder="email"><br>
+			<input type="password" name="password" placeholder="password"><br>
+			
+			<button type="submit">Register</button>
+		</form>
 <% include ./partials/end %>
