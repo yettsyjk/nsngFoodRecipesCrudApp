@@ -41,7 +41,7 @@ controller.create = (req, res) => {
         description: req.body.description,
         category_type: req.body.category_type,
         ingredients: req.body.ingredients,
-        photo: req.bidy.photo,
+        photo: req.body.photo,
     })
     .then(recipe => {
         res.redirect('/recipes');
@@ -80,7 +80,7 @@ controller.update = (req, res) => {
         description: req.body.description,
         category_type: req.body.category_type,
         ingredients: req.body.ingredients,
-        photo: req. bidy.photo,
+        photo: req.body.photo,
     },
     req.params.id)
         .then(recipe => {

@@ -5,7 +5,7 @@ const Recipe = {};
 Recipe.findAll = () => {
     return db.query('SELECT recipes.id, recipes.title, categories.category_type, recipes.photo FROM recipes JOIN categories ON recipes.category_type = categories.id ORDER BY recipes.id DESC');
 };
-// creating the findbyid method
+//creating the findbyid method
 Recipe.findById = id => {
     return db.oneOrNone('SELECT recipes.id, recipes.title, recipes.author, recipes.description, categories.category_type, recipes.ingredients, recipes.photo FROM recipes JOIN categories ON recipes.category_type = categories.id WHERE recipes.id = $1', [id]);
 };

@@ -1,3 +1,6 @@
+console.log(process.env.SECRET_MESSAGE);
+console.log(process.env.TOKEN);
+console.log(process.env.ENV_VARIABLE);
 require('./db/db.js');
 //Dependencies setting up variables for node modules
 const express = require('express');
@@ -18,7 +21,7 @@ const app = express();
 const recipeHelpers = require('./services/recipes/recipeHelpers.js');
 
 //importing routes
-const recipesRoutes = require('./routes/recipeRoutes.js');
+const recipesRoutes = require('./routes/recipeRoutes');
 const authRoutes =  require('./routes/auth.js');
 const userRoutes = require('./routes/users.js');
 
@@ -40,11 +43,11 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-// app.use(session({
-//     secret: process.env.SECRET_KEY,
-//     resave: false,
-//     saveUninitialized: true
-// }));
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true
+}));
 //setting up passport module
 app.use(passport.initialize());
 app.use(passport.session());
