@@ -48,6 +48,31 @@ Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat 
             
         <a class="button" id="topButton" href="#top"> Back to Top</a>
         <a class="button" href='/recipes/'>Add a new recipe</a>
-    <footer>
+    <footer><h1>Authors</h1>
+			<nav>
+				<ul>
+					<li>
+						<%# Home Index route 1 (Option 10): The user clicks on the link below, initiating a GET request -> server.js %>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<%# Authors New route 1: The user clicks on the link below, initiating a GET request -> server.js %>
+						<a href="/authors/new">Create a new Author</a>
+					</li>
+				</ul>
+			</nav>
+        </header>
+        <main>
+            <h2>List of Authors</h2>
+            <ul>
+				<%# Authors Index route 7: Using the reference from the render method in the route, iterate through the array and create and html block for each object inside the array -> controllers/authors.js %>
+                <% for(let i = 0; i < authors.length; i++) { %>
+                    <li>
+						<%# Authors Show route 1 (Option 1): The user clicks on one of these links, initiating a GET request -> server.js %>
+                        <a href="/authors/<%= authors[i]._id %>"><%= authors[i].name %></a>
+                    </li>
+                <% } %>
+            </ul>
+        </main>
     <% include ../partials/footer.ejs %>
 </footer>

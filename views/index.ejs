@@ -1,31 +1,40 @@
-<% include ./partials/boilerplate.ejs %>
-<nav>
+<% include ./partials/head.ejs %>
+<h1>Welcome to the Blog App</h1>
+			<nav>
 				<ul>
 					<li>
 						<%# Authors Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
-						<a href="/recipes/new">Recipes No Sugars No Grains</a>
+						<a href="/recipes/">Authors</a>
 					</li>
 					<li>
 						<%# Articles Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
-						<a href="./articles">Articles</a>
+						<a href="/">Articles</a>
 					</li>
+					<% if(logged) { %>
+						<li>
+							<%# Logout Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
+							<a href="/auth/logout">Logout</a>
+						</li>
+					<% } %>
 				</ul>
 			</nav>
 		</header>
-		<h4>Login</h4>
-		<form action="./auth/login.ejs" method="POST">
-			<input type="text" name="username" placeholder="username"><br>
-			<input type="password" name="password" placeholder="password"><br>
-			<%# Login Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
-			<button type="submit">Login</button>
-		</form>
-
-		<h4>Registration</h4>
-		<form action="/auth/registration" method="POST">
-			<input type="text" name="username" placeholder="username"><br>
-			<input type="email" name="email" placeholder="email"><br>
-			<input type="password" name="password" placeholder="password"><br>
-			
-			<button type="submit">Register</button>
-		</form>
+		<%= message %>
+		<% if(!logged) { %>
+			<h4>Login</h4>
+			<form action="/auth/login" method="POST">
+				<input type="text" name="username" placeholder="username"><br>
+				<input type="password" name="password" placeholder="password"><br>
+				<%# Login Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
+				<button type="submit">Login</button>
+			</form>
+			<h4>Registration</h4>
+			<form action="/auth/registration" method="POST">
+				<input type="text" name="username" placeholder="username"><br>
+				<input type="email" name="email" placeholder="email"><br>
+				<input type="password" name="password" placeholder="password"><br>
+				<%# Register Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
+				<button type="submit">Register</button>
+			</form>
+		<% } %>
 <% include ./partials/end %>

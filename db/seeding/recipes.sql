@@ -25,10 +25,10 @@ INSERT INTO recipes (title, author, description, category_type, ingredients, pho
         'http://images.media-allrecipes.com/userphotos/560x315/2179438.jpg'
     ),
     (
-        'Pineapple Grilled Pork Chops', 
+        'Raspberry Grilled Pork Chops', 
         'George Lopez', 
         'Mix together the drained pineapple juice, soy sauce, and garlic powder together in a large plastic zipper bag, and smush the bag a few times with your hands to mix the marinade. Place the pork chops into the marinade, squeeze out any air in the bag, seal it, and refrigerate overnight. Reserve the pineapple rings. Preheat an outdoor grill for medium heat, and lightly oil the grate.  Remove the chops from the marinade, shaking off excess, and grill until browned, the meat is no longer pink inside, and the meat shows good grill marks, 5 to 8 minutes per side. Brush several times with marinade and let the marinade cook onto the surface of the meat. Discard excess marinade. While the meat is grilling, place 4 pineapple rings onto the grill, and allow to cook until hot and the slices show grill marks; serve the chops topped with the grilled pineapple rings.', 
         5,
-        '{"1 (8 ounce) can pineapple rings","juice drained and reserved","1/4 cup soy sauce","1/4 teaspoon garlic powder","4 pork chops","1 pinch ground black pepper"}',
+        '{"1 (8 ounce) fresh raspberries","juice drained and reserved","1/4 cup soy sauce","1/4 teaspoon garlic powder","4 pork chops","1 pinch ground black pepper"}',
         'http://images.media-allrecipes.com/userphotos/250x250/857812.jpg'
     );

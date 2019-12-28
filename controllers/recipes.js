@@ -9,7 +9,7 @@ const router = express.Router();
 //importing recipe model
 const Recipe = require('../models/recipe.js');
 //controller object
-const controller = {};
+
 //ROUTES
 //NEW ROUTE
 router.get('/new', async (req, res) => {
@@ -35,7 +35,7 @@ router.post('/', async (req, res)=> {
         res.send(err);
     }
 });
-//INDEX ROUTE
+//SHOW ROUTE
 //define the view to render once the findAll promise is complete
 router.get('/:id', async (req, res)=> {
     //try this and if that fails return err
@@ -44,34 +44,17 @@ router.get('/:id', async (req, res)=> {
         const foundRecipes = await Recipe.find();
         //RECIPES INDEX ROUTE response renders
         res.render('recipes/index.ejs', {
+            recipe: foundRecipes,
             documentTitle: "No Sugars No Grains Food Recipes",
             recipesData: recipes,
         });
 //RECIPES INDEX ROUTE, send HTML back to Browser
-    }catch (err) {
-        res.send (err);
-    }
-});
-//SHOW ROUTE
-//view render findById promise is completed
-router.get('/:id', async (req, res) => {
-    //try this and that fails send back an error
-    try {
-        //RECIPES SHOW ROUTE 
-        const foundRecipes = await Recipe.findById(req.params.id);
-        //RECIPES SHOW ROUTE response renders
-        //console.log(req.params);
-        
-            res.render('recipes/show.ejs', {
-                documentTitle: "No Sugars No Grains Food Recipes",
-               recipe: recipe,
-            });
-//RECIPES SHOW ROUTE
     } catch (err) {
-        res.send(err);
+        res.send (err);
         res.status(400).json(err);
     }
 });
+
 //EDIT ROUTE
 router.get('/:id/edit', async (req, res) => {
     //try this part first if that fails return an error
@@ -80,6 +63,7 @@ router.get('/:id/edit', async (req, res) => {
 const foundRecipes = await Recipe.findById(req.params.id);
 //RECIPE EDIT ROUTE response renders
 res.render('recipes/edit.ejs', {
+    recipe: foundRecipes,
     documentTitle: "No Sugars No Grains Food Recipes",
     recipe: recipe,
     id: req.params.id,

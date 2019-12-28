@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-        <% include ../partials/header.ejs %>
-    </head>
-    <body>
-    <header>
-        <h3 class="logo">No Sugars No Grains Food Recipes</h3>
-        <nav>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/recipes'>NSNG Recipes</a></li>
-        <li><a href='/recipes/add'>Add Recipes</a></li>
-        <li><a href='/search'>Recipe Search</a></li>
-        </nav>
-    </header>
-    <div class="container">
-    <h1 class="primary"><%= message %></h1>
-    <div class="form_container">
-        <Form method="POST" action="/auth/register">
-        <label for="username" class="title">Username<input name="username" type="text"/><label>
-        <label for="first_name" class="title">First Name<input name="first_name" type="text"/><label>
-        <label for="last_name" class="title">Last Name<input name="last_name" type="text"/><label>
-    <label for="email" class="title">Email<input name="email" type="email"/><label>
-    <label for="password" class="title">Password<input name="password" type="password"/><label>
-    <input type="submit" class="button"  value="Register" />
-    </form>
-    <p>Already have an account?</p>
-    <a class="button" href="/auth/login">Login</a>
-    </div>
-    </div>
-    </body>
-    <% inlcude ../partials/footer.ejs %>
-</html>
+<nav>
+				<ul>
+					<li>
+						<%# Authors Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
+						<a href="/authors">Authors</a>
+					</li>
+					<li>
+						<%# Articles Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
+						<a href="/articles">Articles</a>
+					</li>
+					<% if(logged) { %>
+						<li>
+							<%# Logout Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
+							<a href="/auth/logout">Logout</a>
+						</li>
+					<% } %>
+				</ul>
+			</nav>
+		</header>
+		<%= message %>
+		<% if(!logged) { %>
+			<h4>Login</h4>
+			<form action="/auth/login" method="POST">
+				<input type="text" name="username" placeholder="username"><br>
+				<input type="password" name="password" placeholder="password"><br>
+				<%# Login Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
+				<button type="submit">Login</button>
+			</form>
+			<h4>Registration</h4>
+			<form action="/auth/registration" method="POST">
+				<input type="text" name="username" placeholder="username"><br>
+				<input type="email" name="email" placeholder="email"><br>
+				<input type="password" name="password" placeholder="password"><br>
+				<%# Register Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
+				<button type="submit">Register</button>
+			</form>
+		<% } %>
