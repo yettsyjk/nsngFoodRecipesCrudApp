@@ -3,9 +3,9 @@
 body {
     color: #444;
     font-weight: normal;
-    background-color: #9999cc;
-    min-width: 100vw;
-    min-height: 100vh;
+    background-color: #97a8a5;
+    min-width: 100%;
+    min-height: 100%;
     font-family: "Libre Franklin";
     font-size: 18px;
     line-height: 1.4em;
@@ -39,7 +39,7 @@ li {
 /* #Links#*/
 a {
     text-decoration: none;
-    color: #818181;
+    color: #000000;
     text-align: none;
 }
 a:hover {
@@ -140,39 +140,76 @@ img {
 }
 /*# New, Form# */
 input[type="text"], input[type="submit"] {
-    width: 60%;
-    padding: 1em;
-    border: 0px;
-    border-radius: 0.5em;
-    margin: 0.5em 0;
-}
-input[type="submit"] {
-    width: 62%;
-    font-family: 'Montserrat';
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 1em;
-    color: #000;
-    background-color: rgba(129, 110, 124);
-}
-input[type="submit"]:hover {
-    cursor: pointer;
-    background: rgb(142 ,89. 81);
-
-}
-/* #button#*/
-.button {
-    font-size: 1em;
-    color: #f4f4f4;
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 10px 10px 10px 100px;
+    transition: all 0.1s ease-out;
+  }
+  
+  input[type="text"] + label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    line-height: 40px;
+    color: rgb(158, 77, 77);
+    border-radius: 3px 0 0 3px;
+    padding: 0 20px;
+    background: #E03616;
+    transform: translateZ(0) translateX(0);
+    transition: all 0.3s ease-in;
+    transition-delay: 0.2s;
+  }
+  
+  input[type="text"]:focus + label{
+    transform: translateY(-120%) translateX(0%);
+    border-radius: 3px;
+    transition: all 0.1s ease-out;
+  }
+  
+  input[type="text"]:focus{
     padding: 10px;
-    border: 1px dashed #f4f4f4;
-    border-radius: 10px;
-    background: transparent;
-    margin: 20px;
-    cursor: pointer;
+    transition: all 0.3s ease-out;
+    transition-delay: 0.2s;
+  }
+
+/* #button#*/
+/* GENERAL BUTTON STYLING */
+.button,
+.button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
 }
+.button {
+    background: none;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 2em 6em;
+  position: relative;
+  text-transform: uppercase;
+}
+.button:after {
+    height: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
 .button:hover {
     color: #222;
+    height: 100%;
     background-color: #f4f4f4;
     border: none;
     box-shadow: inset 0px 0px 6px 1px rgba(0,0,0,0.75);
@@ -184,24 +221,32 @@ input[type="submit"]:hover {
     opacity: 0.5;
 }
 /*Styling the Modal*/
-#modal {
-    background-color: #f2efe8;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 1; /*puts modal in front of the body*/
-    overflow: auto; /*overflow is clipped, a scroll-bar should be added*/
-}
-#modal-textbox {
-    background-color: #fff;
-    height: 350px;
-    width: 550px;
-    border-radius: 2px;
-    margin: 150px auto;
-    box-shadow: 5px 10px #888888;
-}
+#toggle{
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
+    z-index: -1;
+  }
+  
+  #toggle:checked ~ dialog {
+    display: block;
+  }
+label{
+    background: #ffcc99;
+    color: white;
+    padding: .8em 1em;
+    border-radius: 18px;
+  }
+  @keyframes appear {
+    0%{
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+  dialog{
+    animation: appear 350ms ease-in 1;
+    max-width: 500px;
+  }
 /*Footer*/
 .footer {
     width: 100%;

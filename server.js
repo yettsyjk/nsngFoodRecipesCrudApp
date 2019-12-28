@@ -7,7 +7,6 @@ const app = express();
 const methodOverride = require('method-override');
 //express-session package allows server to store data to access across requests
 const session = require('express-session');
-
 //create connection to the db server
 require('./db/db');
 require('dotenv').config();
