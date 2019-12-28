@@ -1,5 +1,5 @@
 //importing bcrypt module
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 //creating function comparing password
 function comparePass(userPassword, databasePassword) {

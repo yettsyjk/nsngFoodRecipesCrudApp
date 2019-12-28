@@ -1,17 +1,17 @@
       <!DOCTYPE html>
 <html lang="en">
 <head>
-	<% include ../partials/head.ejs %>
+	
 </head> 
-        <% include ./partials/header.ejs %>
+       
     <header>
-       <h3 class="logo">No Suagrs No Grains Food Recipes</h3>
+       <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
        <nav>
             
                 <li><a href='/'>Recipes Home Page</a></li>
                 <li><a href='/recipes'>Recipes</a></li>
             <li><a href='/recipes/add'>Add Recipes</a></li>
-            <li><a class='current' href='/search'>Search Recipes</a></li>
+            <li><a class='current' href='./search.ejs'>Search Recipes</a></li>
           
         </nav>
         </header>
@@ -32,7 +32,7 @@
         <h2 class="title"><%= message %></h2>
         <img class="button" id="topButton" href="#top">Back to Top</a>
         <footer>
-    <% include ./partials/footer.ejs %>
+    
     </footer>
     </body>
     </html>

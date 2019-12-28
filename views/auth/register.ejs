@@ -1,37 +1,56 @@
-<nav>
-				<ul>
-					<li>
-						<%# Authors Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
-						<a href="/authors">Authors</a>
-					</li>
-					<li>
-						<%# Articles Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
-						<a href="/articles">Articles</a>
-					</li>
-					<% if(logged) { %>
-						<li>
-							<%# Logout Index route 1 (Option 1): The user clicks on the link below, initiating a GET request -> server.js %>
-							<a href="/auth/logout">Logout</a>
-						</li>
-					<% } %>
-				</ul>
-			</nav>
-		</header>
-		<%= message %>
-		<% if(!logged) { %>
-			<h4>Login</h4>
-			<form action="/auth/login" method="POST">
-				<input type="text" name="username" placeholder="username"><br>
-				<input type="password" name="password" placeholder="password"><br>
-				<%# Login Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
-				<button type="submit">Login</button>
-			</form>
-			<h4>Registration</h4>
-			<form action="/auth/registration" method="POST">
-				<input type="text" name="username" placeholder="username"><br>
-				<input type="email" name="email" placeholder="email"><br>
-				<input type="password" name="password" placeholder="password"><br>
-				<%# Register Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
-				<button type="submit">Register</button>
-			</form>
-		<% } %>
+<head>
+  <meta charset="utf-8">
+
+  <!-- START Style Sheets -->
+  <!-- Bootstrap CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- Our personal style sheet -->
+  <link rel="stylesheet" href="css/style.css" charset="utf-8">
+<!-- END Style Sheets -->
+<!-- JavaScript & jQuery Links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="/server.js"></script>
+</head>
+<body>
+        <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
+            <nav>
+                <li><a href='/'>Home</a></li>
+                <li><a class="current" href='/recipes'>Recipes</a></li>
+                <li><a href='/recipes/add'>Add Recipes</a></li>
+                <li><a href='/search'>Search Recipes</a></li>
+            </nav>
+			<!-- START Page Header -->
+        <div class="container">
+        <h1 class="primary">Recipes</h1>
+  </div>
+  <!-- END Page header -->
+  <!-- START body wrapping -->
+  <div>
+  
+  <!--Start image-->
+<div>
+</div>
+<!-- END Image -->          
+<!-- START Three content sections --> 
+                   
+<!-- END Three content sections -->
+
+<div>
+		<h4>Registration</h4>
+		<form action="/auth/registration" method="POST">
+			<input type="text" name="username" placeholder="username"><br>
+			<input type="email" name="email" placeholder="email@domain.com"><br>
+			<input type="password" name="password" placeholder="Length 6 characters"><br>
+			<button type="submit">Register</button>
+		</form>
+		</div>
+<!-- start Modal-->
+ 
+					<!-- end Modal-->
+
+        <button type="button" id="topButton" href="#top"> Back to Top</button>
+        <!--a class="button" href="/recipes/">Add a new recipe</a-->
+        <!--a class="button" href='/recipes/'>Add a new recipe</a-->
+		</div>
+  <!-- END of Body wrapping -->

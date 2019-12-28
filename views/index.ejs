@@ -17,14 +17,19 @@
 <body>
         <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
             <nav>
-                <li><a href='/'>Home</a></li>
-                <li><a class="current" href='/recipes'>Recipes</a></li>
+                <li><a class="current" href='/'>Home</a></li>
+                <li><a href='/recipes'>Recipes</a></li>
                 <li><a href='/recipes/add'>Add Recipes</a></li>
                 <li><a href='/search'>Search Recipes</a></li>
             </nav>
 			<!-- START Page Header -->
         <div class="container">
-        <h1 class="primary">Recipes</h1>
+        <h1 class="primary"><%= message %></h1>
+        <h2 class="primary"><%= subTitle %></h2>
+        <div class="button_container">
+        <a class="button" href="/recipes">View All Recipes</a>
+        <a class="button" href="/recipes/add">Create a new recipe</a>
+        </div>
   </div>
   <!-- END Page header -->
   <!-- START body wrapping -->
@@ -35,29 +40,14 @@
 </div>
 <!-- END Image -->          
 <!-- START Three content sections --> 
-                   <h1 class="secondary recipe_title"></h1>
-                   <h2 class="tertiary">Category: </h2>
-                   <div class="button_container">
-                   <button type="button black" href='/recipes/'>Info</button>
+                   
+                   <div >
+                  
 </div>
 <!-- END Three content sections -->
-<h4>Login</h4>
-		<form action="/auth/login" method="POST">
-			<input type="text" name="username" placeholder="username"><br>
-			<input type="password" name="password" placeholder="password"><br>
-			<%# Login Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
-			<button type="submit">Login</button>
-		</form>
-<div>
-		<h4>Registration</h4>
-		<form action="/auth/registration" method="POST">
-			<input type="text" name="username" placeholder="username"><br>
-			<input type="email" name="email" placeholder="email@domain.com"><br>
-			<input type="password" name="password" placeholder="Length 6 characters"><br>
-			<%# Register Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
-			<button type="submit">Register</button>
-		</form>
-		</div>
+<!--Login.ejs-->
+<!--Registration.ejs-->
+
 <!-- start Modal-->
  <div>
                     <input type="checkbox" id="toggle">

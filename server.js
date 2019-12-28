@@ -24,6 +24,11 @@ app.use(session({
     //only save the cookie when property is added to the session. to comply with LAW
     saveUninitialized: false
 }))
+//importing recipeHelper function for the search view
+// const recipeHelpers = require('services');
+const recipeRoutes = require('../routes/');
+// const authRoutes = require('/routes/auth');
+// const userRoutes = require('/routes/users');
 
 //CONTROLLERS
 //recipesControllers is given export router class
@@ -33,18 +38,45 @@ console.log('connected recipesController');
 //directing app to use fpr recipe URL routes
 //userControllers export router 
 const usersControllers = require('./controllers/users');
-app.use('/controllers', usersControllers);
+app.use('/auth', usersControllers);
 //seedController exported router class in teh seed controller
 const seedController = require('./controllers/seed.js');
 app.use('/seed', seedController);
 
+
+
+
+
+
+//ROUTES
 //home index method is GET matching url path '/'
 app.get('/', (req, res) => {
     //'home index mathcing route found
     res.render('./index.ejs', {
+        documentTitle: 'No Sugars No Grains Food Recipes',
+        subTitle: 'Enjoy eating again',
         message: req.session.message,
         logged: req.session.logged
     })
+});
+//setting up the search page route
+app.get('/search', (req, res) => {
+    res.render('search', {
+        documentTitle: 'No Sugars No Grains Food Recipes',
+        subTitle: 'Enjoy eating again',
+        message: req.session.message,
+        recipeHits: res.locals.recipeHits,
+    });
+});
+//Directing app to use recipeRoutes for all recipes urls
+app.get('/recipes', recipeRoutes);
+//directing app to use authRoutes for user authentication
+app.get('/auth', authRoutes);
+//directing app to use userRoutes for users
+app.get('/user', userRoutes);
+
+app.get('*', (req, res) => {
+    res.status(404).send({message: 'Oops Something Went Wrong'});
 });
 
 

@@ -43,6 +43,7 @@ router.post('/login', async (req, res) => {
 //REGISTER CREATE ROUTE
 router.post('/registration', async (req, res) => {
     //USERS REGISTER CREATE ROUTE
+    //a generated salt combines registration form and hash them to create a hashed password
     const passwordHash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
     //USERS REGISTER CREATE ROUTE user object efore we create it in the database
     const userDbEntry = {

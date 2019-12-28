@@ -11,13 +11,13 @@ const authHelpers = require('../services/auth/authHelpers.js');
 const passport = require('../services/auth/local.js');
 
 //setting up route for the user registration view
-router.get('/login', (req,res) => {
+router.get('/:login', (req,res) => {
     res.render('auth/login.ejs', {
         documentTitle: `NSNG - New Recipe`,
         message: 'User Login',
     });
 });
-router.get('/register', (req, res) => {
+router.get('/:register', (req, res) => {
 res.render('auth/register.ejs', {
     documentTitle: `NSNG - New Recipe`,
     message: 'User Registration'

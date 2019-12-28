@@ -41,7 +41,7 @@ router.get('/:id', async (req, res)=> {
     //try this and if that fails return err
     try {
         //Recipes INDEX ROUTE
-        const foundRecipes = await Recipe.find();
+        const foundRecipes = await Recipe.findAll();
         //RECIPES INDEX ROUTE response renders
         res.render('recipes/index.ejs', {
             recipe: foundRecipes,

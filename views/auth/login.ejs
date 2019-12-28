@@ -1,35 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-        <% include ../partials/header.ejs %>
-    </head>
-    
-    <body>
-    <% include../partials/header.ejs %>
-    <header>
-        <h3 class="logo">No Sugars No Grains Food Recipes</h3>
-        <nav>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/recipes'>Recipes</a></li>
-        <li><a href='/recipes/add'>Add Recipes</a></li>
-        <li><a href='/search'>Search Recipes</a></li>
-        </nav>
-    </header>
-    <div class="container">
-    <h1 class="primary"><%= message %><h1>
-    <div class="form_container">
-        <form method="POST" action="/auth/login">
-        <label for="username" class="title">Username<input name="username" type="text"/></label>
-         <label for="password" class="title">Password<input name="password" type="password"/></label>
-         <input type="submit" class="button" value="Log in" />
-         </form>
-         </div>
-         </div>
-    
-    </body>
-    <% include ../partials/footer.ejs %>
-</html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- START Style Sheets -->
+  <!-- Bootstrap CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- Our personal style sheet -->
+  <link rel="stylesheet" href="css/style.css" charset="utf-8">
+<!-- END Style Sheets -->
+<!-- JavaScript & jQuery Links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="/server.js"></script>
+</head>
+<body>
+        <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
+            <nav>
+                <li><a href='/'>Home</a></li>
+                <li><a class="current" href='/recipes'>Recipes</a></li>
+                <li><a href='/recipes/add'>Add Recipes</a></li>
+                <li><a href='/search'>Search Recipes</a></li>
+            </nav>
+			<!-- START Page Header -->
+        <div class="container">
+        <h1 class="primary">Recipes</h1>
+  </div>
+  <!-- END Page header -->
+  <!-- START body wrapping -->
+  <div>
+  
+  <!--Start image-->
+<div>
+</div>
+<!-- END Image -->          
+<!-- START Three content sections --> 
+                 
+<!-- END Three content sections -->
+<h4>Login</h4>
+		<form action="/auth/login" method="POST">
+			<input type="text" name="username" placeholder="username"><br>
+			<input type="password" name="password" placeholder="password"><br>
+			<button type="submit">Login</button>
+		</form>
+<div>
+	
+<!-- start Modal-->
+ 
+					<!-- end Modal-->
+
+  <!-- END of Body wrapping -->
