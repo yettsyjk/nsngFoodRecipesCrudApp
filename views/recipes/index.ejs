@@ -16,7 +16,7 @@
 	<script src="/server.js"></script>
     <style>
 body {
-  background-image: url('img/kalesalad_nsng.jpeg') no-repeat center center fixed;
+  background-image: url('../img/kalesalad_nsng.jpeg') no-repeat center center fixed;
   background-color: #cccccc;
 }
 </style>
@@ -45,16 +45,14 @@ body {
                    <div class="button_container">
                    
 </div>
- 
-<div class="container">
-<div class="interior">
+ <!-- Button to open the MODAL -->
+<button onclick="document.getElementById('id01').style.display="block">MODAL About #nsng lifestyle</button>
+  <!--Modal contains frequently asked questions-->
+                    <div id="id01" class="modal">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">times;</span>
+                    <form class="modal-content" action="#">
+                    <div class="container">
       <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:gray;">
-                    <a class="btn" href="#open-modal">MODAL About #nsng lifestyle</a>
-                    </div>
-                    </div>
-                    <div id="open-modal" class="modal-window">
-                    <div>
-                    <a href="#" title="Close" class="modal-close">Close</a>
                     <h1>No Sugar No Grains #nsng Frequently Asked Questions</h1>
                 <div>What is No Sugar and No Grains (NSNG) all about?<br>
 Answer: In its simplest form NSNG is just that. You eliminate all processed sugars and all grains from your diet. In other words, you eat real food. In earlier podcast, it is referred to as being a “Carnivorous Vegan”. What that means is that you have lots and lots of healthy vegetables and meat in your diet. For vegans or vegetarians however, the concept is the same, but they just don’t have meat in their diet.</div>
@@ -67,6 +65,8 @@ Answer: Grass fed butter, coconut oil, macadamia nut oil, avocado oil, heavy whi
                     <div>What are some ‪‎NSNG suggested snacks?<br>
 Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat cheese, raw nuts, olives, pumpkin seeds, 85% or greater dark chocolate, deviled eggs (homemade mayo), pepperoni slices, coconut oil, avocado, lettuce rolled up with smoked salmon and full fat cream cheese, hummus and celery, pickles, shot of olive oil, coffee with heavy cream (or grass fed butter, or coconut oil).</div>
                     </div>
+                  </div>
+                  </form>
       <div class="col-sm-9 col-md-6 col-lg-8"> 
         <a class="button" id="topButton" href="#top"> Back to Top</a>
         </div>

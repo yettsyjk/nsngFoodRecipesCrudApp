@@ -35,14 +35,14 @@ body {
         <h1 class="logo"><%= subTitle %></h1>
         <div class="button_container search">
         <form method="GET">
-        <input type="text" name="search" id="search" placeholder="Enter an ingredient...">
-        <input type="submit" class="button" id="SearchButton" value="Search" />
+        <input type="text" name="search" id="search" placeholder="Enter an ingredient..." autocomplete="off">
+        <input type="submit" class="button" id="SearchButton" value="Search Recipes" />
         <form>
         </div>
         
-            <h1 class="secondary recipe_title"><%= hit.recipe.label %></h1>
+            <h1 class="secondary recipe_title"><%=  %></h1>
             <div class="button_container">
-            <a class="button black" href="<%= hit.recipe.url %>" target="_blank">View Recipe</a>
+            <a class="button black" href="<%=  %>" target="_blank">View Recipe</a>
             </div>
           
         <h2 class="title"><%= message %></h2>

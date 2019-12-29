@@ -15,8 +15,10 @@ require('./db/db');
 require('isomorphic-fetch');
 require('dotenv').config();
 //directing express views
-app.set('views', path.join(__dirname, 'views'));
-//telling express the view file type
+//here you set that all the templates are located in `/views` directory
+app.set('views', path.join(__dirname, '/views'));
+//here you set that you are using `ejs` template engine and the
+//default extension is `ejs`
 app.set('view engine', 'ejs');
 
 //MIDDLEWARE
@@ -69,7 +71,17 @@ app.use('/seed', seedController);
 //home index method is GET matching url path '/'
 app.get('/', (req, res) => {
     //'home index matching route found
-    res.render('recipes/index.ejs', {
+    res.render('auth/register.ejs', {
+        documentTitle: 'No Sugars No Grains Food Recipes',
+        subTitle: 'Enjoy eating again',
+        message: req.session.message,
+        logged: req.session.logged
+    })
+});
+//Login Page ROUTE
+app.get('auth/register', (req, res) => {
+    //'home index matching route found
+    res.render('auth/login.ejs', {
         documentTitle: 'No Sugars No Grains Food Recipes',
         subTitle: 'Enjoy eating again',
         message: req.session.message,
@@ -87,7 +99,7 @@ app.use('/auth', (req, res) => {
 });
 //setting up the search page route
 app.get('/:search', (req, res) => {
-    res.render('search', {
+    res.render('search.ejs', {
         documentTitle: 'No Sugars No Grains Food Recipes',
         subTitle: 'Enjoy eating again',
         message: req.session.message,
@@ -110,3 +122,4 @@ app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
 });
 
+module.exports = app;
