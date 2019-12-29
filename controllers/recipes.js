@@ -8,7 +8,18 @@ const router = express.Router();
 //MODELS
 //importing recipe model
 const Recipe = require('../models/recipe.js');
+const usersController = require('../controllers/users')
+
 //controller object
+//initiate controller object
+const recipesController = {};
+//send API data
+// recipesController.sendAPIRecipe = (res, res) => {
+//     res.json({
+//         message: `recipe returned`,
+//         recipe: res.locals.recipe,
+//     })
+// }
 
 //ROUTES
 //NEW ROUTE

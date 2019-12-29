@@ -9,7 +9,7 @@ const APP_ID = process.env.APPLICATION_ID;
 const API_KEY = process.env.API_SECRET_KEY;
 
 const getRecipe = (req, res, next)=> {
-    //console.log('body', req.query.search);
+    console.log('body', req.query.search);
     if(!req.query.search){
         res.locals.recipeHits = 'Unable to find anything';
         return next();

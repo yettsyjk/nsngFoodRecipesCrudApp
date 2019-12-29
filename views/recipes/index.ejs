@@ -2,10 +2,27 @@
   <!DOCTYPE html>
   <html lang="en">
   <head>
-  <% include ../partials/head.ejs %>
-  </head>
+  <meta charset="utf-8">
+
+  <!-- START Style Sheets -->
+  <!-- Bootstrap CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- Our personal style sheet -->
+  <link rel="stylesheet" href="css/style.css" charset="utf-8">
+<!-- END Style Sheets -->
+<!-- JavaScript & jQuery Links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="/server.js"></script>
+    <style>
+body {
+  background-image: url('img/kalesalad_nsng.jpeg') no-repeat center center fixed;
+  background-color: #cccccc;
+}
+</style>
+</head>
   <header>
-        <% include ./partials/header.ejs %>
+       
     </header>
 
     <body>
@@ -18,20 +35,24 @@
             </nav>
         <div class="container">
         <h1 class="primary">Recipes</h1>
-  <% recipesData.forEach(function(recipe){ %>
-<img src="<%= recipe.photo %>" alt="<%= recipe.title %> food">
-</div>           
-                   <h1 class="secondary recipe_title"><%= recipe.title %></h1>
-                   <h2 class="tertiary">Category: <%= recipe.category_type %></h2>
+  <% %>
+<img src="" alt="<%=  %> food">
+</div>           <div class="container">
+<div class="row">
+      <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:pink;">
+                   <h1 class="secondary recipe_title"><%= %></h1>
+                   <h2 class="tertiary">Category: <%=  %></h2>
                    <div class="button_container">
-                   <a class="button black" href='/recipes/<%= recipe.id %>'>Info</a>
+                   
 </div>
- <% }) %>
-
-                    <button id="openModal">About #nsng lifestyle</button>
-                    <div id="modal">
+ <%  %>
+<div class="container">
+<div class="interior">
+      <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:gray;">
+                    <a class="btn" href="#open-modal">MODAL About #nsng lifestyle</button>
+                    <div id="open-modal" class="modal-window">
                     <div id="modal-textbox">
-                    <a id="close" href="#">Close</a>
+                    <a href="#" title="close" class="modal-close">Close</a>
                     <h2>No Sugar No Grains #nsng Frequently Asked Questions</h2>
                 <p>What is No Sugar and No Grains (NSNG) all about?
 Answer: In its simplest form NSNG is just that. You eliminate all processed sugars and all grains from your diet. In other words, you eat real food. In earlier podcast, it is referred to as being a “Carnivorous Vegan”. What that means is that you have lots and lots of healthy vegetables and meat in your diet. For vegans or vegetarians however, the concept is the same, but they just don’t have meat in their diet.</p>
@@ -47,32 +68,7 @@ Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat 
                     </div>
             
         <a class="button" id="topButton" href="#top"> Back to Top</a>
-        <a class="button" href='/recipes/'>Add a new recipe</a>
-    <footer><h1>Authors</h1>
-			<nav>
-				<ul>
-					<li>
-						<%# Home Index route 1 (Option 10): The user clicks on the link below, initiating a GET request -> server.js %>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<%# Authors New route 1: The user clicks on the link below, initiating a GET request -> server.js %>
-						<a href="/authors/new">Create a new Author</a>
-					</li>
-				</ul>
-			</nav>
-        </header>
-        <main>
-            <h2>List of Authors</h2>
-            <ul>
-				<%# Authors Index route 7: Using the reference from the render method in the route, iterate through the array and create and html block for each object inside the array -> controllers/authors.js %>
-                <% for(let i = 0; i < authors.length; i++) { %>
-                    <li>
-						<%# Authors Show route 1 (Option 1): The user clicks on one of these links, initiating a GET request -> server.js %>
-                        <a href="/authors/<%= authors[i]._id %>"><%= authors[i].name %></a>
-                    </li>
-                <% } %>
-            </ul>
-        </main>
-    <% include ../partials/footer.ejs %>
+       
+    <footer>
+
 </footer>

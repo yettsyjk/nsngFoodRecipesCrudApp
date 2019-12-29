@@ -1,19 +1,30 @@
 
 //Dependencies setting up variables for node modules
 const express = require('express');
+const path = require('path');
 //creating variable for express function
 const app = express();
-
+const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 //express-session package allows server to store data to access across requests
 const session = require('express-session');
+const passport = require('passport');
+
 //create connection to the db server
 require('./db/db');
+require('isomorphic-fetch');
 require('dotenv').config();
+//directing express views
+app.set('views', path.join(__dirname, 'views'));
+//telling express the view file type
+app.set('view engine', 'ejs');
 
 //MIDDLEWARE
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
+//directing exprss to static files
 app.use(express.static('public'));
+
 //setting up method override module to run on http method key 
 app.use(methodOverride('_method'));
 app.use(session({
@@ -24,9 +35,15 @@ app.use(session({
     //only save the cookie when property is added to the session. to comply with LAW
     saveUninitialized: false
 }))
+//setting up the passport module
+app.use(passport.initialize());
+app.use(passport.session());
 //importing recipeHelper function for the search view
-// const recipeHelpers = require('services');
-const recipeRoutes = require('../routes/');
+// const recipeHelpers = require('../services/recipes/recipeHelpers.js');
+// console.log('connected recipeHelpers');
+// const recipeRoutes = require('./controllers/recipes');
+// //Directing app to use recipeRoutes for all recipes urls
+// app.use('/routes', recipeRoutes);
 // const authRoutes = require('/routes/auth');
 // const userRoutes = require('/routes/users');
 
@@ -51,8 +68,17 @@ app.use('/seed', seedController);
 //ROUTES
 //home index method is GET matching url path '/'
 app.get('/', (req, res) => {
-    //'home index mathcing route found
-    res.render('./index.ejs', {
+    //'home index matching route found
+    res.render('recipes/index.ejs', {
+        documentTitle: 'No Sugars No Grains Food Recipes',
+        subTitle: 'Enjoy eating again',
+        message: req.session.message,
+        logged: req.session.logged
+    })
+});
+app.use('/auth', (req, res) => {
+    //'home index matching route found
+    res.render('auth/login.ejs', {
         documentTitle: 'No Sugars No Grains Food Recipes',
         subTitle: 'Enjoy eating again',
         message: req.session.message,
@@ -60,7 +86,7 @@ app.get('/', (req, res) => {
     })
 });
 //setting up the search page route
-app.get('/search', (req, res) => {
+app.get('/:search', (req, res) => {
     res.render('search', {
         documentTitle: 'No Sugars No Grains Food Recipes',
         subTitle: 'Enjoy eating again',
@@ -68,12 +94,10 @@ app.get('/search', (req, res) => {
         recipeHits: res.locals.recipeHits,
     });
 });
-//Directing app to use recipeRoutes for all recipes urls
-app.get('/recipes', recipeRoutes);
-//directing app to use authRoutes for user authentication
-app.get('/auth', authRoutes);
-//directing app to use userRoutes for users
-app.get('/user', userRoutes);
+// //directing app to use authRoutes for user authentication
+// app.use('/auth', authRoutes);
+// //directing app to use userRoutes for users
+// app.use('/user', userRoutes);
 
 app.get('*', (req, res) => {
     res.status(404).send({message: 'Oops Something Went Wrong'});
@@ -85,3 +109,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
 });
+

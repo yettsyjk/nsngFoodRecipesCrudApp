@@ -11,40 +11,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="/server.js"></script>
+    <style>
+body {
+  background-image: url('img/kalesalad_nsng.jpeg') no-repeat center center fixed;
+  background-color: #cccccc;
+}
+</style>
 </head>
 <body>
-        <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
+        <h3 class="logo" id="top">Welcome to No Sugars No Grains Food Recipes</h3>
             <nav>
                 <li><a href='/'>Home</a></li>
-                <li><a class="current" href='/recipes'>Recipes</a></li>
-                <li><a href='/recipes/add'>Add Recipes</a></li>
-                <li><a href='/search'>Search Recipes</a></li>
             </nav>
 			<!-- START Page Header -->
-        <div class="container">
-        <h1 class="primary">Recipes</h1>
-  </div>
-  <!-- END Page header -->
-  <!-- START body wrapping -->
-  <div>
-  
-  <!--Start image-->
-<div>
-</div>
-<!-- END Image -->          
-<!-- START Three content sections --> 
-                   
-<!-- END Three content sections -->
-
-<div>
-		<h4>Registration</h4>
+      <div class="container">
+		<h4>Register account to view the latest NSNG Recipes</h4>
 		<form action="/auth/registration" method="POST">
-			<input type="text" name="username" placeholder="username"><br>
-			<input type="email" name="email" placeholder="email@domain.com"><br>
-			<input type="password" name="password" placeholder="Length 6 characters"><br>
-			<button type="submit">Register</button>
+    <div class="form-field">
+		  	<label for="username"class="title">Username</label>
+        <input type="text" name="username" id="username" placeholder="Type username" autocomplete="off" required /><br>
+			 </div>
+       <div class="form-field">
+        <label for="password" class="title">Password</label>
+        <input type="password" placeholder="Length 6 characters" autocomplete="off" required/><br>
+      </div>
+       <div class="form-field">
+        <label for="email" class="title">Email</label>
+        <input type="email" value="email" placeholder="email@domain.com" autocomplete="off" required/><br>
+			</div>
+       <div class="form-field">
+        <input type="submit" class="button" value="Sign Up"/>
+      </div>
 		</form>
-		</div>
+    <form>
+    <p>Already have an account?</p>
+    <button type="button" href="/login">Login</button>
+    </form>
+    </div>
+		
 <!-- start Modal-->
  
 					<!-- end Modal-->

@@ -1,9 +1,11 @@
 //importing express and controller
 const express = require('express');
+const recipesRoutes = require('../services/recipes/recipeHelpers');
 const controller = require('../controllers/recipes.js');
 
 //create variable express route method
 const recipesRoutes = express.Router();
+const recipesRouter = expressRouter();
 
 //setting route index view
 recipesRoutes.get('/', controller.index);
@@ -30,6 +32,8 @@ console.log("created Recipe update route!");
 //setting up delete route 
 recipesRoutes.delete('/:id', controller.destroy);
 console.log("created Recipe destroy route!");
-
+recipesRouter.get('/:search', recipeHelpers.getRecipes, recipesController.sendApiRecipe);
+recipesRouter.Router.post('/create', recipesController.create);
 //exporting router
 module.exports = recipesRoutes;
+module.exports = recipesRouter;
