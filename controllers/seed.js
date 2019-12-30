@@ -6,6 +6,7 @@ const router = express.Router();
 
 //MODELS
 const Recipe = require('../models/recipe.js');
+const User = require('../models/user.js');
 
 //Recipes array to SEED recipes collection, routed
 const recipesToSeed = [
@@ -24,7 +25,7 @@ const recipesToSeed = [
 ]
 //ROUTES
 //Seed to INDEX ROUTE
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     //try this and if fails send back error
     try {
         //seed create route

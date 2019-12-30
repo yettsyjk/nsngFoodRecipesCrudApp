@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
-<head>
+  <html lang="en">
+  <head>
   <meta charset="utf-8">
 
   <!-- START Style Sheets -->
   <!-- Bootstrap CDN -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <!-- Our personal style sheet -->
-  <link rel="stylesheet" href="css/style.scss" charset="utf-8">>
+  <link rel="stylesheet" href="css/style.scss" charset="utf-8">
 <!-- END Style Sheets -->
 <!-- JavaScript & jQuery Links -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -15,23 +15,51 @@
 	<script src="/server.js"></script>
     <style>
 body {
-  background-image: url('img/kalesalad_nsng.jpeg') no-repeat center center fixed;
+  background-image: url('../img/kalesalad_nsng.jpeg') no-repeat center center fixed;
   background-color: #cccccc;
 }
 </style>
 </head>
 <body>
-        <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
+        <h1 class="logo" id="top">No Sugars No Grains Food Recipes</h1>
             <nav>
                 <li><a class="current" href='/'>Home</a></li>
-                <li><a href='/recipes'>Recipes</a></li>
-                <li><a href='/recipes/add'>Add Recipes</a></li>
-                <li><a href='/search'>Search Recipes</a></li>
+                <li><a href='/views/recipes/index.ejs'>Recipes</a></li>
+                <li><a href='/views/recipes/new.ejs'>Add Recipes</a></li>
+                <li><a href='/views/recipes/edit.ejs'>Search Recipes</a></li>
+            <% if(logged){ %>
+            <a href="auth/logout">Logout</a>
+            </li>
+            <% } %>
             </nav>
 			<!-- START Page Header -->
+      <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:pink;">
         <div class="container">
-        <h1 class="primary"><%= message %></h1>
-        <h2 class="primary"><%= subTitle %></h2>
+        <h1 class="primary"><%= message %></h1><% if(!logged) { %>
+   
+   <div class="container">
+<div class="login-form">
+<h4>Login to view NSNG Food Recipes</h4>
+		<form action="/auth/login" method="POST">
+			 <label for='username' class='title'>Username<input name='username' type='text' autocomplete="off" required/></label>
+            <label for='password' class='title'>Password<input name='password' type='password' autocomplete="off" required/></label>
+            <input type='submit' class='button' value='Log in' />
+        </form>
+</div>
+</div>
+</div>
+   <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:aqua;">
+ <h4>Please fill out this form to user an account</h4>
+			<form action="/auth/register" method="POST">
+				<input type="text" name="username" placeholder="username" autocomplete="off" required><br>
+				<input type="email" name="email" placeholder="email" autocomplete="off" required><br>
+				<input type="password" name="password" placeholder="password" autocomplete="off" required><br>
+				<%# Register Create route 1: The user clicks on the submit button, which packages the form data into an object where the keys of that object are the values of the "name" attribute of each input, and the values of each of those keys is what the user entered into that input, initiating a POST request -> server.js %>
+				<button type="submit">Register</button>
+			</form>
+ <% } %>
+        </div>
+
         <div class="button_container">
         <a class="button" href="/recipes">View All Recipes</a>
         <a class="button" href="/recipes/add">Create a new recipe</a>
@@ -51,26 +79,10 @@ body {
 </div>
 <!-- END Three content sections -->
 <!--Login.ejs-->
-<!--Registration.ejs-->
+<!--Register.ejs-->
 
 <!-- start Modal-->
- <div>
-                    <input type="checkbox" id="toggle">
-                    <label for="toggle">About NSNG Food Recipes</label>
-                    <dialog>
-                    <h2>No Sugar No Grains #nsng Frequently Asked Questions</h2>
-                <p>What are considered grains?<br>
-Answer: According to the USDA, grains are “any food made from wheat, rice, oats, cornmeal, barley or another cereal grain is a grain product. Bread, pasta, oatmeal, breakfast cereals, tortillas, and grits are examples of grain products.”</p>
-                <p>In a ‪NSNG lifestyle, what are considered ‘sugars’?<br>
-Answer: Glucose, Fructose, Sucrose, Glucose Syrup, Corn Syrup, High Fructose Corn Syrup (HFCS), Fruit Sugar, Raw Honey, Maple Syrup, Molasses, Agave Nectar, Palm Sugar, Coconut Sugar. </p>
-                <p>What are ‪NSNG suggested fats?<br>
-Answer: Grass fed butter, coconut oil, macadamia nut oil, avocado oil, heavy whipping cream, nut butters (be careful to read the ingredient label to make sure it is pure nut butter and not filled with a lot of additives and other oils), Villa Capelli olive oil (no olio della lampada), lard, tallow, bacon grease, ghee, MCT oil, full fat dairy (if you can tolerate it), olives, avocados, full fat coconut milk. </p>
-                    <p>What are some ‪‎NSNG suggested snacks?<br>
-Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat cheese, raw nuts, olives, pumpkin seeds, 85% or greater dark chocolate, deviled eggs (homemade mayo), pepperoni slices, coconut oil, avocado, lettuce rolled up with smoked salmon and full fat cream cheese, hummus and celery, pickles, shot of olive oil, coffee with heavy cream (or grass fed butter, or coconut oil).</p>
-<div id="modal-footer">
-<label for="toggle">Close</label>
-</dialog>
-</div>
+ 
 					<!-- end Modal-->
 
         <button type="button" id="topButton" href="#top"> Back to Top</button>
