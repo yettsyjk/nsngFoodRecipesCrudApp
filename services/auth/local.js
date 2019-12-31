@@ -20,11 +20,11 @@ passport.use( new LocalStrategy(options, (username, password, done) =>{
     User.findByUserName(username)
     .then(user => {
         if(!user) {
-            console.log('no user');
+            console.log('no user from local.js');
         return done(null, false);
     }
     if(!authHelpers.comparePass(password, user.password)) {
-        console.log('wrong password');
+        console.log('wrong password from local.js');
         return done(null, false);
     } else {
         return done(null, user);

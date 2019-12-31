@@ -1,5 +1,5 @@
---inserting values into recipe table
-INSERT INTO recipes (title, author, description, category_type, ingredients, photo) VALUES
+--inserting values into recipe table nusing pgAdmin4 
+INSERT INTO public."recipes" ("title", "author", "description", "category_type", "ingredients", "photo") VALUES
  (
         'Shrimp Scampi', 
         'Hyde Sauce', 
@@ -7,6 +7,14 @@ INSERT INTO recipes (title, author, description, category_type, ingredients, pho
         1, 
         '{"1 (16 ounce) package linguine","1/4 cup olive oil","1/4 cup butter","6 cloves garlic",minced,"1 pound peeled and deveined medium shrimp","3/4 cup white wine","1/2 cup lemon juice","1/4 teaspoon crushed red pepper","1 tablespoon chopped fresh basil","1/2 teaspoon salt","1/2 pint grape tomatoes",halved,"2 tablespoons grated Pecorino Romano cheese","1 tablespoon chopped fresh parsley"}',
         'https://c1.staticflickr.com/1/66/161224077_17bc6c759f_z.jpg?zz=1'
+    ),
+    (
+        'Cheesy Zucchini sliders', 
+        'Pedro Bigz', 
+        'Combine ricotta cheese, egg, onion, milk and almond flour. Season with salt and pepper. Clean and slice zucchini into thin slices and place into baking dish. Pour mustard, and tomato mixture over loaf. Bake at 350 degrees for 1 hour.', 
+        2,
+        '{"1 1/2 pounds ground beef","1 egg","1 onion",chopped,"1 cup milk","1 cup almond flour","salt and pepper to taste","2 tablespoons brown sugar","2 tablespoons prepared mustard","1/3 cup tomotoes"}',
+        'https://media.giphy.com/media/zG1Ahac9UHcIw/giphy.gif'
     ),
     (
         'Cheesy Bacon Meatloaf', 

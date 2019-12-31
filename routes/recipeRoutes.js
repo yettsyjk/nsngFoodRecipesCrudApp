@@ -33,7 +33,7 @@ console.log("created Recipe update route!");
 recipesRoutes.delete('/:id', controller.destroy);
 console.log("created Recipe destroy route!");
 recipesRouter.get('/:search', recipeHelpers.getRecipes, recipesController.sendApiRecipe);
-recipesRouter.Router.post('/create', recipesController.create);
+recipesRouter.post('/create', recipesController.create);
 //exporting router
 module.exports = recipesRoutes;
 module.exports = recipesRouter;

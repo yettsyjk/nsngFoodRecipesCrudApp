@@ -12,12 +12,13 @@ const session = require('express-session');
 const passport = require('passport');
 //creating variable for express function
 const app = express();
+const routes = express.Router();
 //create connection to the db server
 require('./db/db');
 require('isomorphic-fetch');
 require('dotenv').config();
 
-//setting up port for express to listen for activity
+//Turn on that server!
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
@@ -27,7 +28,7 @@ app.listen(PORT, () => {
 app.set('view engine', 'ejs');
 
 //MIDDLEWARE
-//settong up cors
+//setting up cors
 app.use(cors());
 //settong up logger morgan function to run dev script
 app.use(logger('dev'));
@@ -42,7 +43,7 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(session({
     //secret key opens session This is stored on the server
-    secret: "random secret string",
+    secret: process.env.SECRET_KEY,
     //only save the session is a session property is added or mutated
     resave: false,
     //only save the cookie when property is added to the session. to comply with LAW
@@ -53,34 +54,34 @@ app.use(passport.initialize());
 app.use(passport.session());
 //directing express views
 //here you set that all the templates are located in `/views` directory
-app.set('views', path.join(__dirname, '/views'));
+app.set(express.static(path.join(__dirname, 'client/views')));
 
 
 
-//recipesControllers is given export router class
-const recipesControllers = require('./controllers/recipes');
+
 //importing recipeHelper function for the search view
 const recipeHelpers = require('./services/recipes/recipeHelpers');
 console.log('connected recipeHelpers');
-const recipeRoutes = require('./controllers/recipes');
-const usersRoutes = require('./routes/userRoutes');
-const authRoutes = require('/routes/auth');
-const usersControllers = require('./controllers/users');
-const seedController = require('./controllers/seed.js');
+// const recipeRoutes = require('../routes/recipesRoutes');
+const userRoutes = require('./services/routes/users');
+const authRoutes = require('./services/routes/auth');
+const controllers = require('./controllers/recipes');
+const seedController = require('./controllers/seed');
 
+app.use('/', routes);
 //Directing app to use recipeRoutes for all recipes urls
 app.use('/routes', recipeRoutes);
 
 //directing app to use authRoutes for user authentication
 app.use('/auth', authRoutes);
 //directing app to use userRoutes for users
-app.use('/api/user', userRoutes);
+app.use('/routes/users.js', userRoutes);
 //CONTROLLERS
-app.use('/recipes', recipesControllers);
+app.use('/recipes', controllers);
 console.log('connected recipesController');
 //directing app to use fpr recipe URL routes
 //userControllers export router 
-app.use('/auth', usersControllers);
+app.use('./auth', usersControllers);
 console.log('connected usersController');
 //seedController exported router class in teh seed controller
 app.use('/seed', seedController);

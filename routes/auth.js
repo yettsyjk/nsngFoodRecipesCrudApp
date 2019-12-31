@@ -2,7 +2,7 @@
 const express = require('express');
 
 //importing users controllers
-const controller = require('../controllers/usersController');
+const controller = require('../controllers/userController');
 
 //setting variable for express router
 const router = express.Router();
@@ -18,24 +18,26 @@ test = (req, res, next) => {
 
 
 //setting up route for the user registration view
+//this function redirects login failed and sends failure message to the client
 router.get('/login', (req, res) => {
     res.json({
         messgae: 'login failed'
     })
 });
 
-router.get('/login', (req, res) => {
-    res.render('auth/login.ejs', {
-        documentTitle: `NSNG - New Recipe`,
-        message: 'User Login',
-    });
-});
+//this function send user info back to client after success in register
+// router.get('/register', (req, res) => {
+//     res.render('auth/login.ejs', {
+//         documentTitle: `NSNG - Welcome back, ${username}`,
+//         message: 'User Login',
+//     });
+// });
 router.get('/register', (req, res) => {
 res.json(res);
     });
     
-    //setting up route for user logout function
-router.get('/logout', (req,res) => {
+    //setting up route for user logout function and redirects to the home page
+router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
     });

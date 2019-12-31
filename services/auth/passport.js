@@ -13,11 +13,11 @@ module.exports = () => {
 passport.deserializeUser((username, done) => {
     User.findByUserName(username)
     .then(user => {
-        console.log('user', user);
+        console.log('user from passport.js', user);
         done(null, user);
     })
     .catch(err => {
-        console.log(err);
+        console.log(err, 'from passport.js');
         done(err, null);
     });
 });

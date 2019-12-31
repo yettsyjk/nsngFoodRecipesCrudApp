@@ -1,5 +1,5 @@
 --inserting values into category tables
-INSERT INTO categories (category_type) VALUES
+INSERT INTO public."categories" ("category_type") VALUES
 ('Vegetarian'),
 ('Beef'),
 ('Pork'),
