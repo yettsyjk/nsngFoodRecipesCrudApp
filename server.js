@@ -54,53 +54,53 @@ app.use(passport.initialize());
 app.use(passport.session());
 //directing express views
 //here you set that all the templates are located in `/views` directory
-app.set(express.static(path.join(__dirname, 'client/views')));
+app.set(express.static(path.join(__dirname, 'views')));
 
 
 
 
 //importing recipeHelper function for the search view
-const recipeHelpers = require('./services/recipes/recipeHelpers');
-console.log('connected recipeHelpers');
+// const recipeHelpers = require('./services/recipes/recipeHelpers');
+// console.log('connected recipeHelpers');
 // const recipeRoutes = require('../routes/recipesRoutes');
-const userRoutes = require('./services/routes/users');
-const authRoutes = require('./services/routes/auth');
-const controllers = require('./controllers/recipes');
-const seedController = require('./controllers/seed');
+// const userRoutes = require('./services/routes/users');
+// const authRoutes = require('./services/routes/auth');
+// const controllers = require('./controllers/recipes');
+// const seedController = require('./controllers/seed');
 
-app.use('/', routes);
-//Directing app to use recipeRoutes for all recipes urls
-app.use('/routes', recipeRoutes);
+// app.use('/', routes);
+// //Directing app to use recipeRoutes for all recipes urls
+// app.use('/routes', recipeRoutes);
 
-//directing app to use authRoutes for user authentication
-app.use('/auth', authRoutes);
-//directing app to use userRoutes for users
-app.use('/routes/users.js', userRoutes);
-//CONTROLLERS
-app.use('/recipes', controllers);
-console.log('connected recipesController');
-//directing app to use fpr recipe URL routes
-//userControllers export router 
-app.use('./auth', usersControllers);
-console.log('connected usersController');
-//seedController exported router class in teh seed controller
-app.use('/seed', seedController);
-console.log(`connected ${seedController}`);
+// //directing app to use authRoutes for user authentication
+// app.use('/auth', authRoutes);
+// //directing app to use userRoutes for users
+// app.use('/routes/users.js', userRoutes);
+// //CONTROLLERS
+// app.use('/recipes', controllers);
+// console.log('connected recipesController');
+// //directing app to use fpr recipe URL routes
+// //userControllers export router 
+// app.use('./auth', usersControllers);
+// console.log('connected usersController');
+// //seedController exported router class in teh seed controller
+// app.use('/seed', seedController);
+// console.log(`connected ${seedController}`);
 
-app.get('/api/users', usersRoutes);
-app.get('/auth', authRoutes);
+// app.get('/api/users', usersRoutes);
+// app.get('/auth', authRoutes);
 
- app.get('/*', (req, res) => {
-res.sendFile(path.join(__dirname, 'client/build', 'index'));
-});
+//  app.get('/*', (req, res) => {
+// res.sendFile(path.join(__dirname, 'views', 'ejs'));
+// });
 
 
-app.post('/api/search', recipeHelpers, (req, res) => {
-    res.json({
-        documentTitle: 'No Sugars No Grains Food Recipes',
-        message: 'ok recipeHelpers',
-    })
-    });
+// app.post('/api/search', recipeHelpers, (req, res) => {
+//     res.json({
+//         documentTitle: 'No Sugars No Grains Food Recipes',
+//         message: 'ok recipeHelpers',
+//     })
+//     });
 
     //'home index matching route found
     //res.send('hello world');
@@ -140,7 +140,7 @@ app.post('/api/search', recipeHelpers, (req, res) => {
 //     });
 // });
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'views', 'index.ejs'));
 });
 
 app.get('*', (req, res) => {
