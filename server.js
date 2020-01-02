@@ -125,7 +125,7 @@ app.get('/', (req, res) => {
     });
 });
 
-//                     //Login Page ROUTE
+// Commenting out SQL didnt work Login Page ROUTE//
 // app.get('/auth/login', (req, res) => {
 //     //'home index matching route found
 //     res.render('views/recipes/index', {

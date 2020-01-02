@@ -144,12 +144,15 @@ router.post('/registration', async (req, res) => {
     //USERS REGISTER CREATE ROUTE user object efore we create it in the database
     const userDbEntry = {
         //using req.sessions matches the 
-        username: req.session.username,
+        username: req.body.username,
         email: req.session.email,
         password: passwordHash,
     };
     try {
         const createdUser = await User.create(userDbEntry);
+        //USERS REGISTER CREATE ROUTE
+        //imported model is used to find creat a new user in the users collection using the new user object (userDBEntry)
+        //store it in a variable
         req.session.username = createdUser.username;
         req.session.logged = true;
         //RECIPES INDEX ROUTE localhost:3000/recipes
