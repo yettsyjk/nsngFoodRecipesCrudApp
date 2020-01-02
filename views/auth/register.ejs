@@ -1,27 +1,24 @@
-<head>
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
   <meta charset="utf-8">
 
-  <!-- START Style Sheets -->
-  <!-- Bootstrap CDN -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <!-- Our personal style sheet -->
-  <link rel="stylesheet" href="css/style.css" charset="utf-8">
-<!-- END Style Sheets -->
-<!-- JavaScript & jQuery Links -->
+  <%#START Style Sheets%>
+  <%#Bootstrap CDN%>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <%#Our personal style sheet%>
+  <link rel="stylesheet" href="css/style.scss" charset="utf-8">
+<%#END Style Sheets%>
+<%#JavaScript & jQuery Links%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="/server.js"></script>
-    <style>
-body {
-  background-image: url('img/kalesalad_nsng.jpeg') no-repeat center center fixed;
-  background-color: #cccccc;
-}
-</style>
+	<script src="/server.js"></script>
+    
 </head>
 <body>
         <h1 class="logo" id="top">Welcome to No Sugars No Grains Food Recipes</h1>
  
-			<!-- START Page Header -->
+			<%# START Page Header %>
       <div class="container">
       <h1>Sign Up</h1>
 		<p>Please fill in this form to create an account.</p>
@@ -61,12 +58,12 @@ body {
     </form>
     </div>
 		
-<!-- start Modal recipes index.ejs-->
+<%# start Modal recipes index.ejs%>
  
-					<!-- end Modal-->
+					<%# end Modal%>
 
         <button type="button" id="topButton" href="#top">Back to Top</button>
-        <!--a class="button" href="/recipes/">Add a new recipe</a-->
-        <!--a class="button" href='/recipes/'>Add a new recipe</a-->
+        <%#a class="button" href="/recipes/">Add a new recipe</a%>
+        <%#a class="button" href='/recipes/'>Add a new recipe</a%>
 		</div>
-  <!-- END of Body wrapping -->
+  <%# END of Body wrapping %>

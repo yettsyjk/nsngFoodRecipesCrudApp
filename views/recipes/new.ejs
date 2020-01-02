@@ -1,22 +1,19 @@
-<head>
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
   <meta charset="utf-8">
 
-  <!-- START Style Sheets -->
-  <!-- Bootstrap CDN -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <!-- Our personal style sheet -->
+  <%#START Style Sheets%>
+  <%#Bootstrap CDN%>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <%#Our personal style sheet%>
   <link rel="stylesheet" href="css/style.scss" charset="utf-8">
-<!-- END Style Sheets -->
-<!-- JavaScript & jQuery Links -->
+<%#END Style Sheets%>
+<%#JavaScript & jQuery Links%>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="/server.js"></script>
-    <style>
-body {
-  background-image: url('img/kalesalad_nsng.jpeg') no-repeat center center fixed;
-  background-color: #cccccc;
-}
-</style>
+    
 </head>
      <header>
          <h3 class="logo">Create a New #nsng Recipe</h3>
@@ -24,46 +21,18 @@ body {
             <ul>
                 <li><a href='/'>Home</a></li>
             <li><a href='/recipes'>Nsng Recipes Index</a></li>
-            <li><a class="current" href='/recipes/add'>Add Nsng Recipes</a></li>
-            <li><a href='/search'>Search Nsng Recipes</a></li>
+           
         </ul>
     </nav>
      </header>
      <main>
-        <div class="container">
-        <h1 class="primary">New recipe</h1>
-    <label for="photourl" class="title">Photo URL:<br><input name="photourl" type="text" placeholder="paste image url here"/></label></br>
-    </div>
-        
-         <form class="input form" id="input_form" method="POST" action='/recipes'>
-         
-         <div class="button_container">
-         <label for="title" class="title">Title:<input name="title" id="title" type="text" class="form"/></label></br>
-         <label for="author" class="title">Author:<input name="author" id="author" type="text" class="form"/></label></br>
-         <label for="category_type"class="title">Category></label>
-         <input type="text" name="name" placeholder="Recipe name"/>
-         <input type="submit" value="Create Recipe"/>
-         <option value='1'>Seafood</option>
-          <option value='2'>Fish</option>
-          <option value='3'>Beef</option>
-          <option value='4'>Poultry</option>
-          <option value='5'>Pork</option>
-          <option value='6'>Vegetarian</option>
-          <option value='7'>Misc.</option>
-        </select>
-      </label></br>
-      <label id='ingredientlist' class='title'>Ingredients:</br></br>
-      </label></br>
-      <button type='button' class='button add_ingredient'>Add Ingredient</button></br>
-      <input name='ingredients' class='hidden' id='ingredients' type='text'/> 
-      <input name='photo' class='hidden' id='photosub' type='text'/> 
-      <label for='description' class='title'>Directions:</br><textarea name='description' id='description' class='form' placeholder='Tell us about your recipe here...'></textarea></label></br>
-      <input type='submit' class='button' id='submit1' value='Create Recipe' />
-    </div>
+       <form action="/recipes" method="POST">
+       <label>Name</label><br>
+       <input type="text" name="name" plecaeholder="recipe Name"/>
+       <input type="submit" value="Create Recipe"/>
          </form>
-         </div><!-- end of container -->
-         </div>
-         <script src='../../public/js/main.js'></script>
-         <% include ../partials/footer.ejs %>
+         <%# end of container %>
+         
+        
      </main>
   
