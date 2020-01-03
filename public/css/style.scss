@@ -9,7 +9,15 @@ body {
   background-color: linear-gradient(to right,#7f53ac 0,#657ced 100%);
   color: black
 }
-
+/* ####background image #####*/
+.registrations__left-panel {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #111111;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
 /* #Navigation# */
 header {
     font-weight: bold;
@@ -134,60 +142,42 @@ img {
 /*# New, Form# */
 /* Full-width input fields */
 
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-  input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
   
   hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
   }
-.login-form {
+  /*###Start Log in Form##*/
+  .login-form {
     width: 300px;
     margin: 0 auto;
     font-family: Tahoma, Geneva, sans-serif;
-}
-.login-form h1 {
+  }
+  .login-form h1 {
     text-align: center;
-    color: #000000;
+    color: #4d4d4d;
     font-size: 24px;
     padding: 20px 0 20px 0;
-}
-.login-form input[type="password"],
-.login-form input[type="text"] {
-    color: #000000;
+  }
+  .login-form input[type="password"],
+  .login-form input[type="text"] {
     width: 100%;
     padding: 15px;
     border: 1px solid #dddddd;
     margin-bottom: 15px;
     box-sizing:border-box;
-}
-.login-form input[type="submit"] {
-    color: #000000;
+  }
+  .login-form input[type="submit"] {
     width: 100%;
     padding: 15px;
-    background-color: #000000;
+    background-color: #535b63;
     border: 0;
     box-sizing: border-box;
     cursor: pointer;
     font-weight: bold;
     color: #ffffff;
-	-webkit-transition:0.2s ease all;
-	   -moz-transition:0.2s ease all;
-	    -ms-transition:0.2s ease all;
-	     -o-transition:0.2s ease all;
-	        transition:0.2s ease all;
-}
+  }
+  /*###End Log in Form##*/
 
 input[type="submit"]:hover {
 	opacity:0.8;
