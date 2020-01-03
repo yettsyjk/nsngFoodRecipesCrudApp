@@ -4,17 +4,11 @@
 //------Dependencies -------------//
 //setting up variables for node modules
 const express = require('express');
-//commenting out SQL pg-promise module because it doesnt run with MongoDB
-//path, morgan, body-parser
-// const path = require('path');
-// const logger = require('morgan');
-// const bodyParser = require('body-parser');
-//commenting out SQL pg-promise module because it doesnt run with MongoDB
-// const cors = require('cors');
+
 //creating variable for express function
 const app = express();
 const methodOverride = require('method-override');
-// const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 //commenting out SQL pg promise express-session package allows server to store data to access across requests
 const session = require('express-session');
 //Commenting out SQL pg promise passport
@@ -30,13 +24,9 @@ require('dotenv').config();
 // app.set('view engine', 'ejs');
 
 //-----MIDDLEWARE------------------//
-//commenting out SQL pg-promise module because it doesnt run with MongoDB
-//setting up cors
-// app.use(cors());
-//setting up logger morgan function to run dev script
-// app.use(logger('dev'));
+
 // //commenting out SQL pg-promise setting up cookie parser module
-// app.use(cookieParser());
+app.use(cookieParser());
 // app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 //directing exprss to static files
@@ -52,41 +42,13 @@ app.use(session({
         //only save the cookie when property is added to the session. to comply with LAW
         saveUninitialized: false
     }))
-    //setting up the passport module
-    // app.use(passport.initialize());
-    // app.use(passport.session());
-    //directing express views
-    //here you set that all the templates are located in `/views` directory
-    // app.set(express.static(path.join(__dirname, 'views')));
     
-    
-    
-    //----SQL CONTROLLERS-----//
-    
-    //Commenting out SQL pg promise - importing recipeHelper function for the search view
-    // const recipeHelpers = require('./recipeHelpers');
-    // console.log('connected recipeHelpers');
-    // app.post('/', recipeHelpers, (req, res) => {
-        //     res.json({
-            //         documentTitle: 'No Sugars No Grains Food Recipes',
-            //         message: 'ok recipeHelpers',
-            //     })
-            //     });
-            
-            
-            // const recipeRoutes = require('../routes/recipesRoutes');
-            // //Commenting out SQL pg promise Directing app to use recipeRoutes for all recipes urls
-            // app.use('/routes', recipeRoutes);
-            // const userRoutes = require('./routes/users');
-            // //Commenting out SQL pg promise directing app to use userRoutes for users
-            // app.use('/routes/users.js', userRoutes);
-            // const authRoutes = require('./routes/auth');
-            // //Commenting out SQL pg promise directing app to use authRoutes for user authentication
-            // app.use('/auth', authRoutes);
-            // app.use('/', authRoutes);
 //----MONGODB CONTROLLERS-----//
-//controller are loaded for use when requests arrive
+//recipesController is given the value of the exported router class in recipes controller (controllers/recipes.js)
 const recipesController = require('./controllers/recipes');
+//All /recipes routes  the request url is evaluated
+//immediately follows the domain (localhost:3000) the request are directed to controller file
+//if path begins with '/recipes/, the request directed to recipesController (controllers/recipes.js)
 app.use('/recipes', recipesController);
 // console.log('connected recipesController');
 
@@ -118,6 +80,7 @@ app.get('/', (req, res) => {
     console.log(req.session, 'inside get /')
     res.render('index.ejs', {
         documentTitle: 'No Sugars No Grains Food Recipes',
+        username: req.body.username,
         message: 'Welcome Back',
         subTitle: 'Enjoy eating again',
         logged: req.session.logged,
@@ -126,7 +89,7 @@ app.get('/', (req, res) => {
 });
 
 // Commenting out SQL didnt work Login Page ROUTE//
-// app.get('/auth/login', (req, res) => {
+// app.get('/user/login', (req, res) => {
 //     //'home index matching route found
 //     res.render('views/recipes/index', {
 //         documentTitle: 'No Sugars No Grains Food Recipes',

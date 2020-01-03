@@ -1,16 +1,20 @@
 //-------DEPENDENCIES ------//
+//express library is set to express variable in order to use router (controllers/articles.js)
 const express = require('express');
 
 //--------CLASSESS-----------//
+//router class to the router variable for router handling
 const router = express.Router();
 
 //-----------MODELS-------------//
+//the Article variable  is assigned the export data from the artrecipes model
 const Article = require('../models/artrecipes.js');
 const Recipe = require('../models/recipe.js');
 
 
 //------------ROUTEs-----------------//
 //--New ROUTE---//
+//GET method
 router.get('/new', async (req,res) => {
     // Try the first part. If that fails, send back the error.
     try {
@@ -28,16 +32,18 @@ router.get('/new', async (req,res) => {
         res.send(err);
     }
 });
-//--CREATE ROUTE---//
+//-----------CREATE ROUTE--------------//
+//POST method mathcing path '/'
 router.post('/', async (req,res) => {
     // Try the first part. If that fails, send back the error.
     try {
+    //the imported Article model uses the data from (req.body_)
         await Article.create(req.body);
-        //
-        //
-        //
+        //after the new data is created in the database
+        //the user should be redirected back o index route
+        //the user get redirected to localhost:3000/articles
         res.redirect('/articles');
-    //
+    //send back error if the try doens\'t work
     } catch (err) {
         res.send(err);
     }

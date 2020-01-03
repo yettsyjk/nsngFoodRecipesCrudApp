@@ -16,21 +16,41 @@
     
 </head>
      <header>
-         <h3 class="logo">Create a New #nsng Recipe</h3>
+         <h2 class="logo">Create a New #nsng Recipe</h2>
          <nav>
             <ul>
-                <li><a href='/'>Home</a></li>
-            <li><a href='/recipes'>Nsng Recipes Index</a></li>
-           
+                <li><a href="/">Home</a></li>
+            <li><a href="/recipes">Nsng Recipes Index</a></li>
+           <h2>No Sugars No Grains Food Recipes</h2>
         </ul>
     </nav>
      </header>
      <main>
+     <form>
        <form action="/recipes" method="POST">
-       <label>Name</label><br>
-       <input type="text" name="name" plecaeholder="recipe Name"/>
+       
+     <div class="form-group">
+       <label for="recipe">Recipe title:</label><br>
+       <input type="text" class="form-control" id="newRecipe" aria-describedby="nameHelp" placeholder="Recipe Title" autocomplete="off" required/>
+</div>
+
+       <div class="form-group">
+       <input type="text" id="name" aria-describedby="nameHelp" placeholder="Author Name" autocomplete="off" required/>
+       <label for="name">Author name:</label><br>
+</div>
+
+<div class="form-group">
+       <label for="description">Recipe description:</label><br>
+       <input type="text" id="name" aria-describedby="nameHelp" placeholder="Recipe Description" autocomplete="off" required/>
+       </div>
+
+<div class="form-group">
+       <label for="ingredients">Recipe ingredients:</label><br>
+       <input type="text" id="name" aria-describedby="nameHelp" placeholder="Recipe Ingredients" autocomplete="off" required/>
+</div>
        <input type="submit" value="Create Recipe"/>
          </form>
+         </div>
          <%# end of container %>
          
         
