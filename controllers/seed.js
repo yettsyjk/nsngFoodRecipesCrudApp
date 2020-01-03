@@ -6,36 +6,36 @@ const router = express.Router();
 
 //------MODELS---------------------//
 const Recipe = require('../models/recipe.js');
-const User = require('../models/user.js');
-const Article = require('../models/artrecipes.js')
+// const User = require('../models/user.js');
+// const Article = require('../models/artrecipes.js')
 
 //Recipes array to SEED recipes collection, routed
-const recipesToSeed = [
-    {
-        title: 'cauliflower pizza crust'
-    },
-    {
-        title: 'spinach and cheese'
-    },
-    {
-        title: 'caprese salad'
-    },
-    {
-        title: 'carne asada'
-    },
-]
+// const recipesToSeed = [
+//     {
+//         title: 'cauliflower pizza crust'
+//     },
+//     {
+//         title: 'spinach and cheese'
+//     },
+//     {
+//         title: 'caprese salad'
+//     },
+//     {
+//         title: 'carne asada'
+//     },
+// ]
 //---------ROUTES-----------//
 //-----Seed to INDEX ROUTE-----------//
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
     //try this and if fails send back error
     try {
         //seed create route
         //matching route is found the Recipe and Article models are used to
         //seed the datain our arrays into the database (controllers/recipes.js)
-        await Recipe.collection.drop();
-        await Article.collection.drop();
-        const newRecipes = await Recipe.create(recipesToSeed);
-        const articlesToSeed = [{
+        // await Recipe.collection.drop();
+        // await Article.collection.drop();
+        // const newRecipes = await Recipe.create(recipesToSeed);
+        const recipesToSeed = [{
               title: 'Shrimp Scampi', 
               author: 'Hyde Sauce', 
              description: 'Simply sauté the shrimp with garlic in butter and olive oil, splash it with some white wine, let the wine reduce while the shrimp cooks, and then toss it with fresh parsley, lemon juice and black pepper.',
@@ -52,10 +52,10 @@ router.post('/', async (req, res) => {
                 photo: url('https://media.giphy.com/media/zG1Ahac9UHcIw/giphy.gif')
             },
         ]
-        await Article.create(articlesToSeed);
+        const seededRecipes = await Recipe.create(recipesToSeed);
         //now that we creates recipes and associated them with new articles
-        const articlesAndRecipes = await Article.find().populate('recipe').exec();
-        res.json(articlesAndRecipes);
+        // const articlesAndRecipes = await Article.find().populate('recipe').exec();
+        res.json(seededRecipes);
         //SEED INDEX ROUTE don't render 
         //sending json back to the browser to confirm the article and recipes created 
     } catch (err){

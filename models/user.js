@@ -14,7 +14,6 @@ const userSchema = mongoose.Schema({
 
 //create a model object
 const User = mongoose.model('User', userSchema);
-console.log('userSchema');
 
 // //Commenting out SQL pg promise due to not working creating a method to find the username in the database
 // Users.findByUserName = userName => {

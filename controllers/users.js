@@ -14,7 +14,7 @@ const User = require('../models/user.js');
 router.post('/', async (req, res) =>{
     //try this part first and if that failes send back error
     try {
-        await Recipe.create(req.body);
+        await User.create(req.body);
         res.redirect('/recipes');
 
     } catch (err) {
@@ -22,27 +22,27 @@ router.post('/', async (req, res) =>{
     }
 });
 //--Create Route--//
-router.get('/', async (req, res) => {
-    //try this part first and if that failes send back error
- try {
-    await Recipe.create(req.body);
-    res.redirect('/recipes');
- } catch(err) {
-     res.send(err);
- }
-});
+// router.get('/', async (req, res) => {
+//     //try this part first and if that failes send back error
+//  try {
+//     await Recipe.create(req.body);
+//     res.redirect('/recipes');
+//  } catch(err) {
+//      res.send(err);
+//  }
+// });
 //------Index Route--//
-router.get('/', async (req, res) => {
-    //try this part first and if that failes send back error
- try{
-    const foundRecipes = await Recipe.find();
-    res.render('recipes/index.ejs', {
-        recipes: foundRecipes
-    });
- }catch (err) {
-     res.send(err);
- }
-});
+// router.get('/', async (req, res) => {
+//     //try this part first and if that failes send back error
+//  try{
+//     const foundRecipes = await Recipe.find();
+//     res.render('recipes/index.ejs', {
+//         recipes: foundRecipes
+//     });
+//  }catch (err) {
+//      res.send(err);
+//  }
+// });
 //-----Show Route----//
 router.get('/:id', async (req, res) => {
     //try this part first and if that failes send back error
@@ -113,17 +113,23 @@ router.post('/login', async (req, res) => {
     //try this and if that fails send back an error
     try {
         //user login CREATE ROUTE
-        const foundUser = await User.fineOne({
-            username: req.session.username
+        // console.log(req.body)
+        const foundUser = await User.findOne({
+            username: req.body.username
         });
+        // console.log(req.session)
         if(foundUser) {
-            if(bcrypt.compareSync(req.body.paswoord, foundUser.password)) {
+            // console.log("attempting verification", Date.now(), foundUser)
+            const userTest = bcrypt.compareSync(req.body.password, foundUser.password);
+            // console.log(userTest);
+            if(userTest) {
                 req.session.message = '';
                 req.session.username = foundUser.username;
+                req.session.id = foundUser._id;
                 req.session.logged = true;
                 //Recipe INDEX ROUTE user gets redirected to localhost:3000/recipes
                 res.redirect('/recipes')
-            } else {
+            } else if (userTest === false){
                 req.session.message = 'Username or password is incorrect';
                 //HOME INDEX ROUTE user gets redirected to localhost:3000
                 res.redirect('/');
@@ -138,6 +144,7 @@ router.post('/login', async (req, res) => {
 });
 //----------REGISTER CREATE ROUTE----------------//
 router.post('/registration', async (req, res) => {
+    console.log('this is hitting the user registration')
     //USERS REGISTER CREATE ROUTE
     //a generated salt combines register form and hash them to create a hashed password
     const passwordHash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
@@ -145,7 +152,7 @@ router.post('/registration', async (req, res) => {
     const userDbEntry = {
         //using req.sessions matches the 
         username: req.body.username,
-        email: req.session.email,
+        email: req.body.email,
         password: passwordHash,
     };
     try {

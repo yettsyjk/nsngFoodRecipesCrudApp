@@ -88,21 +88,21 @@ app.use(session({
 //controller are loaded for use when requests arrive
 const recipesController = require('./controllers/recipes');
 app.use('/recipes', recipesController);
-console.log('connected recipesController');
+// console.log('connected recipesController');
 
 const articlesController = require('./controllers/articles');
 app.use('/articles', articlesController);
 
 const usersController = require('./controllers/users');
-console.log('connected usersController');
+// console.log('connected usersController');
 //userControllers export router 
-app.use('/auth', usersController);
+app.use('/user', usersController);
 
 
 const seedController = require('./controllers/seed');
 //seedController exported router class in teh seed controller
 app.use('/seed', seedController);
-console.log(`connected ${seedController}`);
+// console.log(`connected ${seedController}`);
 //--- end of MongoDB Controllers----//
 
             //commenting out SQL pg promise because it wasnt working properly
@@ -111,17 +111,17 @@ console.log(`connected ${seedController}`);
             
             //  app.get('/*', (req, res) => {
                 // res.sendFile(path.join(__dirname, 'views', 'ejs'));
-                // });
-                
-                
+                // });             
 app.get('/', (req, res) => {
     //'home index matching route found commented out res.send once the page worked
     // res.send('hello world');
+    console.log(req.session, 'inside get /')
     res.render('index.ejs', {
         documentTitle: 'No Sugars No Grains Food Recipes',
         message: 'Welcome Back',
         subTitle: 'Enjoy eating again',
-        logged: req.session.logged
+        logged: req.session.logged,
+        alert: req.session.message
     });
 });
 

@@ -25,9 +25,11 @@
             <nav>
             <li><a href="/recipes">Will this take me back to Home page?</a></li>
             <li><a href="/articles">Is this the Articles Home page?</a></li>
-                
+            <%if(alert!== undefined){%>
+                <p><%=alert%></p>
+            <%}%>    
             <% if(logged){ %>
-            <li><a href="auth/logout">Logout</a></li>
+            <li><a href="/user/logout">Logout</a></li>
             <% } %>
             </nav>
 			<%#START Page Header%>
@@ -39,7 +41,7 @@
    <div class="container">
 <div class="login-form">
 <h4>Login to view NSNG Food Recipes</h4>
-		<form action="/auth/login" method="POST">
+		<form action="/user/login" method="POST">
 			 <label for="username" class="title">Username<input name="username" type="text" autocomplete="off" required/></label>
             <label for="password" class="title">Password<input name="password" type="password" autocomplete="off" required/></label>
             <input type="submit" class="button" value="Log in" />
@@ -49,7 +51,7 @@
 </div>
    <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:aqua;">
  <h4>Please fill out this form to create an account</h4>
-			<form action="/auth/registration" method="POST">
+			<form action="/user/registration" method="POST">
 				<input type="text" name="username" placeholder="username" autocomplete="off" required><br>
 				<input type="email" name="email" placeholder="email" autocomplete="off" required><br>
 				<input type="password" name="password" placeholder="password" autocomplete="off" required><br>
@@ -60,7 +62,7 @@
 
         <div class="button_container">
         
-  </div>
+        </div>
   <%#END Page header%>
   <%#START body wrapping%>
   <div>
