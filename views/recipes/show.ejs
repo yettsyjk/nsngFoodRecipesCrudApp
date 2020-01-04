@@ -22,7 +22,14 @@
         <nav>
             <ul>
                 <li>
-                <%#= Welcome, %>
+                <%#logout option%>
+            <%if(alert!== undefined){%>
+                <p><%=alert%></p>
+            <%}%>    
+            <% if(logged){ %>
+            <li><a href="/user/logout">Logout</a></li>
+            <% } %>
+            <%#logout option%>
                     <a href="/">Home</a>
                     </li>
                     <li>

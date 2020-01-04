@@ -21,11 +21,11 @@ router.post('/login', async (req, res) => {
         const foundUser = await User.findOne({
             username: req.body.username
         });
-        // console.log(req.session)
+        console.log(req.session)
         if(foundUser) {
             // console.log("attempting verification", Date.now(), foundUser)
             const userTest = bcrypt.compareSync(req.body.password, foundUser.password);
-            // console.log(userTest);
+            // console.log(userTest); //returns true in console.log
             if(userTest) {
                 req.session.message = '';
                 req.session.username = foundUser.username;

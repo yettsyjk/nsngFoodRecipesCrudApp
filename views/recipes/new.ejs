@@ -21,7 +21,14 @@
             <ul>
                 <li><a href="/">Home</a></li>
             <li><a href="/recipes">Nsng Recipes Index</a></li>
-            
+            <%#logout option%>
+            <%if(alert!== undefined){%>
+                <p><%=alert%></p>
+            <%}%>    
+            <% if(logged){ %>
+            <li><a href="/user/logout">Logout</a></li>
+            <% } %>
+            <%#logout option%>
            <h2>No Sugars No Grains Food Recipes</h2>
         </ul>
     </nav>
@@ -52,7 +59,7 @@
        <input type="submit" value="Create Recipe"/>
          </form>
          </div>
-         <%# end of container %>
+         <%# end of form%>
          
         
      </main>

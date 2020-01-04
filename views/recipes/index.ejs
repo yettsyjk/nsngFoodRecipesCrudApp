@@ -18,23 +18,31 @@
 </head>
     <body>
   <header>
+   
         <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
             <nav>
                 <li><a href="/">Home</a></li>
                 <li><a class="current" href="/recipes">Current Recipes Page</a></li>
                 <li><a href="/recipes/new/">Add Recipes</a></li>
-                <li><a href="/recipes/show/">Search Recipes</a></li>
-       
+              <%#logout option%>
+            <%if(alert!== undefined){%>
+                <p><%=alert%></p>
+            <%}%>    
+            <% if(logged){ %>
+            <li><a href="/user/logout">Logout</a></li>
+            <% } %>
+            <%#logout option%>
     </header>
 
             </nav>
     <main>
    
       <h2>List of Recipes</h2>
+       <h1><%= recipe.currentUser %></h1>
         <div class="container">
         <h1 class="primary">Recipes</h1>
-<% for(let i = 0; i < recipes.length; i++) {%>
-<li><a href="/recipes/<%= recipes.title %>"><%= recipes[i].title %></a></li>
+<% for(let i = 0; i < recipe.length; i++) {%>
+<li><a href="/recipes/<%= recipe.title %>"><%= recipe[i].title %></a></li>
 <% } %>
                    
 </div>

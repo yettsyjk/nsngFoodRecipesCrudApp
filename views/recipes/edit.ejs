@@ -22,6 +22,14 @@
            <li>
            <a href="/recipes">Recipes Index</a>
         </li>
+        <%#logout option%>
+            <%if(alert!== undefined){%>
+                <p><%=alert%></p>
+            <%}%>    
+            <% if(logged){ %>
+            <li><a href="/user/logout">Logout</a></li>
+            <% } %>
+            <%#logout option%>
     </ul>
     </nav>
      </header>

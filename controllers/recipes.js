@@ -20,9 +20,13 @@ const User = require('../models/user');
 //-----NEW ROUTE--------//
 //GET method url /recipes/new
 router.get('/new', async (req, res) => {
-    console.log('connected recipes new route');
+    console.log('connected recipes new route in recipes.js');
     //views/recipes/new.ejs matching route
-    res.render('recipes/new.ejs');
+    res.render('recipes/new.ejs', {
+        logged: req.session.logged,
+        alert: req.session.message
+});
+console.log('get passed add recipe new route in recipes.js');
 });
 //--------CREATE ROUTE---------//
 //POST method url /recipes
@@ -34,13 +38,19 @@ router.post('/', async (req, res)=> {
         const currentUser = await User.findOne({ username: req.session.username } );
         //take id and to req.body as value of req.body.user
         req.body.user = currentUser._id
-        console.log('connected recipes create route');
+        console.log('connected recipes create route in recipes.js');
         //the imported Recipe model uses the data from the form(req.body)
         //to create a new document in the recipes collections (controllers/recipes.js)
         await Recipe.create(req.body);
         //Recipes Create ROUTE user gets redirected to localhost:3000/recipes
        //initiating the GET request (server.js))
-        res.redirect('/recipes')
+        res.redirect('/recipes', 
+        {
+            recipe: foundRecipes,
+            logged: req.session.logged,
+            alert: req.session.message,
+    });
+    console.log('good passed create route')
     } catch (err) {
         res.send(err);
     }
@@ -50,6 +60,10 @@ router.get('/', async (req, res) => {
     try {
         //Matching route is found, the imported Author model 
         //is used to find all recipes in the recipes collection and store it in a variable.
+        const currentUser = await User.findOne({ username: req.session.username } );
+        //take id and to req.body as value of req.body.user
+        req.body.user = currentUser._id
+        console.log('connected currentUser in index route recipes.js');
         const foundRecipes = await Recipe.find();
         //Recipes Index Route response renders the view
 //First, it looks in the views directory for the first argument (recipes/index.ejs) 
@@ -57,7 +71,9 @@ router.get('/', async (req, res) => {
 //The key is how the view file will reference that data.
 res.render('recipes/index.ejs', {
     username: req.session.username,
-    recipes: foundRecipes
+    recipe: foundRecipes,
+    logged: req.session.logged,  
+    alert: req.session.message
 });    
 } catch (err) {
         res.send(err);
@@ -69,19 +85,20 @@ res.render('recipes/index.ejs', {
 router.get('/:id', async (req, res) => {
     //try this and if that fails return err
     try {
-        //
+        const currentUser = await User.findOne({ username: req.session.username } );
+        //take id and to req.body as value of req.body.user
+        req.body.user = currentUser._id
+        console.log('connected currentUser in show route');
         const foundRecipe = await Recipe.findById(req.params.id).populate("user");
         console.log(foundRecipe);
-        // const recipesArticles = await Article.find({
-            // recipe: foundRecipe._id
-        // });
-        // const recipesUsers = await User.find({ user: foundUser._id });
         //RECIPES INDEX ROUTE response renders
         res.render('recipes/show.ejs', {
             // user: foundUsers,
+            username: req.session.username,
             recipe: foundRecipe,
-            // articles: recipesUsers,
             documentTitle: "No Sugars No Grains Food Recipes",
+            logged: req.session.logged,
+            alert: req.session.message
         });
 //RECIPES INDEX ROUTE, send HTML back to Browser
     } catch (err) {
@@ -95,6 +112,10 @@ router.get('/:id', async (req, res) => {
 router.get('/:id/edit', async (req, res) => {
     //try this part first if that fails return an error
     try {
+        const currentUser = await User.findOne({ username: req.session.username } );
+        //take id and to req.body as value of req.body.user
+        req.body.user = currentUser._id
+        console.log('connected currentUser in show route');
 //RECIPES EDIT ROUTE
 const foundRecipe = await Recipe.findById(req.params.id);
 //RECIPE EDIT ROUTE response renders
@@ -103,6 +124,8 @@ res.render('recipes/edit.ejs', {
     recipe: foundRecipe,
     documentTitle: "No Sugars No Grains Food Recipes",
     username: req.user.username,
+    logged: req.session.logged,
+    alert: req.session.message
     });
     //RECIPES EDIT ROUTE return error
     } catch (err) {
@@ -115,6 +138,7 @@ res.render('recipes/edit.ejs', {
 router.put('/:id', async (req, res) => {
     //try this and if that fails send back an error
     try {
+    console.log('connected currentUser in show route');
         //RECIPES UPDATE ROUTE
         await Recipe.findByIdAndUpdate(req.params.id,req.body);
         //RECIPES UPDATE ROUTE redirect to localhost
@@ -130,10 +154,16 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     //try this and if it fails send back an error
     try {
+        const currentUser = await User.findOne({ username: req.session.username } );
+        //take id and to req.body as value of req.body.user
+        req.body.user = currentUser._id
+        console.log('connected currentUser in show route');
         await Recipe.findByIdAndRemove(req.params.id);
-        
         //RECIPES redirected to INDEX ROUTE
-        res.redirect('/recipes');
+        res.redirect('/recipes', {
+            alert: req.session.message,
+            logged: req.session.logged,
+        });
     } catch (err) {
         res.send(err);
         res.status(400).json(err);
