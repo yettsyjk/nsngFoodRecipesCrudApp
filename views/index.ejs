@@ -25,8 +25,7 @@
     <a href="https://github.com/yettsyjk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
  
             <nav>
-            <li><a href="/recipes">Back to Recipes Home page</a></li>
-            <li><a href="/articles">Back to Articles Home Page</a></li>
+            
             <%#logout option%>
             <%if(alert!== undefined){%>
                 <p><%=alert%></p>
@@ -46,7 +45,7 @@
 <div class="login-form"><h3>User Login</h3>
  <h4>Already a member? Login to view NSNG Food Recipes</h4>
 		<form action="/user/login" method="POST">
-			 <label for="username" class="title">Username<input name="username" type="text" placeholder="Username *" autocomplete="off" required/></label>
+			 <i class="fa fa-user fa-lg fa-fw" aria-hidden="true">Username<input name="username" type="text" placeholder="Username *" autocomplete="off" required/></label>
             <label for="password" class="title">Password<input name="password" type="password" placeholder="Password *" aria-autocomplete="off" required/></label>
             <input type="submit" class="button" value="Log in" />
         </form>
@@ -62,13 +61,17 @@
 				<input type="email" name="email" placeholder="Email *" autocomplete="off" required><br>
 				<small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
         <input type="password" name="password" placeholder="Password *" aria-autocomplete="off" required><br>
-        <label for="accepttos" class="db">
-        <input type="checkbox" name="accepttos" id="accepttos">"Yes, I have read and consent to "<a href="https://linuxacademy.com/terms-of-service/" target="blank">Terms of Service."</a>
+        <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { return false; }">
+        <label for="checkbox">
+        <input type="checkbox" name="checkbox" value="check" id="agree">"Yes, I have read and consent to "<a href="https://linuxacademy.com/terms-of-service/" target="blank">Terms of Service."</a>
 			</label>
-      <label for="acceptprivacy" class="mt3 db">
-      <input type="checkbox" name="acceptprivacy" id="acceptprivacy"class="fw600 undeline black">"Yes, i have read and consent to the "<a href="https://linuxacademy.com/privacy-policy/" target="blank" class="fw600 underline black">Privacy Policy"</a>
+</form>
+  <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { return false; }">
+      <label for="checkbox">
+      <input type="checkbox" name="checkbox" id="agree" value="check"/>"Yes, I have read and consent to the "<a href="https://linuxacademy.com/privacy-policy/" target="blank" class="fw600 underline black">Privacy Policy"</a>
       </label>
         <button type="submit"><span>Register</span></button>
+      </form>
 			</form>
  <% } %>
         </div>

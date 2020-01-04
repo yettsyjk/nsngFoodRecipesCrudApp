@@ -8,21 +8,22 @@ const router = express.Router();
 //---------------MODELS----------//
 //importing recipe model and  require the file in the models folder
 const Recipe = require('../models/recipe');
-//import Article model by requiring file in models folder
-const Article = require('../models/artrecipes')
+// //import Article model by requiring file in models folder
+// const Article = require('../models/artrecipes')
 //import User model by requiring file in models folder
 const User = require('../models/user');
 
 
-//------ROUTES-----------//
+//------------------ROUTES-----------//
 
 
-//-----NEW ROUTE--------//
+//--------------NEW ROUTE--------//
 //GET method url /recipes/new
 router.get('/new', async (req, res) => {
     console.log('connected recipes new route in recipes.js');
     //views/recipes/new.ejs matching route
     res.render('recipes/new.ejs', {
+        username: req.session.username,
         logged: req.session.logged,
         alert: req.session.message
 });
@@ -47,6 +48,7 @@ router.post('/', async (req, res)=> {
         res.redirect('/recipes', 
         {
             recipe: foundRecipes,
+            username: req.session.username,
             logged: req.session.logged,
             alert: req.session.message,
     });
