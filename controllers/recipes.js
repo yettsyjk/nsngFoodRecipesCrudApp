@@ -18,27 +18,26 @@ const User = require('../models/user');
 
 
 //-----NEW ROUTE--------//
-//GET method
+//GET method url /recipes/new
 router.get('/new', async (req, res) => {
     console.log('connected recipes new route');
     //views/recipes/new.ejs matching route
     res.render('recipes/new.ejs');
 });
-//--------CREATE ROUTE---------
-//POST method
+//--------CREATE ROUTE---------//
+//POST method url /recipes
 router.post('/', async (req, res)=> {
     //try the first part if that fails send back an error
     try {
         //Recipes CREATE ROUTE
         //find the current user
         const currentUser = await User.findOne({ username: req.session.username } );
-
         //take id and to req.body as value of req.body.user
         req.body.user = currentUser._id
+        console.log('connected recipes create route');
         //the imported Recipe model uses the data from the form(req.body)
         //to create a new document in the recipes collections (controllers/recipes.js)
         await Recipe.create(req.body);
-        console.log('connected recipes create route');
         //Recipes Create ROUTE user gets redirected to localhost:3000/recipes
        //initiating the GET request (server.js))
         res.redirect('/recipes')
@@ -66,10 +65,11 @@ res.render('recipes/index.ejs', {
 });
 //----------SHOW ROUTE---------------//
 //define the view to render once the findAll promise is complete
+//get method url /recipes/:id
 router.get('/:id', async (req, res) => {
     //try this and if that fails return err
     try {
-        //Recipes INDEX ROUTE
+        //
         const foundRecipe = await Recipe.findById(req.params.id).populate("user");
         console.log(foundRecipe);
         // const recipesArticles = await Article.find({
@@ -90,28 +90,28 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-//EDIT ROUTE
+//------------EDIT ROUTE-------------------//
+//GET method url/recipes/:id/edit
 router.get('/:id/edit', async (req, res) => {
     //try this part first if that fails return an error
     try {
 //RECIPES EDIT ROUTE
 const foundRecipe = await Recipe.findById(req.params.id);
 //RECIPE EDIT ROUTE response renders
-res.render('/views/recipes/edit.ejs', {
-    user: foundUsers,
+res.render('recipes/edit.ejs', {
+    currentUser: foundUser,
     recipe: foundRecipe,
     documentTitle: "No Sugars No Grains Food Recipes",
-    id: req.params.id,
     username: req.user.username,
     });
-    //RECIPES EDIT ROUTE
+    //RECIPES EDIT ROUTE return error
     } catch (err) {
         res.send(err);
         res.status(400).json(err);
-    // res.redirect('/auth/register.ejs');
 }
 });
-//UPDATE RECIPES ROUTE
+//------------UPDATE RECIPES ROUTE-----------------//
+//PATCH or PUT method url /recipes/:id
 router.put('/:id', async (req, res) => {
     //try this and if that fails send back an error
     try {
@@ -125,12 +125,13 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-//DELETE ROUTE 
+//--------------DELETE ROUTE---------------------//
+//DESTROY method url /recipes/:id
 router.delete('/:id', async (req, res) => {
     //try this and if it fails send back an error
     try {
         await Recipe.findByIdAndRemove(req.params.id);
-        await User.deleteMany({ user: req.params.id });
+        
         //RECIPES redirected to INDEX ROUTE
         res.redirect('/recipes');
     } catch (err) {
@@ -140,5 +141,5 @@ router.delete('/:id', async (req, res) => {
         res.redirect('/auth/register');
     }
     });
-//export controller
+//-----export controller-----------------//
 module.exports = router;

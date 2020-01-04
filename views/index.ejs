@@ -27,12 +27,14 @@
             <nav>
             <li><a href="/recipes">Back to Recipes Home page</a></li>
             <li><a href="/articles">Back to Articles Home Page</a></li>
+            <%#logout option%>
             <%if(alert!== undefined){%>
                 <p><%=alert%></p>
             <%}%>    
             <% if(logged){ %>
             <li><a href="/user/logout">Logout</a></li>
             <% } %>
+            <%#logout option%>
             </nav>
 			<%#START Page Header%>
       <div>

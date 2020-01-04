@@ -11,17 +11,12 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 //commenting out SQL pg promise express-session package allows server to store data to access across requests
 const session = require('express-session');
-//Commenting out SQL pg promise passport
-// const passport = require('passport');
-// const routes = express.Router();
+
 //create connection to the db server
 require('./db/db');
 // require('isomorphic-fetch');
 require('dotenv').config();
 
-//here you set that you are using `ejs` template engine and the
-//default extension is `ejs`
-// app.set('view engine', 'ejs');
 
 //-----MIDDLEWARE------------------//
 
@@ -67,13 +62,7 @@ app.use('/seed', seedController);
 // console.log(`connected ${seedController}`);
 //--- end of MongoDB Controllers----//
 
-            //commenting out SQL pg promise because it wasnt working properly
-            // app.get('/api/users', usersRoutes);
-            // app.get('/auth', authRoutes);
-            
-            //  app.get('/*', (req, res) => {
-                // res.sendFile(path.join(__dirname, 'views', 'ejs'));
-                // });             
+                      
 app.get('/', (req, res) => {
     //'home index matching route found commented out res.send once the page worked
     // res.send('hello world');
