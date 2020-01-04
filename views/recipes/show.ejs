@@ -17,10 +17,12 @@
 </head>
     <body>
     <header>
-        <h1>Recipes Show.ejs Page for <%= recipe.name %></h1>
+        <h1>Recipes Show.ejs Page for <%= recipe.title %></h1>
+        <h1><%= recipe.user.username %></h1>
         <nav>
             <ul>
                 <li>
+                <%#= Welcome, %>
                     <a href="/">Home</a>
                     </li>
                     <li>
@@ -34,9 +36,7 @@
         <h2>Name: <%= recipe.name %></h2>
         <h3>Articles:</h3>
         <ul>
-        <% for(let i =0; i< articles.length; i++) {%>
-        <li><a href="/articles/<%= articles[i]._id %>"><%= articles[i].title %></a></li>
-        <% } %>
+  
         </ul>
         </section>
 

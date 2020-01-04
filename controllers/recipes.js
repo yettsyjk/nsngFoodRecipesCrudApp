@@ -14,12 +14,13 @@ const Article = require('../models/artrecipes')
 const User = require('../models/user');
 
 
-//------ROUTES-----/////
+//------ROUTES-----------//
 
 
 //-----NEW ROUTE--------//
 //GET method
 router.get('/new', async (req, res) => {
+    console.log('connected recipes new route');
     //views/recipes/new.ejs matching route
     res.render('recipes/new.ejs');
 });
@@ -29,9 +30,15 @@ router.post('/', async (req, res)=> {
     //try the first part if that fails send back an error
     try {
         //Recipes CREATE ROUTE
+        //find the current user
+        const currentUser = await User.findOne({ username: req.session.username } );
+
+        //take id and to req.body as value of req.body.user
+        req.body.user = currentUser._id
         //the imported Recipe model uses the data from the form(req.body)
         //to create a new document in the recipes collections (controllers/recipes.js)
         await Recipe.create(req.body);
+        console.log('connected recipes create route');
         //Recipes Create ROUTE user gets redirected to localhost:3000/recipes
        //initiating the GET request (server.js))
         res.redirect('/recipes')
@@ -63,17 +70,17 @@ router.get('/:id', async (req, res) => {
     //try this and if that fails return err
     try {
         //Recipes INDEX ROUTE
-        const foundRecipe = await Recipe.findById(req.params.id);
+        const foundRecipe = await Recipe.findById(req.params.id).populate("user");
         console.log(foundRecipe);
-        const recipesArticles = await Article.find({
-            recipe: foundRecipe._id
-        });
-        const recipesUsers = await User.find({ user: foundUser._id });
+        // const recipesArticles = await Article.find({
+            // recipe: foundRecipe._id
+        // });
+        // const recipesUsers = await User.find({ user: foundUser._id });
         //RECIPES INDEX ROUTE response renders
         res.render('recipes/show.ejs', {
-            user: foundUsers,
+            // user: foundUsers,
             recipe: foundRecipe,
-            articles: recipesUsers,
+            // articles: recipesUsers,
             documentTitle: "No Sugars No Grains Food Recipes",
         });
 //RECIPES INDEX ROUTE, send HTML back to Browser

@@ -88,39 +88,7 @@ app.get('/', (req, res) => {
     });
 });
 
-// Commenting out SQL didnt work Login Page ROUTE//
-// app.get('/user/login', (req, res) => {
-//     //'home index matching route found
-//     res.render('views/recipes/index', {
-//         documentTitle: 'No Sugars No Grains Food Recipes',
-//         subTitle: 'Enjoy eating again',
-//         message: req.session.message,
-//         logged: req.session.logged
-//     })
-// });
 
-
-// app.use('/auth', (req, res) => {
-// //'home index matching route found
-// res.render('auth/login.ejs', {
-//     documentTitle: 'No Sugars No Grains Food Recipes',
-//     subTitle: 'Enjoy eating again',
-//     message: req.session.message,
-//     logged: req.session.logged
-//    })
-// });
-//                     //setting up the search page route
-//  app.get('/:search', (req, res) => {
-//      res.render('search.ejs', {
-//          documentTitle: 'No Sugars No Grains Food Recipes',
-//          subTitle: 'Enjoy eating again',
-//          message: req.session.message,
-//          recipeHits: res.locals.recipeHits,
-//     });
-// });
-                    // app.get('/*', (req, res) => {
-                        //     res.sendFile(path.join(__dirname, 'views', 'index.ejs'));
-                        // });
 
 
                         
