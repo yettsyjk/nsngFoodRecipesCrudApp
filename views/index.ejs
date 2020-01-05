@@ -41,18 +41,22 @@
         
         <% if(!logged) { %>
    </div>
+
+   <%#Login form %>
    <div class="container">
-<div class="login-form"><h3>User Login</h3>
+<div class="login-form">
+<h3>User Login</h3>
  <h4>Already a member? Login to view NSNG Food Recipes</h4>
 		<form action="/user/login" method="POST">
 			 <i class="fa fa-user fa-lg fa-fw" aria-hidden="true">Username<input name="username" type="text" placeholder="Username *" autocomplete="off" required/></label>
             <label for="password" class="title">Password<input name="password" type="password" placeholder="Password *" aria-autocomplete="off" required/></label>
-            <input type="submit" class="button" value="Log in" />
+            <button type="submit" class="button" value="Log in">Login</button>
         </form>
 </div>
 </div>
-</div>
-   <div></div>
+<%#End of Login form %>
+
+<%#Registration form %>
  <h3>Create a Free Account</h3>
  <h4>Join our community</h4>
  <div class="login-form">
@@ -75,16 +79,13 @@
  <% } %>
         </div>
 
-        <div class="button_container">
-        
-        </div>
+       
   <%#END Page header%>
   <%#START body wrapping%>
-  <div>
+  <div></div>
   
   <%#Start image%>
-<div>
-</div>
+<div></div>
 <%#END Image%>          
 <%#START Three content sections%> 
                    
@@ -100,7 +101,7 @@
         <button type="button" id="topButton" href="#top"> Back to Top</button>
         <%#a class="button" href="/recipes/">Add a new recipe</a%>
         <%#a class="button" href='/recipes/'>Add a new recipe</a%>
-		</div>
+	
 
   <%#END of Body wrapping%>
   </body>
