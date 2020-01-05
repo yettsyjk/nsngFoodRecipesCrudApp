@@ -1,6 +1,3 @@
-// $(() => {
-//     $('#myModal').modal(options)
-// })
 //------Dependencies -------------//
 //setting up variables for node modules
 const express = require('express');

@@ -17,7 +17,7 @@
 </head>
     <body>
     <header>
-        <h1>Recipe Page for <%= foundRecipe.title %></h1>
+        <h1>Recipe Page for <%= recipe.title %></h1>
         <h1><%= recipe.currentUser %></h1>
         <nav>
             <ul>
@@ -39,8 +39,13 @@
                 </nav>
     </header>
     <main>
+    <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" 1000w, alt="sliced avocado fruit" class="_2zEKz">
         <section>
         <h2>Recipe Name: <%= recipe.title %></h2>
+        <p>Recipe Author: <%= recipe.author %></p>
+        <p>Recipe description: <%= recipe.description %></p>
+         <p>Recipe ingredients: <%= recipe.ingredients %></p>
+         <p>Recipe photo: <%= recipe.photo %></p>
         
         <h3>Articles:</h3>
         <ul>
@@ -56,6 +61,7 @@
    <input type="submit" value="Delete Recipe"/>
    </form>
    </section>
+         </div>
     </main>
     
     </body>

@@ -14,20 +14,20 @@ const Recipe = require('../models/recipe');
 const User = require('../models/user');
 
 
+
 //------------------ROUTES-----------//
 
 
 //--------------NEW ROUTE--------//
 //GET method url /recipes/new
 router.get('/new', async (req, res) => {
+    res.render('recipes/new.ejs', {
+            username: req.session.username,
+            logged: req.session.logged,  
+            alert: req.session.message
+    });
     console.log('connected recipes new route in recipes.js');
     //views/recipes/new.ejs matching route
-    res.render('recipes/new.ejs', {
-        username: req.session.username,
-        logged: req.session.logged,
-        alert: req.session.message
-});
-console.log('get passed add recipe new route in recipes.js');
 });
 //--------CREATE ROUTE---------//
 //POST method url /recipes
@@ -45,13 +45,12 @@ router.post('/', async (req, res)=> {
         await Recipe.create(req.body);
         //Recipes Create ROUTE user gets redirected to localhost:3000/recipes
        //initiating the GET request (server.js))
-        res.redirect('/recipes', 
-        {
-            recipe: foundRecipes,
-            username: req.session.username,
-            logged: req.session.logged,
-            alert: req.session.message,
-    });
+        res.redirect('/recipes') 
+        
+            // // recipe: foundRecipes,
+            // username: req.session.username,
+            // logged: req.session.logged,
+            // alert: req.session.message,
     console.log('good passed create route')
     } catch (err) {
         res.send(err);
@@ -78,7 +77,7 @@ res.render('recipes/index.ejs', {
     logged: req.session.logged,  
     alert: req.session.message
 });    
-console.log('connected currentUser in index route recipes.js');
+console.log('getting passed index route after clicking on recipe');
 } catch (err) {
         res.send(err);
     }
@@ -89,9 +88,9 @@ console.log('connected currentUser in index route recipes.js');
 router.get('/:id', async (req, res) => {
     //try this and if that fails return err
     try {
-        // const currentUser = await User.findOne({ username: req.session.username } );
-        // //take id and to req.body as value of req.body.user
-        // req.body.user = currentUser._id
+        const currentUser = await User.findOne({ username: req.session.username } );
+        //take id and to req.body as value of req.body.user
+        req.body.user = currentUser._id
         const foundRecipe = await Recipe.findById(req.params.id).populate("user");
         console.log(foundRecipe);
         //RECIPES INDEX ROUTE response renders
@@ -128,7 +127,6 @@ res.render('recipes/edit.ejs', {
     currentUser: foundUser,
     recipe: foundRecipe,
     documentTitle: "No Sugars No Grains Food Recipes",
-    id: req.params.id,
     username: req.user.username,
     logged: req.session.logged,
     alert: req.session.message
@@ -138,6 +136,7 @@ res.render('recipes/edit.ejs', {
         res.send(err);
         res.status(400).json(err);
 }
+console.log(err);
 });
 //------------UPDATE RECIPES ROUTE-----------------//
 //PATCH or PUT method url /recipes/:id
