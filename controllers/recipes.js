@@ -77,8 +77,8 @@ res.render('recipes/index.ejs', {
     logged: req.session.logged,  
     alert: req.session.message
 });    
-console.log('getting passed index route after clicking on recipe');
 } catch (err) {
+    console.log(err);
         res.send(err);
     }
 });
@@ -119,7 +119,7 @@ router.get('/:id/edit', async (req, res) => {
         const currentUser = await User.findOne({ username: req.session.username } );
         //take id and to req.body as value of req.body.user
         req.body.user = currentUser._id
-        console.log('connected currentUser in show route');
+        console.log('connected currentUser in edit route');
 //RECIPES EDIT ROUTE
 const foundRecipe = await Recipe.findById(req.params.id);
 //RECIPE EDIT ROUTE response renders
@@ -143,13 +143,15 @@ console.log(err);
 router.put('/:id', async (req, res) => {
     //try this and if that fails send back an error
     try {
-    console.log('connected currentUser in show route');
+    console.log('connected currentUser in update route');
         //RECIPES UPDATE ROUTE
         await Recipe.findByIdAndUpdate(req.params.id,req.body);
         //RECIPES UPDATE ROUTE redirect to localhost
         res.redirect(`/recipes/${req.params.id}`);
     } catch (err) {
+        console.log(err);
         res.send(err);
+        console.log('json error');
         res.status(400).json(err);
     }
 });
@@ -162,18 +164,22 @@ router.delete('/:id', async (req, res) => {
         const currentUser = await User.findOne({ username: req.session.username } );
         //take id and to req.body as value of req.body.user
         req.body.user = currentUser._id
-        console.log('connected currentUser in show route');
+        console.log('connected currentUser in delete route');
         await Recipe.findByIdAndRemove(req.params.id);
         //RECIPES redirected to INDEX ROUTE
         res.redirect('/recipes', {
-            alert: req.session.message,
+            currentUser: foundUser,
+            recipe: foundRecipe,
+            documentTitle: "No Sugars No Grains Food Recipes",
+            username: req.user.username,
             logged: req.session.logged,
+            alert: req.session.messagemessage
         });
     } catch (err) {
         res.send(err);
         res.status(400).json(err);
         //render view delete promise
-        res.redirect('/auth/register');
+        // res.redirect('/auth/register');
     }
     });
 //-----export controller-----------------//

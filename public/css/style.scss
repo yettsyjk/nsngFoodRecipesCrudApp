@@ -46,41 +46,14 @@ nav {
 }
 /* ###### Text ####### */
 
-h1 {
+h1, h2, h3, h4, p, ul, table {
+    line-height: 1.25;
     font-size: 40px;
     margin: 0 0 15px;
     text-align: center;
-    word-wrap: break-word;
-}
-.title, .primary {
-    font-family: "Libre Franklin", cursive;
-}
-.primary {
-    color: #f4f4f4;
-    margin: 30px;
-}
-.title {
-    color: #E25D38;
-}
-.recipe_title {
-    font-family: "Libre Franklin", cursive;
-    font-size: 8px;
-    color: #222;
-    padding: 20px;
+    box-sizing: border-box;
 }
 
-.secondary {
-    font-size: 30px;
-    padding: 5px;
-}
-h2 {
-    padding-bottom: 12px;
-    text-align: center;
-    color: #222;
-}
-p {
-    margin: 1em 0;
-}
 /* #Links#*/
 a {
     color: inherit;
@@ -105,32 +78,7 @@ a:hover {
     justify-content: center;
 }
 /* #Show Text# */
-h2, h3 {
-    padding-bottom: 16px;
-    text-align: center;
-    margin: 0 0 0 0;
-    color: rgb(21, 19, 20);
-}
-h3 {
-    display: inline-block;
-    margin-top: 0.5em;
-}
-p {
-font-family: "Libre Franklin";
-font-size: 16px;
-text-align: start;
-line-height: 28.8px;
-letter-spacing: normal;
-}
-.title {
-    color: #E25D38;
-}
-.recipe_title {
-    font-family: "Libre Franklin";
-    font-size: 40px;
-    color: #222;
-    padding: 20px;
-}
+
 /* #images#*/
 .index_img {
     width: 50%;
@@ -140,13 +88,85 @@ img {
     border-radius: 1em;
 }
 /*# New, Form# */
+.login {
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  margin-top: 3%;
+  padding: 3%;
+}
+.login-left{
+  text-align: center;
+  color: #fff;
+  margin-top: 4%;
+}
+.login-left input{
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  width: 60%;
+  background: #f8f9fa;
+  font-weight: bold;
+  color: #383d41;
+  margin-top: 30%;
+  margin-bottom: 3%;
+  cursor: pointer;
+}
+.login-left p{
+  font-weight: lighter;
+  padding: 12%;
+  margin-top: -9%;
+}
+.login .login-form{
+  padding: 10%;
+  margin-top: 10%;
+}
+.btnlogin{
+  float: right;
+  margin-top: 10%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  background: #0062cc;
+  color: #fff;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
+}
+.login .nav-tabs{
+  margin-top: 3%;
+  border: none;
+  background: #0062cc;
+  border-radius: 1.5rem;
+  width: 28%;
+  float: right;
+}
+.login .nav-tabs .nav-link{
+  padding: 2%;
+  height: 34px;
+  font-weight: 600;
+  color: #fff;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+.login .nav-tabs .nav-link:hover{
+  border: none;
+}
+.login .nav-tabs .nav-link.active{
+  width: 100px;
+  color: #0062cc;
+  border: 2px solid #0062cc;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+.login-heading{
+  text-align: center;
+  margin-top: 8%;
+  margin-bottom: -15%;
+  color: #495057;
+}
 /* Full-width input fields */
 
   
-  hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-  }
+  
   /*###Start Log in Form##*/
   .login-form {
     width: 300px;
@@ -160,14 +180,20 @@ img {
     padding: 20px 0 20px 0;
   }
   .login-form input[type="password"],
-  .login-form input[type="text"] {
+  .login-form input[type="text"],
+  .login-form input[type="submit"] {
+    -webkit-appearance: none;
+    background: 0 0;
+    border: 1px solid #dddddd;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-radius: 0;
     width: 100%;
     padding: 15px;
-    border: 1px solid #dddddd;
-    margin-bottom: 15px;
-    box-sizing:border-box;
+    height: auto;
+    box-sizing: border-box;
   }
-  .login-form input[type="submit"] {
+  input[type="checkbox"] {
     width: 100%;
     padding: 15px;
     background-color: #535b63;

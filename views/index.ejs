@@ -5,6 +5,10 @@
 
   <%#START Style Sheets%>
   <%#Bootstrap CDN%>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<%# Include the above in your HEAD tag%>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <%#Our personal style sheet%>
   <link rel="stylesheet" href="css/style.scss" charset="utf-8">
@@ -19,7 +23,7 @@
 <div class="p-3 mb-2 bg-secondary text-dark">No Sugars No Grains Food Recipes</div>
         <h1 class="logo" id="top"></h1>
         <%#Background Image %>
-        <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" 1000w, alt="sliced avocado fruit" class="_2zEKz">
+        <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" 1000w, alt="sliced avocado fruit">
     <%#github share%>
     
     <a href="https://github.com/yettsyjk"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
@@ -43,23 +47,29 @@
    </div>
 
    <%#Login form %>
-   <div class="container">
-<div class="login-form">
+   <div class="container login">
+     <div class="row">
+       <div class="col-md-3 login-left">
+   <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+        <div class="login-form">
 <h3>User Login</h3>
  <h4>Already a member? Login to view NSNG Food Recipes</h4>
 		<form action="/user/login" method="POST">
 			 <i class="fa fa-user fa-lg fa-fw" aria-hidden="true">Username<input name="username" type="text" placeholder="Username *" autocomplete="off" required/></label>
             <label for="password" class="title">Password<input name="password" type="password" placeholder="Password *" aria-autocomplete="off" required/></label>
-            <button type="submit" class="button" value="Log in">Login</button>
+            <button type="submit" class="button" value="Login">Login</button>
         </form>
-</div>
+        </div>
+      </div>
+  </div>
 </div>
 <%#End of Login form %>
 
 <%#Registration form %>
  <h3>Create a Free Account</h3>
  <h4>Join our community</h4>
- <div class="login-form">
+ <div class="row register-form">
+ <div class="col-md-6">
 			<form action="/user/registration" method="POST">
 				<input type="text" name="username" placeholder="Username *" autocomplete="off" required><br>
 				<input type="email" name="email" placeholder="Email *" autocomplete="off" required><br>
@@ -78,6 +88,9 @@
       </form>
  <% } %>
         </div>
+        </div>
+        </div>
+
 
        
   <%#END Page header%>
