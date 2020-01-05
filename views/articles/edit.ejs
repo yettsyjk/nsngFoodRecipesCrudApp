@@ -37,12 +37,12 @@
         
         <label>Recipes</label><br>
         <select name="recipes">
-        <% for(let i = 0; i < recipes.length; i++) { %>
-        <option value="<%= recipes[i]._id %>)"
-        <% if(recipes[i]._id.toString() === article.recipe._id.toString()) { %>
+        <% for(let i = 0; i < recipe.length; i++) { %>
+        <option value="<%= recipe[i]._id %>)"
+        <% if(recipe[i]._id.toString() === article.recipe._id.toString()) { %>
    selected
     <% } %>
-    ><% recipes[i].name %></option>
+    ><% recipe[i].name %></option>
     <% } %>
     </select><br>
     <label>Title</label><br>

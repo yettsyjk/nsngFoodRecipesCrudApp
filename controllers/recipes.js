@@ -65,8 +65,9 @@ router.get('/', async (req, res) => {
         const currentUser = await User.findOne({ username: req.session.username } );
         //take id and to req.body as value of req.body.user
         req.body.user = currentUser._id
-        console.log('connected currentUser in index route recipes.js');
+        // console.log(req.body.user);
         const foundRecipes = await Recipe.find();
+        // console.log(foundRecipes);
         //Recipes Index Route response renders the view
 //First, it looks in the views directory for the first argument (recipes/index.ejs) 
 //and, secondly, injects the data from the object in the second argument into it. In this object, the data is made up of key-value pairs. The value is the data retrieved from the database. /
@@ -77,6 +78,7 @@ res.render('recipes/index.ejs', {
     logged: req.session.logged,  
     alert: req.session.message
 });    
+console.log('connected currentUser in index route recipes.js');
 } catch (err) {
         res.send(err);
     }
@@ -87,10 +89,9 @@ res.render('recipes/index.ejs', {
 router.get('/:id', async (req, res) => {
     //try this and if that fails return err
     try {
-        const currentUser = await User.findOne({ username: req.session.username } );
-        //take id and to req.body as value of req.body.user
-        req.body.user = currentUser._id
-        console.log('connected currentUser in show route');
+        // const currentUser = await User.findOne({ username: req.session.username } );
+        // //take id and to req.body as value of req.body.user
+        // req.body.user = currentUser._id
         const foundRecipe = await Recipe.findById(req.params.id).populate("user");
         console.log(foundRecipe);
         //RECIPES INDEX ROUTE response renders
@@ -102,8 +103,10 @@ router.get('/:id', async (req, res) => {
             logged: req.session.logged,
             alert: req.session.message
         });
+        console.log('connected currentUser in show route in recipes.js');
 //RECIPES INDEX ROUTE, send HTML back to Browser
     } catch (err) {
+        console.log('error in show route recipes.js');
         res.send (err);
         res.status(400).json(err);
     }
@@ -125,6 +128,7 @@ res.render('recipes/edit.ejs', {
     currentUser: foundUser,
     recipe: foundRecipe,
     documentTitle: "No Sugars No Grains Food Recipes",
+    id: req.params.id,
     username: req.user.username,
     logged: req.session.logged,
     alert: req.session.message
