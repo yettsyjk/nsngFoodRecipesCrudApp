@@ -17,8 +17,8 @@
 </head>
     <body>
     <header>
-        <h1>Recipe Page for <%= recipe.title %></h1>
-        <h1><%= recipe.currentUser %></h1>
+        <h1>Recipe Details page</h1>
+        <h1>recipe.currentUser was inserted as ejs</h1>
         <nav>
             <ul>
                 <li>
@@ -38,8 +38,13 @@
                     </ul>
                 </nav>
     </header>
+     <%#Background Image %>
+        <style> body { 
+          background-image: url("https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80");
+          background-repeat: no-repeat;
+          }
+          </style>
     <main>
-    <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" 1000w, alt="sliced avocado fruit" class="_2zEKz">
         <section>
        
         <ul></ul>
@@ -47,11 +52,9 @@
 
         
         <section> 
-        <a href ="/recipes/<%= recipe.title %>/edit">Edit</a>
+        <a href ="/recipes/edit">Edit</a>
    </section>
-   <form action="/recipes/<%= recipe.title %>?_method=DELETE" method="POST">
-   <input type="submit" value="Delete Recipe"/>
-   </form>
+   
    </section>
          </div>
     </main>

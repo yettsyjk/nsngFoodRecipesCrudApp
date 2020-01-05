@@ -6,7 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 //---------------MODELS----------//
-//importing recipe model and  require the file in the models folder
+//importing recipe model and require the file in the models folder
 const Recipe = require('../models/recipe');
 // //import Article model by requiring file in models folder
 // const Article = require('../models/artrecipes')
@@ -45,13 +45,12 @@ router.post('/', async (req, res)=> {
         await Recipe.create(req.body);
         //Recipes Create ROUTE user gets redirected to localhost:3000/recipes
        //initiating the GET request (server.js))
-        res.redirect('/recipes') 
-        
+        res.redirect('/recipes');
             // // recipe: foundRecipes,
             // username: req.session.username,
             // logged: req.session.logged,
             // alert: req.session.message,
-    console.log('good passed create route')
+    console.log('good passed create route');
     } catch (err) {
         res.send(err);
     }
@@ -121,7 +120,7 @@ router.get('/:id/edit', async (req, res) => {
         req.body.user = currentUser._id
         console.log('connected currentUser in edit route');
 //RECIPES EDIT ROUTE
-const foundRecipe = await Recipe.findById(req.params.id);
+const foundRecipe = await Recipe.findById(req.params.id).populate("user");
 //RECIPE EDIT ROUTE response renders
 res.render('recipes/edit.ejs', {
     currentUser: foundUser,

@@ -18,7 +18,15 @@
 </head>
     <body>
   <header>
-        <h3 class="logo" id="top">No Sugars No Grains Food Recipes</h3>
+  <section class="text-center about">
+        <h1>No Sugars No Grains Food Recipes</h1>
+      <div class="container">
+         <div class="row"
+            <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200" >
+        <span class="fa fa-group"></span>
+        </div>
+       </div>
+     
             <nav>
                 <li><a href="/">Home</a></li>
                 <li><a class="current" href="/recipes">Current Recipes Index Page</a></li>
@@ -34,17 +42,24 @@
     </header>
 
             </nav>
+
     <main>
-      <div class="panel" style="background-image: url(https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" 1000w, alt="sliced avocado fruit" class="_2zEKz">
-   
+   <%#Background Image %>
+       <%#Background Image %>
+        <style> body { 
+          background-image: url("https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80");
+          background-repeat: no-repeat;
+          }
+          </style>
       <h2>List of Recipes</h2>
-       <h1>Welcome <%= recipe.currentUser %></h1>
+               
         <div class="container">
         <h1 class="primary">Recipes</h1>
 <% for(let i = 0; i < recipe.length; i++) {%>
 <li><a href="/recipes/<%= recipe.title %>"><%= recipe[i].title %></a></li>
 <% } %>
                    
+</div>
 </div>
  <%# Button to trigger to open MODAL %>
  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">What is NSNG?</button>
