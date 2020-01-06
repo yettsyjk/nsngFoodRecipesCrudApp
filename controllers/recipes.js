@@ -139,13 +139,11 @@ router.put('/:id', async (req, res) => {
     console.log('connected currentUser in update route');
         //RECIPES UPDATE ROUTE we query for only a single recipe
         //and use the findByIdAndUpdate() method
-        await Recipe.findByIdAndUpdate(req.params.id,req.body);
+        await Recipe.findByIdAndUpdate(req.params.id, req.body);
         //RECIPES UPDATE ROUTE redirect to localhost
         res.redirect(`/recipes/${req.params.id}`);
     } catch (err) {
         console.log(err);
-        res.send(err);
-        console.log('json error');
         res.status(400).json(err);
     }
 });

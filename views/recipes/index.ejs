@@ -56,7 +56,7 @@
         <div class="container">
         <h1 class="primary">Recipes</h1>
 <% for(let i = 0; i < recipe.length; i++) {%>
-<li><a href="/recipes/<%= recipe[i]._id %>">Recipes</a></li>
+<li><a href="/recipes/<%= recipe[i]._id%>"><%= recipe[i].title %></a></li>
 <% } %>
                    
 </div>

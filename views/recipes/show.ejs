@@ -21,7 +21,6 @@
         <h1>recipe.currentUser was inserted as ejs</h1>
         <nav>
             <ul>
-                <li>
                 <%#logout option%>
             <%if(alert!== undefined){%>
                 <p><%=alert%></p>
@@ -30,11 +29,8 @@
             <li><a href="/user/logout">Logout</a></li>
             <% } %>
             <%#logout option%>
-                    <a href="/">Home</a>
-                    </li>
-                    <li>
-                    <a href="/recipes">Recipes Index</a>
-                    </li>
+                   <li> <a href="/">Home</a></li>
+                    <li><a href="/recipes">Recipes Index</a></li>
                     </ul>
                 </nav>
     </header>
@@ -52,7 +48,7 @@
 
         
         <section> 
-        <a href ="/recipes/<%= recipe._id %>/edit">Edit</a>
+       <button><a href ="/recipes/<%= recipe._id %>/edit">Edit</a></button>
    </section>
    
    </section>
