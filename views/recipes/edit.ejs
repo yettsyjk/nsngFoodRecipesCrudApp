@@ -22,11 +22,19 @@
           background-repeat: no-repeat;
           }
           </style>
-    <header><h1>Edit <%= recipe.title %>'s Info</h1>
+          <section class="text-center about">
+        <h1>No Sugars No Grains Food Recipes</h1>
+      <div class="container">
+         <div class="row"
+            <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200" >
+        <span class="fa fa-group"></span>
+        </div>
+       </div>
+    <header><h1>Edit Page for <%= recipe.title %>'s Info</h1>
         <nav>
           <ul>
            <li>
-           <a href="/recipes">Recipes Index</a>
+           <a href="/recipes">Recipes Index Page</a>
         </li>
         <%#logout option%>
             <%if(alert!== undefined){%>
@@ -38,10 +46,11 @@
             <%#logout option%>
     </ul>
     </nav>
+    </section>
      </header>
      <main>
          <h2>Recipe Details:</h2>
-         <form action="/recipes/<%= recipe.title %>?_method=PUT" method="POST">
+         <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
         
         <label>Title: </label><br>
         <input type="text" name="title" value="<%= recipe.title %>"/><br/>
@@ -51,6 +60,7 @@
 
         <label>Ingredients: </label><br>
         <input type="text" name="ingredients" value="<%= recipe.ingredients %>"/><br/>
+
         
         <input type="submit" value="Update Recipe"/>
         </form>

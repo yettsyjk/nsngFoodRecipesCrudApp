@@ -1,7 +1,10 @@
 /*GLOBAL*/
 html,
 body {
-  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-backgroundg-size: cover;
+  background-size: cover;
 }
 
 /* ####background image #####*/

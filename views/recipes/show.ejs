@@ -17,10 +17,20 @@
 </head>
     <body>
     <header>
-        <h1>Recipe Details page</h1>
-        <h1>recipe.currentUser was inserted as ejs</h1>
+    <section class="text-center about">
+        <h1>No Sugars No Grains Food Recipes</h1>
+      <div class="container">
+         <div class="row"
+            <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200" >
+        <span class="fa fa-group"></span>
+        </div>
+       </div>
+        <h1>Show Page for <%= recipe.title%></h1>
         <nav>
             <ul>
+                   <li> <a href="/">Home</a></li>
+                    <li><a href="/recipes">Recipes Index</a></li>
+                    </ul>
                 <%#logout option%>
             <%if(alert!== undefined){%>
                 <p><%=alert%></p>
@@ -29,30 +39,28 @@
             <li><a href="/user/logout">Logout</a></li>
             <% } %>
             <%#logout option%>
-                   <li> <a href="/">Home</a></li>
-                    <li><a href="/recipes">Recipes Index</a></li>
-                    </ul>
                 </nav>
+                </section>
     </header>
      <%#Background Image %>
         <style> body { 
           background-image: url("https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80");
           background-repeat: no-repeat;
+          width: 100%;
           }
           </style>
     <main>
-        <section>
-       
-        <ul></ul>
-        </section>
 
-        
         <section> 
-       <button><a href ="/recipes/<%= recipe._id %>/edit">Edit</a></button>
+       <button><a href ="/recipes/<%= recipe._id %>/edit">Edit Recipe</a></button>
    </section>
    
-   </section>
-         </div>
+        <section>
+       <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+       <input type="submit" value="Delete Recipe"/>
+       </form>
+        </section>
+   
     </main>
     
     </body>

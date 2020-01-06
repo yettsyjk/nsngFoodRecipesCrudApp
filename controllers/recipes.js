@@ -65,6 +65,7 @@ router.get('/', async (req, res) => {
 //and, secondly, injects the data from the object in the second argument into it. In this object, the data is made up of key-value pairs. The value is the data retrieved from the database. /
 //The key is how the view file will reference that data.
 res.render('recipes/index.ejs', {
+    currentUser: currentUser,
     username: req.session.username,
     recipe: foundRecipes,
     logged: req.session.logged,  
@@ -88,7 +89,7 @@ router.get('/:id', async (req, res) => {
         console.log(foundRecipe);
         //RECIPES INDEX ROUTE response renders
         res.render('recipes/show.ejs', {
-            // user: foundUsers,
+           currentUser: currentUser,
             recipe: foundRecipe,
             documentTitle: "No Sugars No Grains Food Recipes",
             logged: req.session.logged,
@@ -128,8 +129,8 @@ res.render('recipes/edit.ejs', {
     } catch (err) {
         // res.send(err);
         res.status(400).json(err);
-}
-console.log('edit route error');
+    }
+    console.log('edit route error');
 });
 //------------UPDATE RECIPES ROUTE-----------------//
 //PATCH or PUT method url /recipes/:id
@@ -143,8 +144,8 @@ router.put('/:id', async (req, res) => {
         //RECIPES UPDATE ROUTE redirect to localhost
         res.redirect(`/recipes/${req.params.id}`);
     } catch (err) {
-        console.log(err);
-        res.status(400).json(err);
+        console.log('error in update route');
+        res.send(err);
     }
 });
 
@@ -155,25 +156,16 @@ router.delete('/:id', async (req, res) => {
     try {
         const currentUser = await User.findOne({ username: req.session.username } );
         //take id and to req.body as value of req.body.user
-        req.body.user = currentUser._id
+        // req.body.user = currentUser._id
         console.log('connected currentUser in delete route');
    //we query for only one recipe and use finByIdAndRemove() method
    await Recipe.findByIdAndRemove(req.params.id);
    //RECIPES redirected to INDEX ROUTE
    //that request is fulfilled by index route, the user will redirected '/recipes'
-        res.redirect('/recipes', {
-            currentUser: currentUser,
-            recipe: foundRecipe,
-            documentTitle: "No Sugars No Grains Food Recipes",
-            username: req.user.username,
-            logged: req.session.logged,
-            alert: req.session.messagemessage
-        });
+        res.redirect('/recipes');
     } catch (err) {
         res.send(err);
-        res.status(400).json(err);
-        //render view delete promise
-        // res.redirect('/auth/register');
+        console.log('delete route error');
     }
     });
 //-----export controller-----------------//
