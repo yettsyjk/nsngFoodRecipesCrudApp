@@ -20,7 +20,7 @@
     <section class="text-center about">
         <h1>No Sugars No Grains Food Recipes</h1>
       <div class="container">
-         <div class="row"
+         <div class="row">
             <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200" >
         <span class="fa fa-group"></span>
         </div>
@@ -52,8 +52,18 @@
     <main>
 
         <section> 
+        <%# content for recipe %>
+        <div>
+        <ul>
+        <li><%= recipe.author %></li>
+        <li><%= recipe.description %></li>
+        <li><%= recipe.ingredients %></li>
+        <li></li>
+        </ul> 
+        <div class="recipe-show-photo" style="background-image:<%=recipe.photo%>"></div>
+        </div>
        <button><a href ="/recipes/<%= recipe._id %>/edit">Edit Recipe</a></button>
-   </section>
+        </section>
    
         <section>
        <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">

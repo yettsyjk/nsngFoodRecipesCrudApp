@@ -15,19 +15,19 @@ router.get('/', async (req, res) => {
     try {
         //set up route that will seed localhost:3000/seed
         const recipesToSeed = [{
-            title: 'Shrimp Scampi', 
-            author: 'Hyde Sauce', 
+            title: 'Asparagus Swiss Stuffed Meatlof', 
+            author: 'Anna Vocino', 
            description: 'Simply sauté the shrimp with garlic in butter and olive oil, splash it with some white wine, let the wine reduce while the shrimp cooks, and then toss it with fresh parsley, lemon juice and black pepper.',
             category_type: 8, 
            ingredients: '{"1 (16 ounce) package linguine","1/4 cup olive oil","1/4 cup butter","6 cloves garlic",minced,"1 pound peeled and deveined medium shrimp","3/4 cup white wine","1/2 cup lemon juice","1/4 teaspoon crushed red pepper","1 tablespoon chopped fresh basil","1/2 teaspoon salt","1/2 pint grape tomatoes",halved,"2 tablespoons grated Pecorino Romano cheese","1 tablespoon chopped fresh parsley"}',
             photo: "url('https://c1.staticflickr.com/1/66/161224077_17bc6c759f_z.jpg?zz=1')"
           },
           {
-              title: 'Cheesy Zucchini sliders', 
+              title: 'Cheesy Zucchini Sliders', 
               author: 'Pedro Bigz', 
               description: 'Combine ricotta cheese, egg, onion, milk and almond flour. Season with salt and pepper. Clean and slice zucchini into thin slices and place into baking dish. Pour mustard, and tomato mixture over loaf. Bake at 350 degrees for 1 hour.', 
               category_type: 2,
-              ingredients: '{"1 1/2 pounds ground beef","1 egg","1 onion",chopped,"1 cup milk","1 cup almond flour","salt and pepper to taste","2 tablespoons brown sugar","2 tablespoons prepared mustard","1/3 cup tomotoes"}',
+              ingredients: '{"1 1/2 pounds zucchini slices","1 egg","1 onion",chopped,"1 cup milk","1 cup almond flour","salt and pepper to taste","2 tablespoons brown sugar","2 tablespoons prepared mustard","1/3 cup tomotoes"}',
               photo: "url('https://media.giphy.com/media/zG1Ahac9UHcIw/giphy.gif')"
           },
           {

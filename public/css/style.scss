@@ -1,6 +1,7 @@
 /*GLOBAL*/
 html,
 body {
+  height: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-backgroundg-size: cover;
@@ -8,6 +9,15 @@ body {
 }
 
 /* ####background image #####*/
+.recipe-show-photo {
+  /*the image used*/
+  height: 100%; /*full height*/
+  min-height: 150px;
+  width: auto;
+  background-position: center;
+  background: no-repeat;
+  background-size: cover;
+}
 .registrations__left-panel {
   background-size: cover;
   background-position: center center;
@@ -15,6 +25,14 @@ body {
   background-color: #111111;
   -webkit-box-flex: 1;
   flex: 1;
+}
+.sheet {
+  display: block;
+  position: relative;
+}
+.sheet--inverse {
+  color:#ffffff;
+      
 }
 /* #Navigation# */
 header {

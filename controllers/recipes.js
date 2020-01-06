@@ -89,7 +89,7 @@ router.get('/:id', async (req, res) => {
         console.log(foundRecipe);
         //RECIPES INDEX ROUTE response renders
         res.render('recipes/show.ejs', {
-           currentUser: currentUser,
+            currentUser: currentUser,
             recipe: foundRecipe,
             documentTitle: "No Sugars No Grains Food Recipes",
             logged: req.session.logged,
