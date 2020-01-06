@@ -22,7 +22,7 @@
           background-repeat: no-repeat;
           }
           </style>
-    <header><h1>Edit <%=  %>'s Info</h1>
+    <header><h1>Edit <%= recipe.title %>'s Info</h1>
         <nav>
           <ul>
            <li>
@@ -41,9 +41,9 @@
      </header>
      <main>
          <h2>Recipe Details:</h2>
-         <form action="/recipes/<%=  %>?_method=PUT" method="POST">
+         <form action="/recipes/<%= recipe.title %>?_method=PUT" method="POST">
         <label>Name: </label><br>
-        <input type="text" name="name" value="<%=  %>"/><br/>
+        <input type="text" name="name" value="<%= recipe.title %>"/><br/>
         <input type="submit" value="Update Recipe"/>
         </form>
  </main>

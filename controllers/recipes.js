@@ -26,8 +26,6 @@ router.get('/new', async (req, res) => {
             logged: req.session.logged,  
             alert: req.session.message
     });
-    console.log('connected recipes new route in recipes.js');
-    //views/recipes/new.ejs matching route
 });
 //--------CREATE ROUTE---------//
 //POST method url /recipes
@@ -95,7 +93,7 @@ router.get('/:id', async (req, res) => {
         //RECIPES INDEX ROUTE response renders
         res.render('recipes/show.ejs', {
             // user: foundUsers,
-            username: req.session.username,
+            currentUser: foundUser,
             recipe: foundRecipe,
             documentTitle: "No Sugars No Grains Food Recipes",
             logged: req.session.logged,
@@ -143,7 +141,8 @@ router.put('/:id', async (req, res) => {
     //try this and if that fails send back an error
     try {
     console.log('connected currentUser in update route');
-        //RECIPES UPDATE ROUTE
+        //RECIPES UPDATE ROUTE we query for only a single recipe
+        //and use the findByIdAndUpdate() method
         await Recipe.findByIdAndUpdate(req.params.id,req.body);
         //RECIPES UPDATE ROUTE redirect to localhost
         res.redirect(`/recipes/${req.params.id}`);
@@ -164,8 +163,10 @@ router.delete('/:id', async (req, res) => {
         //take id and to req.body as value of req.body.user
         req.body.user = currentUser._id
         console.log('connected currentUser in delete route');
-        await Recipe.findByIdAndRemove(req.params.id);
-        //RECIPES redirected to INDEX ROUTE
+   //we query for only one recipe and use finByIdAndRemove() method
+   await Recipe.findByIdAndRemove(req.params.id);
+   //RECIPES redirected to INDEX ROUTE
+   //that request is fulfilled by index route, the user will redirected '/recipes'
         res.redirect('/recipes', {
             currentUser: foundUser,
             recipe: foundRecipe,
