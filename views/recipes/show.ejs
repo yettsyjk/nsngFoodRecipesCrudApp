@@ -55,10 +55,10 @@
         <%# content for recipe %>
         <div>
         <ul>
-        <li><%= recipe.author %></li>
-        <li><%= recipe.description %></li>
-        <li><%= recipe.ingredients %></li>
-        <li></li>
+        <li>Recipe by: <%= recipe.author %></li>
+        <li>Description: <%= recipe.description %></li>
+        <li>Recipe Ingredients: <%= recipe.ingredients %></li>
+        <li>Recipe Serves: <%= recipe.serving%></li>
         </ul> 
         <div class="recipe-show-photo" style="background-image:<%=recipe.photo%>"></div>
         </div>

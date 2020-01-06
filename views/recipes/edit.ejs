@@ -51,15 +51,21 @@
      <main>
          <h2>Recipe Details:</h2>
          <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
-        
-        <label>Title: </label><br>
+         <label>Title: </label><br>
         <input type="text" name="title" value="<%= recipe.title %>"/><br/>
+
+
+        <label>Author: </label><br>
+        <input type="text" name="author" value="<%= recipe.author %>"/><br/>
 
         <label>Description: </label><br>
         <input type="text" name="description" value="<%= recipe.description %>"/><br/>
 
         <label>Ingredients: </label><br>
         <input type="text" name="ingredients" value="<%= recipe.ingredients %>"/><br/>
+
+        <label>This recipe will serve : </label><br>
+        <input type="text" name="serving" value="<%= recipe.serving %>"/><br/>
 
         
         <input type="submit" value="Update Recipe"/>
