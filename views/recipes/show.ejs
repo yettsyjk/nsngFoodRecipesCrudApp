@@ -54,12 +54,12 @@
         <section> 
         <%# content for recipe %>
         <div>
-        <ul>
-        <li>Recipe by: <%= recipe.author %></li>
-        <li>Description: <%= recipe.description %></li>
-        <li>Recipe Ingredients: <%= recipe.ingredients %></li>
-        <li>Recipe Serves: <%= recipe.serving%></li>
-        </ul> 
+        
+        <p>Recipe by: <%= recipe.author %></p>
+        <p>Description: <%= recipe.description %></p>
+        <p>Recipe Ingredients: <%= recipe.ingredients %></p>
+        <p>Recipe Serves: <%= recipe.serving%></p>
+       
         <div class="recipe-show-photo" style="background-image:<%=recipe.photo%>"></div>
         </div>
        <button><a href ="/recipes/<%= recipe._id %>/edit">Edit Recipe</a></button>

@@ -22,8 +22,8 @@
     
 </head>
 <body>
-<div class="p-3 mb-2 bg-secondary text-dark">No Sugars No Grains Food Recipes</div>
-        <h1 class="logo" id="top"></h1>
+<div class="p-3 mb-2 bg-info text-white">Let's Get Back to the Great Stuff</div>
+       
         <%#Background Image %>
         
         <style> body { 
@@ -47,28 +47,45 @@
             <%#logout option%>
             </nav>
 			<%#START Page Header%>
-      <div>
         <div class="container">
         
         <% if(!logged) { %>
    </div>
-   <%#Login form %>
-   <div class="container login">
-     <div class="row">
-       <div class="col-md-3 login-left">
-   
-        <div class="login-form">
-<h3>User Login</h3>
- <h4>Already a member? Login to view NSNG Food Recipes</h4>
-		<form action="/user/login" method="POST">
-			 <i class="fa fa-user fa-lg fa-fw" aria-hidden="true">Username<input name="username" type="text" placeholder="Username *" autocomplete="off" required/></label>
-            <label for="password" class="title">Password<input name="password" type="password" placeholder="Password *" aria-autocomplete="off" required/></label>
-            <button type="submit" class="button" value="Login">Login</button>
-        </form>
-        </div>
+   <%#Registration left-panel%>
+   <div class="registration__wrapper">
+    <div class="registrations__container">
+        <div class="sheet sheet--inverse registrations__left-panel">
+          <div class="registrations__content">
+            <div><img class="registrations__logo" src="https://img.icons8.com/nolan/64/food.png">
+             <div><h4 class="registration__title">No Sugars No Grains Food Recipes</h4>
+       </div>
       </div>
+   </div>
+   </div>
+   </div>
+   </div>
+
+   <%#end of Registration left panel%>
+   <%#Login form right panel%>
+   <div class="registrations__right-panel">
+     <div class="registrations__spacer"></div>
+      <div class="login-form qa-primary-join-form">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="text-center sheet--padding-bottom">
+<h4 class="alpha text-weight--bold">User Login</h4>
+ <p>Already a member? Login to view NSNG Food Recipes</p>
+	    	<form action="/user/login" method="POST">
+		      	 <i class="fa fa-user fa-lg fa-fw" aria-hidden="true">Username<input name="username" type="username" class="form-control" placeholder="Username *" autocomplete="off" minlength="4" required="required"/></label>
+            <label for="password" class="title">Password<input name="password" type="password" placeholder="Password *" aria-autocomplete="off" required="required"/></label>
+                 <button type="submit" class="button" value="Login">Login</button>
+        </form>
+            </div>
+         </div>
+      </div>
+    </div>
   </div>
-</div>
+
 <%#End of Login form %>
 <%#Registration form %>
  <div class="container login">
@@ -78,10 +95,10 @@
  <h3>Create a Free Account</h3>
  <h4>Join our community</h4>
 			<form action="/user/registration" method="POST">
-				<input type="text" name="username" placeholder="Username *" autocomplete="off" required><br>
-				<input type="email" name="email" placeholder="Email *" autocomplete="off" required><br>
+				<input type="text" name="username" placeholder="Username *" autocomplete="off" required="required"><br>
+				<input type="email" name="email" placeholder="Email *" autocomplete="off" required="required"><br>
 				<small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        <input type="password" name="password" placeholder="Password *" aria-autocomplete="off" required><br>
+        <input type="password" name="password" placeholder="Password *" aria-autocomplete="off" required="required"><br>
         
         <label for="checkbox">
         <input type="checkbox" name="checkbox" value="check" id="agree">"Yes, I have read and consent to "<a href="https://linuxacademy.com/terms-of-service/" target="blank">Terms of Service."</a>
