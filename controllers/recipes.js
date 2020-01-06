@@ -44,10 +44,6 @@ router.post('/', async (req, res)=> {
         //Recipes Create ROUTE user gets redirected to localhost:3000/recipes
        //initiating the GET request (server.js))
         res.redirect('/recipes');
-            // // recipe: foundRecipes,
-            // username: req.session.username,
-            // logged: req.session.logged,
-            // alert: req.session.message,
     console.log('good passed create route');
     } catch (err) {
         res.send(err);
@@ -93,17 +89,17 @@ router.get('/:id', async (req, res) => {
         //RECIPES INDEX ROUTE response renders
         res.render('recipes/show.ejs', {
             // user: foundUsers,
-            currentUser: foundUser,
             recipe: foundRecipe,
             documentTitle: "No Sugars No Grains Food Recipes",
             logged: req.session.logged,
             alert: req.session.message
         });
+        // res.render('recipes/index.ejs');
         console.log('connected currentUser in show route in recipes.js');
 //RECIPES INDEX ROUTE, send HTML back to Browser
     } catch (err) {
         console.log('error in show route recipes.js');
-        res.send (err);
+        // res.send (err);
         res.status(400).json(err);
     }
 });
@@ -121,19 +117,19 @@ router.get('/:id/edit', async (req, res) => {
 const foundRecipe = await Recipe.findById(req.params.id).populate("user");
 //RECIPE EDIT ROUTE response renders
 res.render('recipes/edit.ejs', {
-    currentUser: foundUser,
+    currentUser: currentUser,
     recipe: foundRecipe,
     documentTitle: "No Sugars No Grains Food Recipes",
-    username: req.user.username,
+    username: req.session.username,
     logged: req.session.logged,
     alert: req.session.message
     });
     //RECIPES EDIT ROUTE return error
     } catch (err) {
-        res.send(err);
+        // res.send(err);
         res.status(400).json(err);
 }
-console.log(err);
+console.log('edit route error');
 });
 //------------UPDATE RECIPES ROUTE-----------------//
 //PATCH or PUT method url /recipes/:id
@@ -155,7 +151,7 @@ router.put('/:id', async (req, res) => {
 });
 
 //--------------DELETE ROUTE---------------------//
-//DESTROY method url /recipes/:id
+//DESTROY method url /recipes/:id or recipes/:anything you pass in right side of the assigner
 router.delete('/:id', async (req, res) => {
     //try this and if it fails send back an error
     try {
@@ -168,7 +164,7 @@ router.delete('/:id', async (req, res) => {
    //RECIPES redirected to INDEX ROUTE
    //that request is fulfilled by index route, the user will redirected '/recipes'
         res.redirect('/recipes', {
-            currentUser: foundUser,
+            currentUser: currentUser,
             recipe: foundRecipe,
             documentTitle: "No Sugars No Grains Food Recipes",
             username: req.user.username,
