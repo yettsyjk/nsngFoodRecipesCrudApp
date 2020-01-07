@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //define the sub-database 
-const connectionString = 'mongodb://localhost/nsng';
+const connectionString = process.env.MONGODB_URI;
 //connect the database
 mongoose.connect(connectionString, {
     //mongoose updated their connection string parser
