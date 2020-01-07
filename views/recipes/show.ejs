@@ -68,11 +68,11 @@
        <button><a href ="/recipes/<%= recipe._id %>/edit">Edit Recipe</a></button>
         </section>
    
-        <section>
-       <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+        <%#section>
+       <form action="/recipes/<%# recipe._id %>?_method=DELETE" method="POST">
        <input type="submit" value="Delete Recipe"/>
        </form>
-        </section>
+        </section%>
    
     </main>
     <button type="button" id="topButton" href="#top"> Back to Top</button>
