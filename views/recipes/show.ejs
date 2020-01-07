@@ -60,8 +60,9 @@
         <p>Recipe Ingredients: <%= recipe.ingredients %></p>
         <p>Recipe Serves: <%= recipe.serving%></p>
        
-        <div class="recipe-show-photo" style="background-image:<%=recipe.photo%>"></div>
-        </div>
+        
+        <img class="recipe-show-photo" src="<%=recipe.photo%>">
+       
        <button><a href ="/recipes/<%= recipe._id %>/edit">Edit Recipe</a></button>
         </section>
    
@@ -72,6 +73,6 @@
         </section>
    
     </main>
-    
+    <button type="button" id="topButton" href="#top"> Back to Top</button>
     </body>
 </html>
