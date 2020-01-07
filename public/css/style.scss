@@ -1,3 +1,4 @@
+
 /*GLOBAL*/
 html,
 body {
@@ -221,97 +222,14 @@ a:hover {
   margin: 50px;
   width: 640px;
   height: 400px;
-  background: url("https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80") no-repeat center center fixed;
-  background-size: cover;
 }
 
 /* #Show Text# */
 
 /* #images#*/
-.index_img {
-  width: 50%;
-}
-img {
-    width: 70%;
-    border-radius: 1em;
-}
+
 /*# New, Form# */
-.login {
-  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-  margin-top: 3%;
-  padding: 3%;
-}
-.login-left{
-  text-align: center;
-  color: #fff;
-  margin-top: 4%;
-}
-.login-left input{
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  width: 60%;
-  background: #f8f9fa;
-  font-weight: bold;
-  color: #383d41;
-  margin-top: 30%;
-  margin-bottom: 3%;
-  cursor: pointer;
-}
-.login-left p{
-  font-weight: lighter;
-  padding: 12%;
-  margin-top: -9%;
-}
-.login .login-form{
-  width: 100%;
-  padding: 10%;
-  margin-top: 10%;
-}
-.btnlogin{
-  float: right;
-  margin-top: 10%;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  width: 50%;
-  cursor: pointer;
-}
-.login .nav-tabs{
-  margin-top: 3%;
-  border: none;
-  background: #0062cc;
-  border-radius: 1.5rem;
-  width: 28%;
-  float: right;
-}
-.login .nav-tabs .nav-link{
-  padding: 2%;
-  height: 34px;
-  font-weight: 600;
-  color: #fff;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-}
-.login .nav-tabs .nav-link:hover{
-  border: none;
-}
-.login .nav-tabs .nav-link.active{
-  width: 100px;
-  color: #0062cc;
-  border: 2px solid #0062cc;
-  border-top-left-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
-}
-.login-heading{
-  text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
-  color: #495057;
-}
+
 /* Full-width input fields */
 
   
@@ -371,28 +289,6 @@ input[type="submit"]:active {
 	opacity:0.4;
 }
 
-#ingredientlist {
-  margin: 10px 0;
-}
-
-  .button_container {
-    text-align: center;
-}
-.form_container {
-    width: 10%;
-    text-align: center;
-}
-.form_container label {
-  
-    display: block;
-}
-.search {
-    width: 80%;
-    margin: 50px;
-}
-.search input {
-    width: 50%;
-}
 
 /* #button#*/
 /* GENERAL BUTTON STYLING */
@@ -436,17 +332,7 @@ input[type="submit"]:active {
 .button--close:active {
   box-shadow: 0 0 0 $red;
 }
-  /* Extra styles for the cancel button */
-  .cancelbtn {
-    padding: 14px 20px;
-    background-color: #f44336;
-  }
-  
-  /* Float cancel and signup buttons and add an equal width */
-  .cancelbtn, .signupbtn {
-    float: left;
-    width: 50%;
-  }
+ 
   
   /* Add padding to container elements */
   
@@ -538,6 +424,7 @@ input[type="submit"]:active {
       width: 100%;
     }
   }
+  
 /*Footer*/
 .footer {
     width: 100%;
@@ -612,4 +499,3 @@ input[type="submit"]:active {
     right: 5px;
     }
 }
-    
