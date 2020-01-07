@@ -2,7 +2,7 @@
 CRUD App for No Sugars No Grains health food recipes created by fellow Yettsy Knapp 
 General Assembly SEI6 Denver, CO
 
-
+Open NSNG Crud app: https://nsngcrudapp.herokuapp.com/
 ![wireframe image for NSNG recipes]<img src="images/nsngRecipesApp.png">
 Follow my project management steps on my public Trello site:  https://trello.com/b/TGA9a6F5
 
@@ -12,7 +12,7 @@ MVP: Most basic version of the site:
 1. One usable model must reach Update resources: information about a recipe must be changed
 1. One usable model must reach Delete resources: remove a recipe from the catalog
 
-The live project can be viewed here(url).
+The live project can be viewed here: https://nsngcrudapp.herokuapp.com/.
 ____________________________________________
 
 Providing my user a location within the browser to join to have saved nsng recipes for when they are prepping for their next meal. 
