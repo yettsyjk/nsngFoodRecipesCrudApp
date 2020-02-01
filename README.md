@@ -70,13 +70,14 @@ ___________________________________________
 _____________________________________________
 # Technology Used:
 1. EJS - embedded JavaScript Templating
-1. Express: Fast , unopinionated, minimalist web framework for node.
-1. MVC
+1. Express: Fast, unopinionated, minimalist web framework for node. npm i express
+1. MVC, models, views, and controllers
 1. SQL tables and PG Promise
 1. JavaScript:
 1. Edamam API: using thrd party API key
 1. Isomorphic Fetch works with API 
-1. Bcrypt: app uses encryption passwords
+1. Bcrypt: app uses encryption passwords. npm i bcrypt
+1. Use of express-session in middleware. npm i express-session
 1. Heroku: web hosting for my app
 _____________________________________________
 # Installation Instructions:

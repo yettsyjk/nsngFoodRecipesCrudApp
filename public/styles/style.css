@@ -301,7 +301,7 @@ input[type="submit"]:active {
   border-radius: 4px;
   box-shadow: 0 $bHeight 0 darken($blue,10%);
   background: $blue;
-  color: $dark;
+  color: #
 }
 .button:hover, .button:focus {
   cursor: pointer;
