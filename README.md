@@ -44,8 +44,8 @@ ___________________________________________
     recipe: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Recipe'
-    },
-});
+        },
+    });
 
     const  recipeSchema = mongoose.Schema({
         title: { type: String, required: true},
@@ -58,9 +58,9 @@ ___________________________________________
         user: { 
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'User',
-        }
-        },
-   );
+                }
+            },
+        );
 ___________________________________________
 # Requirements:
 1. Node: npm install dependencies listed in package.json
@@ -89,4 +89,7 @@ _____________________________________________
 1. Improving authentication
 1. intelligent formating for user to add their own comments for recipes they dislike
 _______________________________________________
-# This app has been a lot of fun to create as I highly respect the man that introduced me to NSNG (my husband CS Knapp). We find the teachings of Vinnie Tortorich to be wonderful and brought us back to enjoying healthy food lifestyles again. To learn more about NSNG go to https://vinnietortorich.com/what-is-nsng/
+# Passion for NSNG lifestyle
+1. This app has been a lot of fun to create as I highly respect the man that introduced me to NSNG (my husband CS Knapp). 
+1. Our family finds the teachings of Vinnie Tortorich to be wonderful and brought us back to enjoying healthy food lifestyles again. 
+1. To learn more about NSNG go to https://vinnietortorich.com/what-is-nsng/
