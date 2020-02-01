@@ -16,13 +16,13 @@
 	<script src="/server.js"></script>
     
 </head>
-    <body>
+    <body class="nsng-index" vocab="https://schema.org" typeof="WebPage">
   <header>
   <section class="text-center about">
         <h1>No Sugars No Grains Food Recipes</h1>
       <div class="container">
-         <div class="row"
-            <div class="col-lg-4 col-sm-6 col-ex-12 about-item wow lightSpeedIn" data-wow-offset="200" >
+         <div class="row">
+            <div class="col-lg-4 col-sm-6 col-ex-12"></div>
         <span class="fa fa-group"></span>
         </div>
        </div>
@@ -61,35 +61,32 @@
 <% for(let i = 0; i < recipe.length; i++) {%>
 <li><a href="/recipes/<%= recipe[i]._id%>"><%= recipe[i].title %></a></li>
 <% } %>
-                   
-</div>
+
 </div>
  <%# Button to trigger to open MODAL %>
  <section>
- <label class="button" for="modal__state"><i class="fa fa-rocket"></i>What is NSNG?</label>
+ <div id="modal">What is NSNG?</div>
+ <div id="overlay"></div>
  <%#Modal%>
- <input type="checkbox" name="modal__state" id="modal__state" class="modal__state">
-      <div class="modal">
- <div class="modal__inner">
-      <label class="modal__state" class="modal__overlay-close"></label>
-      <div class="modal">
-                  <label class="button button--close modal-close" for="modal__state"><i class="fa fa-times"></i></label>
- <h2>MODAL About #nsng lifestyle</h2>
+ <div class="body-alert" id="js-alert">
+    
+ <h4>MODAL About #nsng lifestyle</h4>
   <%#Modal contains frequently asked questions%>
  
-                    <h1>No Sugar No Grains #nsng Frequently Asked Questions</h1>
-                <p>1) What is No Sugar and No Grains (NSNG) all about?<br></p>
+                    <h4>No Sugar No Grains #nsng Frequently Asked Questions</h4>
+                <p class="body-alert__description">1) What is No Sugar and No Grains (NSNG) all about?<br></p>
 Answer: In its simplest form NSNG is just that. You eliminate all processed sugars and all grains from your diet. In other words, you eat real food. In earlier podcast, it is referred to as being a “Carnivorous Vegan”. What that means is that you have lots and lots of healthy vegetables and meat in your diet. For vegans or vegetarians however, the concept is the same, but they just don’t have meat in their diet.</p>
-                <p>2) What are considered grains?<br>
+                <p class="body-alert__description">2) What are considered grains?<br>
 Answer: According to the USDA, grains are “any food made from wheat, rice, oats, cornmeal, barley or another cereal grain is a grain product. Bread, pasta, oatmeal, breakfast cereals, tortillas, and grits are examples of grain products.”</p>
-                <p>3) In a ‪NSNG lifestyle, what are considered ‘sugars’?<br>
+                <p class="body-alert__description">3) In a ‪NSNG lifestyle, what are considered ‘sugars’?<br>
 Answer: Glucose, Fructose, Sucrose, Glucose Syrup, Corn Syrup, High Fructose Corn Syrup (HFCS), Fruit Sugar, Raw Honey, Maple Syrup, Molasses, Agave Nectar, Palm Sugar, Coconut Sugar.</p>
-                <p>4)What are ‪NSNG suggested fats?<br>
+                <p class="body-alert__description">4)What are ‪NSNG suggested fats?<br>
 Answer: Grass fed butter, coconut oil, macadamia nut oil, avocado oil, heavy whipping cream, nut butters (be careful to read the ingredient label to make sure it is pure nut butter and not filled with a lot of additives and other oils), Villa Capelli olive oil (no olio della lampada), lard, tallow, bacon grease, ghee, MCT oil, full fat dairy (if you can tolerate it), olives, avocados, full fat coconut milk.</p>
-                    <p>5) What are some ‪‎NSNG suggested snacks?<br>
+                    <p class="body-alert__description">5) What are some ‪‎NSNG suggested snacks?<br>
 Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat cheese, raw nuts, olives, pumpkin seeds, 85% or greater dark chocolate, deviled eggs (homemade mayo), pepperoni slices, coconut oil, avocado, lettuce rolled up with smoked salmon and full fat cream cheese, hummus and celery, pickles, shot of olive oil, coffee with heavy cream (or grass fed butter, or coconut oil).</p>
+                   <a class="body-alert__button js-alert-action" href="#">OK, Got it 👌!</a>
                     </div>
-                  </div>
+                  
         <%#End of Modal%>
     </div>
     </div>
@@ -99,5 +96,5 @@ Answer: Low glycemic fruit, cut veggies, hard boiled eggs, beef jerky, full fat 
     </body>
        
     <footer>
-
+  <p class="footer-container">Created by Yettsy Knapp</p>
 </footer>

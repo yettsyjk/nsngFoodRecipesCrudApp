@@ -367,21 +367,11 @@ input[type="submit"]:active {
 /* The Modal (background) */
 /* [Object] Modal
  * =============================== */
- .modal__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,.4);
+ #overlay {
   display: none;
+  position: fixed;
 }
-/* display the modal overlay when the input[type=radio] is checked */
-.modal__state:checked + .modal__overlay {
-  opacity: 1;
-  animation: fade-in .4s;
-  display: block;
-}
+
 @keyframes scoot-up {
 0%   { margin-top: 80px;}
 100%  { margin-top: 50px; }
